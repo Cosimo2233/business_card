@@ -11,42 +11,42 @@ Program Header:
     LOAD off    0x00002000 vaddr 0x20000000 paddr 0x00000004 align 2**12
          filesz 0x000009a4 memsz 0x000009a4 flags r-x
     LOAD off    0x000029a8 vaddr 0x000009a8 paddr 0x000009a8 align 2**12
-         filesz 0x0000076c memsz 0x0000076c flags r-x
-    LOAD off    0x000039a4 vaddr 0x200009a4 paddr 0x00001114 align 2**12
+         filesz 0x00000918 memsz 0x00000918 flags r-x
+    LOAD off    0x000039a4 vaddr 0x200009a4 paddr 0x000012c0 align 2**12
          filesz 0x00000000 memsz 0x00000004 flags rw-
-    LOAD off    0x000039a8 vaddr 0x200009a8 paddr 0x00001114 align 2**12
-         filesz 0x00000000 memsz 0x000001c0 flags rw-
+    LOAD off    0x000039a8 vaddr 0x200009a8 paddr 0x000012c0 align 2**12
+         filesz 0x00000000 memsz 0x00000228 flags rw-
     LOAD off    0x00003e00 vaddr 0x20007e00 paddr 0x20007e00 align 2**12
          filesz 0x00000000 memsz 0x00000200 flags rw-
 
 Sections:
 Idx Name            Size      VMA       LMA       File off  Algn  Flags
   0 .init           00000004  00000000  00000000  00001000  2**1  CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .highcodelalign 00000000  00000004  00000004  00003114  2**0  CONTENTS
+  1 .highcodelalign 00000000  00000004  00000004  000032c0  2**0  CONTENTS
   2 .highcode       000009a4  20000000  00000004  00002000  2**1  CONTENTS, ALLOC, LOAD, READONLY, CODE
-  3 .text           0000076c  000009a8  000009a8  000029a8  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
-  4 .fini           00000000  00001114  00001114  00003114  2**0  CONTENTS, ALLOC, LOAD, CODE
-  5 .dlalign        00000000  00001114  00001114  00003114  2**0  CONTENTS
-  6 .data           00000004  200009a4  00001114  000039a4  2**0  ALLOC
-  7 .bss            000001c0  200009a8  00001114  000039a8  2**2  ALLOC
+  3 .text           00000918  000009a8  000009a8  000029a8  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  4 .fini           00000000  000012c0  000012c0  000032c0  2**0  CONTENTS, ALLOC, LOAD, CODE
+  5 .dlalign        00000000  000012c0  000012c0  000032c0  2**0  CONTENTS
+  6 .data           00000004  200009a4  000012c0  000039a4  2**0  ALLOC
+  7 .bss            00000228  200009a8  000012c0  000039a8  2**2  ALLOC
   8 .stack          00000200  20007e00  20007e00  00003e00  2**0  ALLOC
-  9 .debug_info     00003f61  00000000  00000000  00003114  2**0  CONTENTS, READONLY, DEBUGGING
- 10 .debug_abbrev   00000a66  00000000  00000000  00007075  2**0  CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc      00000cd2  00000000  00000000  00007adb  2**0  CONTENTS, READONLY, DEBUGGING
- 12 .debug_aranges  00000158  00000000  00000000  000087b0  2**3  CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges   00000150  00000000  00000000  00008908  2**3  CONTENTS, READONLY, DEBUGGING
- 14 .debug_line     000030fd  00000000  00000000  00008a58  2**0  CONTENTS, READONLY, DEBUGGING
- 15 .debug_str      00000fc9  00000000  00000000  0000bb55  2**0  CONTENTS, READONLY, DEBUGGING
- 16 .comment        00000033  00000000  00000000  0000cb1e  2**0  CONTENTS, READONLY
- 17 .debug_frame    000002bc  00000000  00000000  0000cb54  2**2  CONTENTS, READONLY, DEBUGGING
- 18 .stabstr        00000117  00000000  00000000  0000ce10  2**0  CONTENTS, READONLY, DEBUGGING
+  9 .debug_info     000040a5  00000000  00000000  000032c0  2**0  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_abbrev   00000af6  00000000  00000000  00007365  2**0  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc      00000ec1  00000000  00000000  00007e5b  2**0  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_aranges  00000160  00000000  00000000  00008d20  2**3  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges   00000190  00000000  00000000  00008e80  2**3  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_line     0000349e  00000000  00000000  00009010  2**0  CONTENTS, READONLY, DEBUGGING
+ 15 .debug_str      00000fe2  00000000  00000000  0000c4ae  2**0  CONTENTS, READONLY, DEBUGGING
+ 16 .comment        00000033  00000000  00000000  0000d490  2**0  CONTENTS, READONLY
+ 17 .debug_frame    00000314  00000000  00000000  0000d4c4  2**2  CONTENTS, READONLY, DEBUGGING
+ 18 .stabstr        00000117  00000000  00000000  0000d7d8  2**0  CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00000000 l    d  .init	00000000 .init
 00000004 l    d  .highcodelalign	00000000 .highcodelalign
 20000000 l    d  .highcode	00000000 .highcode
 000009a8 l    d  .text	00000000 .text
-00001114 l    d  .fini	00000000 .fini
-00001114 l    d  .dlalign	00000000 .dlalign
+000012c0 l    d  .fini	00000000 .fini
+000012c0 l    d  .dlalign	00000000 .dlalign
 200009a4 l    d  .data	00000000 .data
 200009a8 l    d  .bss	00000000 .bss
 20007e00 l    d  .stack	00000000 .stack
@@ -69,14 +69,17 @@ SYMBOL TABLE:
 200005ac l       .highcode	00000000 .loop40
 20000838 l       .highcode	00000000 .loop402
 00000000 l    df *ABS*	00000000 Main.c
-00000a86 l     F .text	00000028 TKey_Convert.constprop.0
+00000a86 l     F .text	00000042 TKey_Convert.constprop.0
+000012b8 l     O .text	00000007 CSWTCH.24
 00000000 l    df *ABS*	00000000 CH58x_gpio.c
 00000000 l    df *ABS*	00000000 close.c
 200005ac g     F .highcode	0000000e FLASH_ROM_OUT
+00000af0 g     F .text	0000007e R8_Detect
 200011a8 g       .data	00000000 __global_pointer$
 20000548 g     F .highcode	0000000e mDelayuS
 2000048a  w    F .highcode	000000be HardFault_Handler
 20000090  w      .highcode	00000000 GPIOB_IRQHandler
+200009b0 g     O .bss	00000008 HIDKeyBuffPrev
 20000090  w      .highcode	00000000 GPIOA_IRQHandler
 20000090  w      .highcode	00000000 SysTick_Handler
 20000090  w      .highcode	00000000 NMI_Handler
@@ -85,11 +88,12 @@ SYMBOL TABLE:
 00000200 g       *ABS*	00000000 __stack_size
 2000059e g     F .highcode	0000000e FLASH_ROM_IN
 20000090  w      .highcode	00000000 UART0_IRQHandler
-00000fee g     F .text	0000001a GPIOAGPPCfg
+0000118a g     F .text	0000001a GPIOAGPPCfg
 00000004 g       .init	00000000 _einit
 20000090  w      .highcode	00000000 BB_IRQHandler
 2000063a g     F .highcode	0000036a FLASH_EEPROM_CMD
 20000090  w      .highcode	00000000 Break_Point_Handler
+000010e4 g     F .text	000000a6 GPIOB_ModeCfg
 20000090  w      .highcode	00000000 TMR0_IRQHandler
 2000057e g     F .highcode	00000012 FLASH_ROM_BEG
 20000556 g     F .highcode	00000028 mDelaymS
@@ -97,55 +101,52 @@ SYMBOL TABLE:
 20007e00 g       .stack	00000000 _heap_end
 200005ba g     F .highcode	00000048 FLASH_ROM_ADDR
 20000090  w      .highcode	00000000 RTC_IRQHandler
-20000b68 g       .bss	00000000 _ebss
-200009b8 g     O .bss	000000c0 EP0_Databuf
+00000ac8 g     F .text	00000028 R8_Init
+20000bd0 g       .bss	00000000 _ebss
+200009c0 g     O .bss	000000c0 EP0_Databuf
 20000602 g     F .highcode	00000038 FLASH_ROM_WAIT
-000010d8 g     O .text	00000020 row_pin
 20000090  w      .highcode	00000000 UART2_IRQHandler
 20000090  w      .highcode	00000000 PWMX_IRQHandler
-200009b0 g     O .bss	00000001 fn_pressed
-20000a78 g     O .bss	00000080 EP1_Databuf
+200009b8 g     O .bss	00000001 fn_pressed
+20000a80 g     O .bss	00000080 EP1_Databuf
 00000000 g       .init	00000000 _start
 20000090  w      .highcode	00000000 ADC_IRQHandler
 20000000 g       .highcode	00000000 _highcode_vma_start
-00000b84 g     F .text	0000012e MatrixScan
+00000c4c g     F .text	000001c4 MatrixScan
 20000090  w      .highcode	00000000 TMR2_IRQHandler
-200009b4 g     O .bss	00000004 IRQ_STA
+200009bc g     O .bss	00000004 IRQ_STA
 200009a4 g       .data	00000000 _data_vma
 20000092 g     F .highcode	00000386 SetSysClock
-00000f22 g     F .text	00000026 USB_IRQHandler
-00001040 g     O .text	00000060 KeyMap
+000010be g     F .text	00000026 USB_IRQHandler
+0000120c g     O .text	00000060 KeyMap
 20000090  w      .highcode	00000000 I2C_IRQHandler
-00000e26 g     F .text	000000fc main
+00000fc4 g     F .text	000000fa main
 20000090  w      .highcode	00000000 USB2_IRQHandler
-00000cb2 g     F .text	00000174 SendHIDReport
+00000e10 g     F .text	000001b4 SendHIDReport
 00000004 g       .highcodelalign	00000000 _highcode_lma
 20000090  w      .highcode	00000000 LLE_IRQHandler
 00000000 g       .init	00000000 _sinit
 20000090  w      .highcode	00000000 WDOG_BAT_IRQHandler
 20000090  w      .highcode	00000000 Ecall_U_Mode_Handler
-0000110c g     O .text	00000007 TKC
 200009a8 g     O .bss	00000008 HIDKeyBuff
 20000090  w      .highcode	00000000 TMR3_IRQHandler
-20000b58 g     O .bss	0000000e tkey_base
+20000b60 g     O .bss	00000070 tkey_base
 20008000 g       .stack	00000000 _eusrstack
 20000090  w      .highcode	00000000 SW_Handler
-00001008 g     O .text	00000038 FnTable
-00000f48 g     F .text	000000a6 GPIOA_ModeCfg
+000011d4 g     O .text	00000038 FnTable
 200009a8 g       .data	00000000 _edata
 20000090  w      .highcode	00000000 SPI0_IRQHandler
-20000b68 g       .bss	00000000 _end
+20000bd0 g       .bss	00000000 _end
 200009a4 g       .highcode	00000000 _highcode_vma_end
-00001114 g       .dlalign	00000000 _data_lma
-00000aae g     F .text	000000aa TKey_Init
-000010a0 g     O .text	00000038 KeyTable
-00000b58 g     F .text	0000002c GPIOInit
+000012c0 g       .dlalign	00000000 _data_lma
+00000b6e g     F .text	000000de TKey_Init
+0000126c g     O .text	00000038 KeyTable
 000009a8  w      .text	00000000 handle_reset
 20000090  w      .highcode	00000000 UART3_IRQHandler
 20000590 g     F .highcode	0000000e FLASH_ROM_END
 20000090  w      .highcode	00000000 TMR1_IRQHandler
-20000b28 g     O .bss	00000030 key_state
-20000af8 g     O .bss	00000030 key_prev
+20000b30 g     O .bss	00000030 key_state
+20000b00 g     O .bss	00000030 key_prev
 20000418 g     F .highcode	00000072 SYS_ResetExecute
 
 
@@ -172,8 +173,8 @@ _vector_base():
 2000000a:	2000                	fld	fs0,0(s0)
 2000000c:	048a                	slli	s1,s1,0x2
 2000000e:	2000                	fld	fs0,0(s0)
-20000010:	bda9                	j	1ffffe6a <_data_lma+0x1fffed56>
-20000012:	f3f9                	bnez	a5,1fffffd8 <_data_lma+0x1fffeec4>
+20000010:	bda9                	j	1ffffe6a <_data_lma+0x1fffebaa>
+20000012:	f3f9                	bnez	a5,1fffffd8 <_data_lma+0x1fffed18>
 20000014:	0090                	addi	a2,sp,64
 20000016:	2000                	fld	fs0,0(s0)
 	...
@@ -202,7 +203,7 @@ _vector_base():
 20000052:	2000                	fld	fs0,0(s0)
 20000054:	0090                	addi	a2,sp,64
 20000056:	2000                	fld	fs0,0(s0)
-20000058:	0f22                	slli	t5,t5,0x8
+20000058:	10be                	slli	ra,ra,0x2f
 2000005a:	0000                	unimp
 2000005c:	0090                	addi	a2,sp,64
 2000005e:	2000                	fld	fs0,0(s0)
@@ -253,13 +254,13 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:182
    if(read_csr(0x800)&0x08)
 20000092:	80002773          	csrr	a4,0x800
 20000096:	8b21                	andi	a4,a4,8
-20000098:	80c18793          	addi	a5,gp,-2036 # 200009b4 <IRQ_STA>
+20000098:	81418793          	addi	a5,gp,-2028 # 200009bc <IRQ_STA>
 2000009c:	cb09                	beqz	a4,200000ae <SetSysClock+0x1c>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:184
    {
        IRQ_STA = read_csr(0x800);
 2000009e:	80002773          	csrr	a4,0x800
-200000a2:	80e1a623          	sw	a4,-2036(gp) # 200009b4 <IRQ_STA>
+200000a2:	80e1aa23          	sw	a4,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:185
        write_csr(0x800, (IRQ_STA&(~0x08)));
 200000a6:	4398                	lw	a4,0(a5)
@@ -309,7 +310,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:196
 200000e4:	80069073          	csrw	0x800,a3
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:197
    IRQ_STA = 0;
-200000e8:	8001a623          	sw	zero,-2036(gp) # 200009b4 <IRQ_STA>
+200000e8:	8001aa23          	sw	zero,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:198
    SAFEOPERATE;
 200000ec:	0000100f          	fence.i
@@ -334,7 +335,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:182
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:184
        IRQ_STA = read_csr(0x800);
 20000108:	80002773          	csrr	a4,0x800
-2000010c:	80e1a623          	sw	a4,-2036(gp) # 200009b4 <IRQ_STA>
+2000010c:	80e1aa23          	sw	a4,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:185
        write_csr(0x800, (IRQ_STA&(~0x08)));
 20000110:	4398                	lw	a4,0(a5)
@@ -376,7 +377,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:196
 2000014e:	80071073          	csrw	0x800,a4
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:197
    IRQ_STA = 0;
-20000152:	8001a623          	sw	zero,-2036(gp) # 200009b4 <IRQ_STA>
+20000152:	8001aa23          	sw	zero,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:198
    SAFEOPERATE;
 20000156:	0000100f          	fence.i
@@ -404,7 +405,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:182
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:184
        IRQ_STA = read_csr(0x800);
 2000016e:	80002773          	csrr	a4,0x800
-20000172:	80e1a623          	sw	a4,-2036(gp) # 200009b4 <IRQ_STA>
+20000172:	80e1aa23          	sw	a4,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:185
        write_csr(0x800, (IRQ_STA&(~0x08)));
 20000176:	4398                	lw	a4,0(a5)
@@ -459,7 +460,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:196
 200001b6:	80071073          	csrw	0x800,a4
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:197
    IRQ_STA = 0;
-200001ba:	8001a623          	sw	zero,-2036(gp) # 200009b4 <IRQ_STA>
+200001ba:	8001aa23          	sw	zero,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:198
    SAFEOPERATE;
 200001be:	0000100f          	fence.i
@@ -472,7 +473,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:182
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:184
        IRQ_STA = read_csr(0x800);
 200001ca:	80002773          	csrr	a4,0x800
-200001ce:	80e1a623          	sw	a4,-2036(gp) # 200009b4 <IRQ_STA>
+200001ce:	80e1aa23          	sw	a4,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:185
        write_csr(0x800, (IRQ_STA&(~0x08)));
 200001d2:	4398                	lw	a4,0(a5)
@@ -524,7 +525,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:196
 20000214:	80071073          	csrw	0x800,a4
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:197
    IRQ_STA = 0;
-20000218:	8001a623          	sw	zero,-2036(gp) # 200009b4 <IRQ_STA>
+20000218:	8001aa23          	sw	zero,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:198
    SAFEOPERATE;
 2000021c:	0000100f          	fence.i
@@ -537,7 +538,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:182
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:184
        IRQ_STA = read_csr(0x800);
 20000228:	80002773          	csrr	a4,0x800
-2000022c:	80e1a623          	sw	a4,-2036(gp) # 200009b4 <IRQ_STA>
+2000022c:	80e1aa23          	sw	a4,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:185
        write_csr(0x800, (IRQ_STA&(~0x08)));
 20000230:	4398                	lw	a4,0(a5)
@@ -582,7 +583,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:196
 2000026e:	80079073          	csrw	0x800,a5
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:197
    IRQ_STA = 0;
-20000272:	8001a623          	sw	zero,-2036(gp) # 200009b4 <IRQ_STA>
+20000272:	8001aa23          	sw	zero,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:198
    SAFEOPERATE;
 20000276:	0000100f          	fence.i
@@ -609,7 +610,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:182
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:184
        IRQ_STA = read_csr(0x800);
 20000294:	80002773          	csrr	a4,0x800
-20000298:	80e1a623          	sw	a4,-2036(gp) # 200009b4 <IRQ_STA>
+20000298:	80e1aa23          	sw	a4,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:185
        write_csr(0x800, (IRQ_STA&(~0x08)));
 2000029c:	4398                	lw	a4,0(a5)
@@ -649,7 +650,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:196
 200002da:	80071073          	csrw	0x800,a4
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:197
    IRQ_STA = 0;
-200002de:	8001a623          	sw	zero,-2036(gp) # 200009b4 <IRQ_STA>
+200002de:	8001aa23          	sw	zero,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:198
    SAFEOPERATE;
 200002e2:	0000100f          	fence.i
@@ -674,7 +675,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:182
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:184
        IRQ_STA = read_csr(0x800);
 200002fa:	80002773          	csrr	a4,0x800
-200002fe:	80e1a623          	sw	a4,-2036(gp) # 200009b4 <IRQ_STA>
+200002fe:	80e1aa23          	sw	a4,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:185
        write_csr(0x800, (IRQ_STA&(~0x08)));
 20000302:	4398                	lw	a4,0(a5)
@@ -726,7 +727,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:196
 20000348:	80071073          	csrw	0x800,a4
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:197
    IRQ_STA = 0;
-2000034c:	8001a623          	sw	zero,-2036(gp) # 200009b4 <IRQ_STA>
+2000034c:	8001aa23          	sw	zero,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:198
    SAFEOPERATE;
 20000350:	0000100f          	fence.i
@@ -744,7 +745,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:182
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:184
        IRQ_STA = read_csr(0x800);
 20000364:	80002773          	csrr	a4,0x800
-20000368:	80e1a623          	sw	a4,-2036(gp) # 200009b4 <IRQ_STA>
+20000368:	80e1aa23          	sw	a4,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:185
        write_csr(0x800, (IRQ_STA&(~0x08)));
 2000036c:	4398                	lw	a4,0(a5)
@@ -780,7 +781,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:182
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:184
        IRQ_STA = read_csr(0x800);
 200003a0:	80002773          	csrr	a4,0x800
-200003a4:	80e1a623          	sw	a4,-2036(gp) # 200009b4 <IRQ_STA>
+200003a4:	80e1aa23          	sw	a4,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:185
        write_csr(0x800, (IRQ_STA&(~0x08)));
 200003a8:	4398                	lw	a4,0(a5)
@@ -816,7 +817,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:182
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:184
        IRQ_STA = read_csr(0x800);
 200003de:	80002773          	csrr	a4,0x800
-200003e2:	80e1a623          	sw	a4,-2036(gp) # 200009b4 <IRQ_STA>
+200003e2:	80e1aa23          	sw	a4,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:185
        write_csr(0x800, (IRQ_STA&(~0x08)));
 200003e6:	4398                	lw	a4,0(a5)
@@ -872,12 +873,12 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:182
    if(read_csr(0x800)&0x08)
 20000426:	800027f3          	csrr	a5,0x800
 2000042a:	8ba1                	andi	a5,a5,8
-2000042c:	80c18693          	addi	a3,gp,-2036 # 200009b4 <IRQ_STA>
+2000042c:	81418693          	addi	a3,gp,-2028 # 200009bc <IRQ_STA>
 20000430:	cb89                	beqz	a5,20000442 <SYS_ResetExecute+0x2a>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:184
        IRQ_STA = read_csr(0x800);
 20000432:	800027f3          	csrr	a5,0x800
-20000436:	80f1a623          	sw	a5,-2036(gp) # 200009b4 <IRQ_STA>
+20000436:	80f1aa23          	sw	a5,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:185
        write_csr(0x800, (IRQ_STA&(~0x08)));
 2000043a:	429c                	lw	a5,0(a3)
@@ -918,7 +919,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:196
 20000478:	80079073          	csrw	0x800,a5
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:197
    IRQ_STA = 0;
-2000047c:	8001a623          	sw	zero,-2036(gp) # 200009b4 <IRQ_STA>
+2000047c:	8001aa23          	sw	zero,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:198
    SAFEOPERATE;
 20000480:	0000100f          	fence.i
@@ -949,12 +950,12 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:182
    if(read_csr(0x800)&0x08)
 20000494:	800027f3          	csrr	a5,0x800
 20000498:	8ba1                	andi	a5,a5,8
-2000049a:	80c18713          	addi	a4,gp,-2036 # 200009b4 <IRQ_STA>
+2000049a:	81418713          	addi	a4,gp,-2028 # 200009bc <IRQ_STA>
 2000049e:	cb89                	beqz	a5,200004b0 <HardFault_Handler+0x26>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:184
        IRQ_STA = read_csr(0x800);
 200004a0:	800027f3          	csrr	a5,0x800
-200004a4:	80f1a623          	sw	a5,-2036(gp) # 200009b4 <IRQ_STA>
+200004a4:	80f1aa23          	sw	a5,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:185
        write_csr(0x800, (IRQ_STA&(~0x08)));
 200004a8:	431c                	lw	a5,0(a4)
@@ -994,7 +995,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:196
 200004e0:	80079073          	csrw	0x800,a5
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:197
    IRQ_STA = 0;
-200004e4:	8001a623          	sw	zero,-2036(gp) # 200009b4 <IRQ_STA>
+200004e4:	8001aa23          	sw	zero,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:198
    SAFEOPERATE;
 200004e8:	0000100f          	fence.i
@@ -1007,7 +1008,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:182
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:184
        IRQ_STA = read_csr(0x800);
 200004f4:	800027f3          	csrr	a5,0x800
-200004f8:	80f1a623          	sw	a5,-2036(gp) # 200009b4 <IRQ_STA>
+200004f8:	80f1aa23          	sw	a5,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:185
        write_csr(0x800, (IRQ_STA&(~0x08)));
 200004fc:	431c                	lw	a5,0(a4)
@@ -1049,7 +1050,7 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:196
 2000053a:	80079073          	csrw	0x800,a5
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:197
    IRQ_STA = 0;
-2000053e:	8001a623          	sw	zero,-2036(gp) # 200009b4 <IRQ_STA>
+2000053e:	8001aa23          	sw	zero,-2028(gp) # 200009bc <IRQ_STA>
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:198
    SAFEOPERATE;
 20000542:	0000100f          	fence.i
@@ -1345,7 +1346,7 @@ FLASH_EEPROM_CMD():
 20000784:	6b85                	lui	s7,0x1
 20000786:	01697933          	and	s2,s2,s6
 2000078a:	6b41                	lui	s6,0x10
-2000078c:	fff98793          	addi	a5,s3,-1 # fff <GPIOAGPPCfg+0x11>
+2000078c:	fff98793          	addi	a5,s3,-1 # fff <main+0x3b>
 20000790:	0127f7b3          	and	a5,a5,s2
 20000794:	e399                	bnez	a5,2000079a <FLASH_EEPROM_CMD+0x160>
 20000796:	0134fc63          	bgeu	s1,s3,200007ae <FLASH_EEPROM_CMD+0x174>
@@ -1376,9 +1377,9 @@ FLASH_EEPROM_CMD():
 200007da:	f29900e3          	beq	s2,s1,200006fa <FLASH_EEPROM_CMD+0xc0>
 200007de:	0905                	addi	s2,s2,1
 200007e0:	3b7d                	jal	2000059e <FLASH_ROM_IN>
-200007e2:	fea90fa3          	sb	a0,-1(s2) # fff <GPIOAGPPCfg+0x11>
+200007e2:	fea90fa3          	sb	a0,-1(s2) # fff <main+0x3b>
 200007e6:	bfd5                	j	200007da <FLASH_EEPROM_CMD+0x1a0>
-200007e8:	fff98793          	addi	a5,s3,-1 # ffff <_data_lma+0xeeeb>
+200007e8:	fff98793          	addi	a5,s3,-1 # ffff <_data_lma+0xed3f>
 200007ec:	0ff7f793          	andi	a5,a5,255
 200007f0:	0cfc6163          	bltu	s8,a5,200008b2 <.loop402+0x7a>
 200007f4:	041cc783          	lbu	a5,65(s9)
@@ -1433,7 +1434,7 @@ FLASH_EEPROM_CMD():
 20000886:	85da                	mv	a1,s6
 20000888:	452d                	li	a0,11
 2000088a:	3b05                	jal	200005ba <FLASH_ROM_ADDR>
-2000088c:	fff48993          	addi	s3,s1,-1 # 7ffff <_data_lma+0x7eeeb>
+2000088c:	fff48993          	addi	s3,s1,-1 # 7ffff <_data_lma+0x7ed3f>
 20000890:	e60485e3          	beqz	s1,200006fa <FLASH_EEPROM_CMD+0xc0>
 20000894:	3329                	jal	2000059e <FLASH_ROM_IN>
 20000896:	0039f793          	andi	a5,s3,3
@@ -1487,7 +1488,7 @@ FLASH_EEPROM_CMD():
 20000928:	399d                	jal	2000059e <FLASH_ROM_IN>
 2000092a:	0074f793          	andi	a5,s1,7
 2000092e:	97ca                	add	a5,a5,s2
-20000930:	0007c703          	lbu	a4,0(a5) # 78000 <_data_lma+0x76eec>
+20000930:	0007c703          	lbu	a4,0(a5) # 78000 <_data_lma+0x76d40>
 20000934:	14fd                	addi	s1,s1,-1
 20000936:	8d39                	xor	a0,a0,a4
 20000938:	00a78023          	sb	a0,0(a5)
@@ -1586,8 +1587,8 @@ d:\Electromic\business_card\obj/../Startup/startup_CH583.S:149
 /* Load data section from flash to RAM */
 2:
 	la a0, _data_lma
-     9e0:	00000517          	auipc	a0,0x0
-     9e4:	73450513          	addi	a0,a0,1844 # 1114 <_data_lma>
+     9e0:	00001517          	auipc	a0,0x1
+     9e4:	8e050513          	addi	a0,a0,-1824 # 12c0 <_data_lma>
 d:\Electromic\business_card\obj/../Startup/startup_CH583.S:150
 	la a1, _data_vma
      9e8:	20000597          	auipc	a1,0x20000
@@ -1623,7 +1624,7 @@ d:\Electromic\business_card\obj/../Startup/startup_CH583.S:161
      a10:	f9c50513          	addi	a0,a0,-100 # 200009a8 <_edata>
 d:\Electromic\business_card\obj/../Startup/startup_CH583.S:162
 	la a1, _ebss
-     a14:	9c018593          	addi	a1,gp,-1600 # 20000b68 <_ebss>
+     a14:	a2818593          	addi	a1,gp,-1496 # 20000bd0 <_ebss>
 d:\Electromic\business_card\obj/../Startup/startup_CH583.S:163
 	bgeu a0, a1, 2f
      a18:	00b57763          	bgeu	a0,a1,a26 <handle_reset+0x7e>
@@ -1718,7 +1719,7 @@ d:\Electromic\business_card\obj/../Startup/startup_CH583.S:199
 
 	la t0, main
      a76:	00000297          	auipc	t0,0x0
-     a7a:	3b028293          	addi	t0,t0,944 # e26 <main>
+     a7a:	54e28293          	addi	t0,t0,1358 # fc4 <main>
 d:\Electromic\business_card\obj/../Startup/startup_CH583.S:200
 	csrw mepc, t0
      a7e:	34129073          	csrw	mepc,t0
@@ -1730,701 +1731,1006 @@ d:\Electromic\business_card\obj/../Startup/startup_CH583.S:203
 
 00000a86 <TKey_Convert.constprop.0>:
 TKey_Convert():
-d:\Electromic\business_card\obj/../src/Main.c:121
+d:\Electromic\business_card\obj/../src/Main.c:118
+{
+    R8_ADC_CFG = RB_ADC_POWER_ON | RB_ADC_BUF_EN | (1<<4);
     R8_TKEY_CFG |= RB_TKEY_PWR_ON;
 }
 
-static uint16_t TKey_Convert(uint8_t charg, uint8_t disch)
+static uint16_t TKey_Convert(uint8_t ch, uint8_t charg, uint8_t disch)
+     a86:	1141                	addi	sp,sp,-16
+     a88:	c422                	sw	s0,8(sp)
+     a8a:	c606                	sw	ra,12(sp)
+d:\Electromic\business_card\obj/../src/Main.c:120
 {
-    R8_TKEY_COUNT = (disch<<5) | (charg&0x1f);
-     a86:	400017b7          	lui	a5,0x40001
-     a8a:	02800713          	li	a4,40
-     a8e:	04e78a23          	sb	a4,84(a5) # 40001054 <_eusrstack+0x1fff9054>
+    R8_ADC_CHANNEL = ch;
+     a8c:	40001437          	lui	s0,0x40001
+     a90:	04a40c23          	sb	a0,88(s0) # 40001058 <_eusrstack+0x1fff9058>
+d:\Electromic\business_card\obj/../src/Main.c:121
+    DelayUs(2);
+     a94:	4509                	li	a0,2
+     a96:	20000097          	auipc	ra,0x20000
+     a9a:	ab2080e7          	jalr	-1358(ra) # 20000548 <mDelayuS>
 d:\Electromic\business_card\obj/../src/Main.c:122
-    R8_TKEY_CONVERT = RB_TKEY_START;
-     a92:	4705                	li	a4,1
-     a94:	04e78b23          	sb	a4,86(a5)
+    R8_TKEY_COUNT = (disch<<5) | (charg&0x1f);
+     a9e:	02800793          	li	a5,40
+     aa2:	04f40a23          	sb	a5,84(s0)
 d:\Electromic\business_card\obj/../src/Main.c:123
-    while(R8_TKEY_CONVERT & RB_TKEY_START);
-     a98:	40001737          	lui	a4,0x40001
-     a9c:	05674783          	lbu	a5,86(a4) # 40001056 <_eusrstack+0x1fff9056>
-     aa0:	8b85                	andi	a5,a5,1
-     aa2:	ffed                	bnez	a5,a9c <TKey_Convert.constprop.0+0x16>
+    R8_TKEY_CONVERT = RB_TKEY_START;
+     aa6:	4785                	li	a5,1
+     aa8:	04f40b23          	sb	a5,86(s0)
 d:\Electromic\business_card\obj/../src/Main.c:124
-    return (R16_ADC_DATA & RB_ADC_DATA);
-     aa4:	05c75503          	lhu	a0,92(a4)
-     aa8:	0552                	slli	a0,a0,0x14
+    while(R8_TKEY_CONVERT & RB_TKEY_START);
+     aac:	40001737          	lui	a4,0x40001
+     ab0:	05674783          	lbu	a5,86(a4) # 40001056 <_eusrstack+0x1fff9056>
+     ab4:	8b85                	andi	a5,a5,1
+     ab6:	ffed                	bnez	a5,ab0 <TKey_Convert.constprop.0+0x2a>
 d:\Electromic\business_card\obj/../src/Main.c:125
+    return (R16_ADC_DATA & RB_ADC_DATA);
+     ab8:	05c75503          	lhu	a0,92(a4)
+d:\Electromic\business_card\obj/../src/Main.c:126
 }
-     aaa:	8151                	srli	a0,a0,0x14
-     aac:	8082                	ret
+     abc:	40b2                	lw	ra,12(sp)
+     abe:	4422                	lw	s0,8(sp)
+d:\Electromic\business_card\obj/../src/Main.c:125
+    return (R16_ADC_DATA & RB_ADC_DATA);
+     ac0:	0552                	slli	a0,a0,0x14
+d:\Electromic\business_card\obj/../src/Main.c:126
+}
+     ac2:	8151                	srli	a0,a0,0x14
+     ac4:	0141                	addi	sp,sp,16
+     ac6:	8082                	ret
 
-00000aae <TKey_Init>:
+00000ac8 <R8_Init>:
+R8_Init():
+d:\Electromic\business_card\obj/../src/Main.c:138
+volatile uint16_t r8_tmr_cnt=0;
+volatile uint8_t  r8_meas_done=0;
+
+/* 初始化 R8 检测引脚 */
+void R8_Init(void)
+{
+     ac8:	1141                	addi	sp,sp,-16
+d:\Electromic\business_card\obj/../src/Main.c:140
+    /* PB8 推挽输出, 初始低 */
+    GPIOB_ModeCfg(R8_A_PIN, GPIO_ModeOut_PP_5mA);
+     aca:	458d                	li	a1,3
+     acc:	10000513          	li	a0,256
+d:\Electromic\business_card\obj/../src/Main.c:138
+{
+     ad0:	c606                	sw	ra,12(sp)
+d:\Electromic\business_card\obj/../src/Main.c:140
+    GPIOB_ModeCfg(R8_A_PIN, GPIO_ModeOut_PP_5mA);
+     ad2:	2d09                	jal	10e4 <GPIOB_ModeCfg>
+d:\Electromic\business_card\obj/../src/Main.c:141
+    GPIOB_ResetBits(R8_A_PIN);
+     ad4:	40001737          	lui	a4,0x40001
+     ad8:	0cc72783          	lw	a5,204(a4) # 400010cc <_eusrstack+0x1fff90cc>
+d:\Electromic\business_card\obj/../src/Main.c:144
+    /* PB9 浮空输入 (读电平) */
+    GPIOB_ModeCfg(R8_B_PIN, GPIO_ModeIN_Floating);
+}
+     adc:	40b2                	lw	ra,12(sp)
+d:\Electromic\business_card\obj/../src/Main.c:143
+    GPIOB_ModeCfg(R8_B_PIN, GPIO_ModeIN_Floating);
+     ade:	4581                	li	a1,0
+d:\Electromic\business_card\obj/../src/Main.c:141
+    GPIOB_ResetBits(R8_A_PIN);
+     ae0:	1007e793          	ori	a5,a5,256
+     ae4:	0cf72623          	sw	a5,204(a4)
+d:\Electromic\business_card\obj/../src/Main.c:143
+    GPIOB_ModeCfg(R8_B_PIN, GPIO_ModeIN_Floating);
+     ae8:	20000513          	li	a0,512
+d:\Electromic\business_card\obj/../src/Main.c:144
+}
+     aec:	0141                	addi	sp,sp,16
+d:\Electromic\business_card\obj/../src/Main.c:143
+    GPIOB_ModeCfg(R8_B_PIN, GPIO_ModeIN_Floating);
+     aee:	abdd                	j	10e4 <GPIOB_ModeCfg>
+
+00000af0 <R8_Detect>:
+R8_Detect():
+d:\Electromic\business_card\obj/../src/Main.c:154
+{
+    uint16_t t;
+    uint8_t ret=0;
+
+    /* PB8 输出高, 开始充电 */
+    GPIOB_SetBits(R8_A_PIN);
+     af0:	40001737          	lui	a4,0x40001
+     af4:	0c872783          	lw	a5,200(a4) # 400010c8 <_eusrstack+0x1fff90c8>
+d:\Electromic\business_card\obj/../src/Main.c:149
+{
+     af8:	1101                	addi	sp,sp,-32
+     afa:	ce06                	sw	ra,28(sp)
+d:\Electromic\business_card\obj/../src/Main.c:154
+    GPIOB_SetBits(R8_A_PIN);
+     afc:	1007e793          	ori	a5,a5,256
+     b00:	0cf72423          	sw	a5,200(a4)
+d:\Electromic\business_card\obj/../src/Main.c:159
+
+    /* 等待 PB9 电平升到高电平, 计时 */
+    /* 未触摸时: 电容小, 充电快, 很快升到高电平 */
+    /* 触摸时: 人体电容并联, 电容大, 充电慢 */
+    GPIOB_ModeCfg(R8_B_PIN, GPIO_ModeIN_Floating);
+     b04:	20000513          	li	a0,512
+     b08:	4581                	li	a1,0
+     b0a:	2be9                	jal	10e4 <GPIOB_ModeCfg>
+d:\Electromic\business_card\obj/../src/Main.c:163
+
+    /* 用简单计数法测时间 */
+    /* TIMEOUT 防卡死 */
+    for(t=0; t<5000; t++){
+     b0c:	6785                	lui	a5,0x1
+     b0e:	4501                	li	a0,0
+d:\Electromic\business_card\obj/../src/Main.c:164
+        if(GPIOB_ReadPortPin(R8_B_PIN)){
+     b10:	400016b7          	lui	a3,0x40001
+d:\Electromic\business_card\obj/../src/Main.c:163
+    for(t=0; t<5000; t++){
+     b14:	38878793          	addi	a5,a5,904 # 1388 <_data_lma+0xc8>
+d:\Electromic\business_card\obj/../src/Main.c:164
+        if(GPIOB_ReadPortPin(R8_B_PIN)){
+     b18:	0c46a703          	lw	a4,196(a3) # 400010c4 <_eusrstack+0x1fff90c4>
+     b1c:	20077713          	andi	a4,a4,512
+     b20:	eb15                	bnez	a4,b54 <R8_Detect+0x64>
+d:\Electromic\business_card\obj/../src/Main.c:163 (discriminator 2)
+    for(t=0; t<5000; t++){
+     b22:	0505                	addi	a0,a0,1
+     b24:	0542                	slli	a0,a0,0x10
+     b26:	8141                	srli	a0,a0,0x10
+     b28:	fef518e3          	bne	a0,a5,b18 <R8_Detect+0x28>
+d:\Electromic\business_card\obj/../src/Main.c:171
+        }
+    }
+
+    /* 触摸时充电时间长, t 值大 */
+    if(t > R8_TOUCH_THRESH){
+        ret = 1;
+     b2c:	4505                	li	a0,1
+d:\Electromic\business_card\obj/../src/Main.c:175
+    }
+
+    /* PB8 拉低放电, 准备下次 */
+    GPIOB_ResetBits(R8_A_PIN);
+     b2e:	40001737          	lui	a4,0x40001
+     b32:	0cc72783          	lw	a5,204(a4) # 400010cc <_eusrstack+0x1fff90cc>
+     b36:	1007e793          	ori	a5,a5,256
+     b3a:	0cf72623          	sw	a5,204(a4)
+d:\Electromic\business_card\obj/../src/Main.c:179
+    /* 等待放电完成 */
+    {
+        volatile uint16_t d;
+        for(d=0; d<1000; d++);
+     b3e:	00011723          	sh	zero,14(sp)
+     b42:	3e700713          	li	a4,999
+d:\Electromic\business_card\obj/../src/Main.c:179 (discriminator 1)
+     b46:	00e15783          	lhu	a5,14(sp)
+     b4a:	00f77a63          	bgeu	a4,a5,b5e <R8_Detect+0x6e>
+d:\Electromic\business_card\obj/../src/Main.c:183
+    }
+
+    return ret;
+}
+     b4e:	40f2                	lw	ra,28(sp)
+     b50:	6105                	addi	sp,sp,32
+     b52:	8082                	ret
+d:\Electromic\business_card\obj/../src/Main.c:170
+    if(t > R8_TOUCH_THRESH){
+     b54:	01553513          	sltiu	a0,a0,21
+d:\Electromic\business_card\obj/../src/Main.c:151
+    uint8_t ret=0;
+     b58:	00154513          	xori	a0,a0,1
+     b5c:	bfc9                	j	b2e <R8_Detect+0x3e>
+d:\Electromic\business_card\obj/../src/Main.c:179 (discriminator 3)
+        for(d=0; d<1000; d++);
+     b5e:	00e15783          	lhu	a5,14(sp)
+     b62:	0785                	addi	a5,a5,1
+     b64:	07c2                	slli	a5,a5,0x10
+     b66:	83c1                	srli	a5,a5,0x10
+     b68:	00f11723          	sh	a5,14(sp)
+     b6c:	bfe9                	j	b46 <R8_Detect+0x56>
+
+00000b6e <TKey_Init>:
 TKey_Init():
-d:\Electromic\business_card\obj/../src/Main.c:129
+d:\Electromic\business_card\obj/../src/Main.c:187
 
 /* ======================== 初始化 ======================== */
 void TKey_Init(void)
 {
-     aae:	1101                	addi	sp,sp,-32
-d:\Electromic\business_card\obj/../src/Main.c:131
-    uint8_t i;
-    GPIOAGPPCfg(ENABLE, RB_PIN_ADC0_IE);
-     ab0:	20000593          	li	a1,512
-     ab4:	4505                	li	a0,1
-d:\Electromic\business_card\obj/../src/Main.c:129
+     b6e:	7179                	addi	sp,sp,-48
+d:\Electromic\business_card\obj/../src/Main.c:190
+    uint8_t r,c;
+
+    GPIOAGPPCfg(ENABLE, RB_PIN_ADC0_IE | RB_PIN_ADC1_IE);
+     b70:	60000593          	li	a1,1536
+     b74:	4505                	li	a0,1
+d:\Electromic\business_card\obj/../src/Main.c:187
 {
-     ab6:	ce06                	sw	ra,28(sp)
-     ab8:	cc22                	sw	s0,24(sp)
-     aba:	c84a                	sw	s2,16(sp)
-     abc:	c64e                	sw	s3,12(sp)
-     abe:	c452                	sw	s4,8(sp)
-     ac0:	c256                	sw	s5,4(sp)
-     ac2:	ca26                	sw	s1,20(sp)
-d:\Electromic\business_card\obj/../src/Main.c:131
-    GPIOAGPPCfg(ENABLE, RB_PIN_ADC0_IE);
-     ac4:	232d                	jal	fee <GPIOAGPPCfg>
-d:\Electromic\business_card\obj/../src/Main.c:132
-    GPIOAGPPCfg(ENABLE, RB_PIN_ADC1_IE);
-     ac6:	40000593          	li	a1,1024
-     aca:	4505                	li	a0,1
-     acc:	230d                	jal	fee <GPIOAGPPCfg>
-d:\Electromic\business_card\obj/../src/Main.c:133
-    GPIOAGPPCfg(ENABLE, RB_PIN_ADC2_3_IE);
-     ace:	6591                	lui	a1,0x4
-     ad0:	4505                	li	a0,1
-     ad2:	2b31                	jal	fee <GPIOAGPPCfg>
-d:\Electromic\business_card\obj/../src/Main.c:134
-    GPIOAGPPCfg(ENABLE, RB_PIN_ADC4_5_IE);
-     ad4:	65a1                	lui	a1,0x8
-     ad6:	4505                	li	a0,1
-     ad8:	2b19                	jal	fee <GPIOAGPPCfg>
-d:\Electromic\business_card\obj/../src/Main.c:135
+     b76:	d606                	sw	ra,44(sp)
+     b78:	ce4e                	sw	s3,28(sp)
+     b7a:	cc52                	sw	s4,24(sp)
+     b7c:	ca56                	sw	s5,20(sp)
+     b7e:	c85a                	sw	s6,16(sp)
+     b80:	c65e                	sw	s7,12(sp)
+     b82:	d422                	sw	s0,40(sp)
+     b84:	d226                	sw	s1,36(sp)
+     b86:	d04a                	sw	s2,32(sp)
+d:\Electromic\business_card\obj/../src/Main.c:190
+    GPIOAGPPCfg(ENABLE, RB_PIN_ADC0_IE | RB_PIN_ADC1_IE);
+     b88:	2509                	jal	118a <GPIOAGPPCfg>
+d:\Electromic\business_card\obj/../src/Main.c:191
+    GPIOAGPPCfg(ENABLE, RB_PIN_ADC2_3_IE | RB_PIN_ADC4_5_IE);
+     b8a:	65b1                	lui	a1,0xc
+     b8c:	4505                	li	a0,1
+     b8e:	2bf5                	jal	118a <GPIOAGPPCfg>
+d:\Electromic\business_card\obj/../src/Main.c:192
     GPIOAGPPCfg(ENABLE, RB_PIN_ADC6_7_IE);
-     ada:	4589                	li	a1,2
-     adc:	4505                	li	a0,1
-     ade:	2b01                	jal	fee <GPIOAGPPCfg>
+     b90:	4589                	li	a1,2
+     b92:	4505                	li	a0,1
+     b94:	2bdd                	jal	118a <GPIOAGPPCfg>
+d:\Electromic\business_card\obj/../src/Main.c:193
+    GPIOAGPPCfg(ENABLE, RB_PIN_ADC10_IE | RB_PIN_ADC11_IE);
+     b96:	45b1                	li	a1,12
+     b98:	4505                	li	a0,1
+     b9a:	2bc5                	jal	118a <GPIOAGPPCfg>
+d:\Electromic\business_card\obj/../src/Main.c:194
+    GPIOAGPPCfg(ENABLE, RB_PIN_ADC12_IE | RB_PIN_ADC13_IE);
+     b9c:	6589                	lui	a1,0x2
+     b9e:	80058593          	addi	a1,a1,-2048 # 1800 <_data_lma+0x540>
+     ba2:	4505                	li	a0,1
+     ba4:	23dd                	jal	118a <GPIOAGPPCfg>
+d:\Electromic\business_card\obj/../src/Main.c:195
+    GPIOAGPPCfg(ENABLE, RB_PIN_ADC8_9_IE);
+     ba6:	4585                	li	a1,1
+     ba8:	4505                	li	a0,1
+     baa:	23c5                	jal	118a <GPIOAGPPCfg>
 TKey_ChSampInit():
-d:\Electromic\business_card\obj/../src/Main.c:115
+d:\Electromic\business_card\obj/../src/Main.c:114
     R8_ADC_CFG = RB_ADC_POWER_ON | RB_ADC_BUF_EN | (1<<4);
-     ae0:	400017b7          	lui	a5,0x40001
-     ae4:	474d                	li	a4,19
-     ae6:	04e78ca3          	sb	a4,89(a5) # 40001059 <_eusrstack+0x1fff9059>
-d:\Electromic\business_card\obj/../src/Main.c:116
+     bac:	400017b7          	lui	a5,0x40001
+     bb0:	474d                	li	a4,19
+     bb2:	04e78ca3          	sb	a4,89(a5) # 40001059 <_eusrstack+0x1fff9059>
+d:\Electromic\business_card\obj/../src/Main.c:115
     R8_TKEY_CFG |= RB_TKEY_PWR_ON;
-     aea:	0577c703          	lbu	a4,87(a5)
-     aee:	9b018413          	addi	s0,gp,-1616 # 20000b58 <tkey_base>
-     af2:	4901                	li	s2,0
-     af4:	00176713          	ori	a4,a4,1
-     af8:	04e78ba3          	sb	a4,87(a5)
+     bb6:	0577c703          	lbu	a4,87(a5)
+     bba:	9b818a13          	addi	s4,gp,-1608 # 20000b60 <tkey_base>
+     bbe:	00000997          	auipc	s3,0x0
+     bc2:	6fa98993          	addi	s3,s3,1786 # 12b8 <CSWTCH.24>
+     bc6:	00176713          	ori	a4,a4,1
+     bca:	04e78ba3          	sb	a4,87(a5)
+     bce:	00000a97          	auipc	s5,0x0
+     bd2:	6f1a8a93          	addi	s5,s5,1777 # 12bf <CSWTCH.24+0x7>
 TKey_Init():
-d:\Electromic\business_card\obj/../src/Main.c:138
-    TKey_ChSampInit();
-    for(i=0;i<COL_COUNT;i++){
-        R8_ADC_CHANNEL = TKC[i];
-     afc:	00000a97          	auipc	s5,0x0
-     b00:	610a8a93          	addi	s5,s5,1552 # 110c <TKC>
-     b04:	40001a37          	lui	s4,0x40001
-d:\Electromic\business_card\obj/../src/Main.c:137
-    for(i=0;i<COL_COUNT;i++){
-     b08:	499d                	li	s3,7
-d:\Electromic\business_card\obj/../src/Main.c:138 (discriminator 3)
-        R8_ADC_CHANNEL = TKC[i];
-     b0a:	012a87b3          	add	a5,s5,s2
-     b0e:	0007c783          	lbu	a5,0(a5)
-d:\Electromic\business_card\obj/../src/Main.c:139 (discriminator 3)
-        DelayUs(20);
-     b12:	4551                	li	a0,20
-     b14:	0905                	addi	s2,s2,1
-d:\Electromic\business_card\obj/../src/Main.c:138 (discriminator 3)
-        R8_ADC_CHANNEL = TKC[i];
-     b16:	04fa0c23          	sb	a5,88(s4) # 40001058 <_eusrstack+0x1fff9058>
-d:\Electromic\business_card\obj/../src/Main.c:139 (discriminator 3)
-        DelayUs(20);
-     b1a:	20000097          	auipc	ra,0x20000
-     b1e:	a2e080e7          	jalr	-1490(ra) # 20000548 <mDelayuS>
-d:\Electromic\business_card\obj/../src/Main.c:140 (discriminator 3)
-        tkey_base[i] = TKey_Convert(8,1);
-     b22:	3795                	jal	a86 <TKey_Convert.constprop.0>
-     b24:	00a41023          	sh	a0,0(s0)
-d:\Electromic\business_card\obj/../src/Main.c:141 (discriminator 3)
-        DelayUs(5);
-     b28:	4515                	li	a0,5
-     b2a:	20000097          	auipc	ra,0x20000
-     b2e:	a1e080e7          	jalr	-1506(ra) # 20000548 <mDelayuS>
-d:\Electromic\business_card\obj/../src/Main.c:142 (discriminator 3)
-        tkey_base[i] = (tkey_base[i] + TKey_Convert(8,1)) >> 1;
-     b32:	00045483          	lhu	s1,0(s0)
-     b36:	3f81                	jal	a86 <TKey_Convert.constprop.0>
-     b38:	0409                	addi	s0,s0,2
-     b3a:	9526                	add	a0,a0,s1
-     b3c:	8505                	srai	a0,a0,0x1
-     b3e:	fea41f23          	sh	a0,-2(s0)
-d:\Electromic\business_card\obj/../src/Main.c:137 (discriminator 3)
-    for(i=0;i<COL_COUNT;i++){
-     b42:	fd3914e3          	bne	s2,s3,b0a <TKey_Init+0x5c>
-d:\Electromic\business_card\obj/../src/Main.c:144
+d:\Electromic\business_card\obj/../src/Main.c:212
+                case 4: row_ch=11; break;
+                case 5: row_ch=12; break;
+                case 6: row_ch=13; break;
+                default: row_ch=0;
+            }
+            R8_ADC_CHANNEL = row_ch;
+     bd6:	40001b37          	lui	s6,0x40001
+d:\Electromic\business_card\obj/../src/Main.c:200
+        for(c=0;c<COL_COUNT;c++){
+     bda:	4b9d                	li	s7,7
+d:\Electromic\business_card\obj/../src/Main.c:187
+{
+     bdc:	84d2                	mv	s1,s4
+d:\Electromic\business_card\obj/../src/Main.c:200
+        for(c=0;c<COL_COUNT;c++){
+     bde:	4401                	li	s0,0
+d:\Electromic\business_card\obj/../src/Main.c:202
+            switch(r){
+     be0:	0009c903          	lbu	s2,0(s3)
+d:\Electromic\business_card\obj/../src/Main.c:213
+            DelayUs(5);
+     be4:	4515                	li	a0,5
+     be6:	0489                	addi	s1,s1,2
+d:\Electromic\business_card\obj/../src/Main.c:212
+            R8_ADC_CHANNEL = row_ch;
+     be8:	052b0c23          	sb	s2,88(s6) # 40001058 <_eusrstack+0x1fff9058>
+d:\Electromic\business_card\obj/../src/Main.c:213
+            DelayUs(5);
+     bec:	20000097          	auipc	ra,0x20000
+     bf0:	95c080e7          	jalr	-1700(ra) # 20000548 <mDelayuS>
+d:\Electromic\business_card\obj/../src/Main.c:214
+            TKey_Convert(row_ch,8,1);
+     bf4:	854a                	mv	a0,s2
+     bf6:	3d41                	jal	a86 <TKey_Convert.constprop.0>
+d:\Electromic\business_card\obj/../src/Main.c:215
+            DelayUs(3);
+     bf8:	450d                	li	a0,3
+     bfa:	20000097          	auipc	ra,0x20000
+     bfe:	94e080e7          	jalr	-1714(ra) # 20000548 <mDelayuS>
+d:\Electromic\business_card\obj/../src/Main.c:216
+            tkey_base[r][c] = TKey_Convert(c,8,1);
+     c02:	8522                	mv	a0,s0
+     c04:	3549                	jal	a86 <TKey_Convert.constprop.0>
+     c06:	fea49f23          	sh	a0,-2(s1)
+d:\Electromic\business_card\obj/../src/Main.c:217
+            DelayUs(2);
+     c0a:	4509                	li	a0,2
+     c0c:	20000097          	auipc	ra,0x20000
+     c10:	93c080e7          	jalr	-1732(ra) # 20000548 <mDelayuS>
+d:\Electromic\business_card\obj/../src/Main.c:218
+            tkey_base[r][c] = (tkey_base[r][c] + TKey_Convert(c,8,1)) >> 1;
+     c14:	ffe4d903          	lhu	s2,-2(s1)
+     c18:	8522                	mv	a0,s0
+     c1a:	35b5                	jal	a86 <TKey_Convert.constprop.0>
+     c1c:	954a                	add	a0,a0,s2
+     c1e:	8505                	srai	a0,a0,0x1
+d:\Electromic\business_card\obj/../src/Main.c:200
+        for(c=0;c<COL_COUNT;c++){
+     c20:	0405                	addi	s0,s0,1
+d:\Electromic\business_card\obj/../src/Main.c:218
+            tkey_base[r][c] = (tkey_base[r][c] + TKey_Convert(c,8,1)) >> 1;
+     c22:	fea49f23          	sh	a0,-2(s1)
+d:\Electromic\business_card\obj/../src/Main.c:200
+        for(c=0;c<COL_COUNT;c++){
+     c26:	0ff47413          	andi	s0,s0,255
+     c2a:	fb741be3          	bne	s0,s7,be0 <TKey_Init+0x72>
+     c2e:	0985                	addi	s3,s3,1
+     c30:	0a39                	addi	s4,s4,14
+d:\Electromic\business_card\obj/../src/Main.c:199 (discriminator 2)
+    for(r=0;r<ROW_COUNT-1;r++){
+     c32:	fb5995e3          	bne	s3,s5,bdc <TKey_Init+0x6e>
+d:\Electromic\business_card\obj/../src/Main.c:223
+        }
     }
-}
-     b46:	40f2                	lw	ra,28(sp)
-     b48:	4462                	lw	s0,24(sp)
-     b4a:	44d2                	lw	s1,20(sp)
-     b4c:	4942                	lw	s2,16(sp)
-     b4e:	49b2                	lw	s3,12(sp)
-     b50:	4a22                	lw	s4,8(sp)
-     b52:	4a92                	lw	s5,4(sp)
-     b54:	6105                	addi	sp,sp,32
-     b56:	8082                	ret
 
-00000b58 <GPIOInit>:
-GPIOInit():
-d:\Electromic\business_card\obj/../src/Main.c:147
-
-void GPIOInit(void)
-{
-     b58:	1141                	addi	sp,sp,-16
-d:\Electromic\business_card\obj/../src/Main.c:148
-    GPIOA_ModeCfg(R1_PIN|R2_PIN|R3_PIN|R4_PIN|R5_PIN|R6_PIN|R7_PIN, GPIO_ModeOut_PP_5mA);
-     b5a:	458d                	li	a1,3
-     b5c:	3c700513          	li	a0,967
-d:\Electromic\business_card\obj/../src/Main.c:147
-{
-     b60:	c606                	sw	ra,12(sp)
-d:\Electromic\business_card\obj/../src/Main.c:148
-    GPIOA_ModeCfg(R1_PIN|R2_PIN|R3_PIN|R4_PIN|R5_PIN|R6_PIN|R7_PIN, GPIO_ModeOut_PP_5mA);
-     b62:	26dd                	jal	f48 <GPIOA_ModeCfg>
-d:\Electromic\business_card\obj/../src/Main.c:149
-    GPIOA_ModeCfg(COL_ALL, GPIO_ModeIN_Floating);
-     b64:	653d                	lui	a0,0xf
-     b66:	4581                	li	a1,0
-     b68:	03850513          	addi	a0,a0,56 # f038 <_data_lma+0xdf24>
-     b6c:	2ef1                	jal	f48 <GPIOA_ModeCfg>
-d:\Electromic\business_card\obj/../src/Main.c:150
-    GPIOA_SetBits(R1_PIN|R2_PIN|R3_PIN|R4_PIN|R5_PIN|R6_PIN|R7_PIN);
-     b6e:	40001737          	lui	a4,0x40001
-     b72:	0a872783          	lw	a5,168(a4) # 400010a8 <_eusrstack+0x1fff90a8>
-d:\Electromic\business_card\obj/../src/Main.c:151
+    R8_Init();
 }
-     b76:	40b2                	lw	ra,12(sp)
-d:\Electromic\business_card\obj/../src/Main.c:150
-    GPIOA_SetBits(R1_PIN|R2_PIN|R3_PIN|R4_PIN|R5_PIN|R6_PIN|R7_PIN);
-     b78:	3c77e793          	ori	a5,a5,967
-     b7c:	0af72423          	sw	a5,168(a4)
-d:\Electromic\business_card\obj/../src/Main.c:151
-}
-     b80:	0141                	addi	sp,sp,16
-     b82:	8082                	ret
+     c36:	5422                	lw	s0,40(sp)
+     c38:	50b2                	lw	ra,44(sp)
+     c3a:	5492                	lw	s1,36(sp)
+     c3c:	5902                	lw	s2,32(sp)
+     c3e:	49f2                	lw	s3,28(sp)
+     c40:	4a62                	lw	s4,24(sp)
+     c42:	4ad2                	lw	s5,20(sp)
+     c44:	4b42                	lw	s6,16(sp)
+     c46:	4bb2                	lw	s7,12(sp)
+     c48:	6145                	addi	sp,sp,48
+d:\Electromic\business_card\obj/../src/Main.c:222
+    R8_Init();
+     c4a:	bdbd                	j	ac8 <R8_Init>
 
-00000b84 <MatrixScan>:
+00000c4c <MatrixScan>:
 MatrixScan():
-d:\Electromic\business_card\obj/../src/Main.c:155
+d:\Electromic\business_card\obj/../src/Main.c:227
 
 /* ======================== 矩阵扫描 ======================== */
 void MatrixScan(void)
 {
-     b84:	7139                	addi	sp,sp,-64
-     b86:	dc22                	sw	s0,56(sp)
-     b88:	da26                	sw	s1,52(sp)
-     b8a:	d64e                	sw	s3,44(sp)
-     b8c:	d452                	sw	s4,40(sp)
-     b8e:	d256                	sw	s5,36(sp)
-     b90:	d05a                	sw	s6,32(sp)
-     b92:	ce5e                	sw	s7,28(sp)
-     b94:	cc62                	sw	s8,24(sp)
-     b96:	de06                	sw	ra,60(sp)
-     b98:	d84a                	sw	s2,48(sp)
-     b9a:	ca66                	sw	s9,20(sp)
-     b9c:	c86a                	sw	s10,16(sp)
-     b9e:	c66e                	sw	s11,12(sp)
-     ba0:	00000a17          	auipc	s4,0x0
-     ba4:	538a0a13          	addi	s4,s4,1336 # 10d8 <row_pin>
-     ba8:	4981                	li	s3,0
-d:\Electromic\business_card\obj/../src/Main.c:158
+     c4c:	715d                	addi	sp,sp,-80
+     c4e:	c2a6                	sw	s1,68(sp)
+     c50:	dc52                	sw	s4,56(sp)
+     c52:	da56                	sw	s5,52(sp)
+     c54:	d85a                	sw	s6,48(sp)
+     c56:	d65e                	sw	s7,44(sp)
+     c58:	d462                	sw	s8,40(sp)
+     c5a:	d266                	sw	s9,36(sp)
+     c5c:	d06a                	sw	s10,32(sp)
+     c5e:	c686                	sw	ra,76(sp)
+     c60:	c4a2                	sw	s0,72(sp)
+     c62:	c0ca                	sw	s2,64(sp)
+     c64:	de4e                	sw	s3,60(sp)
+     c66:	ce6e                	sw	s11,28(sp)
+     c68:	9b818c93          	addi	s9,gp,-1608 # 20000b60 <tkey_base>
+     c6c:	4c01                	li	s8,0
+d:\Electromic\business_card\obj/../src/Main.c:231
     uint8_t r,c,idx;
     uint16_t val,diff;
-    for(r=0;r<ROW_COUNT;r++){
-     baa:	4481                	li	s1,0
-d:\Electromic\business_card\obj/../src/Main.c:159
-        if(r<7) GPIOA_ResetBits(row_pin[r]);
-     bac:	4a9d                	li	s5,7
-d:\Electromic\business_card\obj/../src/Main.c:160
-        else    GPIOB_ResetBits(R8_PIN);
-     bae:	40001437          	lui	s0,0x40001
-d:\Electromic\business_card\obj/../src/Main.c:163
-        DelayUs(3);
-        for(c=0;c<COL_COUNT;c++){
-            R8_ADC_CHANNEL = TKC[c];
-     bb2:	00000c17          	auipc	s8,0x0
-     bb6:	55ac0c13          	addi	s8,s8,1370 # 110c <TKC>
-d:\Electromic\business_card\obj/../src/Main.c:170
-            val = TKey_Convert(8,1);
-            diff = (val>tkey_base[c])?(val-tkey_base[c]):0;
+
+    for(r=0;r<ROW_COUNT-1;r++){
+     c6e:	4481                	li	s1,0
+d:\Electromic\business_card\obj/../src/Main.c:233
+        /* 用 switch 设定当前行引脚拉低 */
+        switch(r){
+     c70:	4a95                	li	s5,5
+     c72:	00000b97          	auipc	s7,0x0
+     c76:	532b8b93          	addi	s7,s7,1330 # 11a4 <GPIOAGPPCfg+0x1a>
+d:\Electromic\business_card\obj/../src/Main.c:235
+            case 0: R32_PA_CLR = GPIO_Pin_6; break;
+            case 1: R32_PA_CLR = GPIO_Pin_0; break;
+     c7a:	4d05                	li	s10,1
+d:\Electromic\business_card\obj/../src/Main.c:249
+            val = TKey_Convert(c,8,1);
+            diff = (val>tkey_base[r][c])?(val-tkey_base[r][c]):0;
             idx = r*COL_COUNT+c;
             if(idx>=KEY_COUNT) continue;
             if(r<4){ if(diff>80) key_state[idx]=1; }
             else if(c>=2){ if(diff>80) key_state[idx]=1; }
-     bba:	4b05                	li	s6,1
-     bbc:	98018b93          	addi	s7,gp,-1664 # 20000b28 <key_state>
-d:\Electromic\business_card\obj/../src/Main.c:159
-        if(r<7) GPIOA_ResetBits(row_pin[r]);
-     bc0:	0d548163          	beq	s1,s5,c82 <MatrixScan+0xfe>
-d:\Electromic\business_card\obj/../src/Main.c:159 (discriminator 1)
-     bc4:	0ac42783          	lw	a5,172(s0) # 400010ac <_eusrstack+0x1fff90ac>
-     bc8:	000a2703          	lw	a4,0(s4)
-     bcc:	8fd9                	or	a5,a5,a4
-     bce:	0af42623          	sw	a5,172(s0)
-d:\Electromic\business_card\obj/../src/Main.c:161
-        DelayUs(3);
-     bd2:	450d                	li	a0,3
-     bd4:	20000097          	auipc	ra,0x20000
-     bd8:	974080e7          	jalr	-1676(ra) # 20000548 <mDelayuS>
-d:\Electromic\business_card\obj/../src/Main.c:162
+     c7c:	98818b13          	addi	s6,gp,-1656 # 20000b30 <key_state>
+d:\Electromic\business_card\obj/../src/Main.c:243
         for(c=0;c<COL_COUNT;c++){
-     bdc:	0ff9fd93          	andi	s11,s3,255
-     be0:	9b018c93          	addi	s9,gp,-1616 # 20000b58 <tkey_base>
-d:\Electromic\business_card\obj/../src/Main.c:161
+     c80:	4a1d                	li	s4,7
+d:\Electromic\business_card\obj/../src/Main.c:233
+        switch(r){
+     c82:	fff48413          	addi	s0,s1,-1
+     c86:	0ff47793          	andi	a5,s0,255
+     c8a:	00fae963          	bltu	s5,a5,c9c <MatrixScan+0x50>
+     c8e:	078a                	slli	a5,a5,0x2
+     c90:	97de                	add	a5,a5,s7
+     c92:	4398                	lw	a4,0(a5)
+     c94:	400017b7          	lui	a5,0x40001
+     c98:	975e                	add	a4,a4,s7
+     c9a:	8702                	jr	a4
+d:\Electromic\business_card\obj/../src/Main.c:234
+            case 0: R32_PA_CLR = GPIO_Pin_6; break;
+     c9c:	400017b7          	lui	a5,0x40001
+     ca0:	04000713          	li	a4,64
+d:\Electromic\business_card\obj/../src/Main.c:240
+            case 6: R32_PA_CLR = GPIO_Pin_9; break;
+     ca4:	0ae7a623          	sw	a4,172(a5) # 400010ac <_eusrstack+0x1fff90ac>
+     ca8:	a019                	j	cae <MatrixScan+0x62>
+d:\Electromic\business_card\obj/../src/Main.c:235
+            case 1: R32_PA_CLR = GPIO_Pin_0; break;
+     caa:	0ba7a623          	sw	s10,172(a5)
+d:\Electromic\business_card\obj/../src/Main.c:242
         DelayUs(3);
-     be4:	4901                	li	s2,0
-d:\Electromic\business_card\obj/../src/Main.c:170
-            else if(c>=2){ if(diff>80) key_state[idx]=1; }
-     be6:	05000d13          	li	s10,80
-d:\Electromic\business_card\obj/../src/Main.c:163
-            R8_ADC_CHANNEL = TKC[c];
-     bea:	012c07b3          	add	a5,s8,s2
-     bee:	0007c783          	lbu	a5,0(a5)
-d:\Electromic\business_card\obj/../src/Main.c:164
-            DelayUs(2);
-     bf2:	4509                	li	a0,2
-d:\Electromic\business_card\obj/../src/Main.c:163
-            R8_ADC_CHANNEL = TKC[c];
-     bf4:	04f40c23          	sb	a5,88(s0)
-d:\Electromic\business_card\obj/../src/Main.c:164
-            DelayUs(2);
-     bf8:	20000097          	auipc	ra,0x20000
-     bfc:	950080e7          	jalr	-1712(ra) # 20000548 <mDelayuS>
-d:\Electromic\business_card\obj/../src/Main.c:165
-            val = TKey_Convert(8,1);
-     c00:	3559                	jal	a86 <TKey_Convert.constprop.0>
-d:\Electromic\business_card\obj/../src/Main.c:166
-            diff = (val>tkey_base[c])?(val-tkey_base[c]):0;
-     c02:	000cd703          	lhu	a4,0(s9)
-     c06:	4781                	li	a5,0
-     c08:	02f00693          	li	a3,47
-     c0c:	460d                	li	a2,3
-     c0e:	00a77663          	bgeu	a4,a0,c1a <MatrixScan+0x96>
-d:\Electromic\business_card\obj/../src/Main.c:166 (discriminator 1)
-     c12:	8d19                	sub	a0,a0,a4
-     c14:	01051793          	slli	a5,a0,0x10
-     c18:	83c1                	srli	a5,a5,0x10
-d:\Electromic\business_card\obj/../src/Main.c:168 (discriminator 4)
-            if(idx>=KEY_COUNT) continue;
-     c1a:	012d8733          	add	a4,s11,s2
-     c1e:	0ff77713          	andi	a4,a4,255
-     c22:	00e6ec63          	bltu	a3,a4,c3a <MatrixScan+0xb6>
-d:\Electromic\business_card\obj/../src/Main.c:169
+     cae:	450d                	li	a0,3
+     cb0:	20000097          	auipc	ra,0x20000
+     cb4:	898080e7          	jalr	-1896(ra) # 20000548 <mDelayuS>
+d:\Electromic\business_card\obj/../src/Main.c:243
+        for(c=0;c<COL_COUNT;c++){
+     cb8:	0ffc7693          	andi	a3,s8,255
+d:\Electromic\business_card\obj/../src/Main.c:242
+        DelayUs(3);
+     cbc:	8de6                	mv	s11,s9
+     cbe:	4901                	li	s2,0
+d:\Electromic\business_card\obj/../src/Main.c:248
             if(r<4){ if(diff>80) key_state[idx]=1; }
-     c26:	06966563          	bltu	a2,s1,c90 <MatrixScan+0x10c>
-d:\Electromic\business_card\obj/../src/Main.c:169 (discriminator 1)
-     c2a:	00fd7863          	bgeu	s10,a5,c3a <MatrixScan+0xb6>
-d:\Electromic\business_card\obj/../src/Main.c:169 (discriminator 2)
-     c2e:	013907b3          	add	a5,s2,s3
-     c32:	97de                	add	a5,a5,s7
-     c34:	4705                	li	a4,1
-     c36:	00e78023          	sb	a4,0(a5)
-     c3a:	0905                	addi	s2,s2,1
-     c3c:	0c89                	addi	s9,s9,2
-d:\Electromic\business_card\obj/../src/Main.c:162 (discriminator 2)
+     cc0:	4805                	li	a6,1
+     cc2:	0ff97993          	andi	s3,s2,255
+d:\Electromic\business_card\obj/../src/Main.c:244
+            val = TKey_Convert(c,8,1);
+     cc6:	854e                	mv	a0,s3
+     cc8:	c642                	sw	a6,12(sp)
+     cca:	c436                	sw	a3,8(sp)
+     ccc:	3b6d                	jal	a86 <TKey_Convert.constprop.0>
+d:\Electromic\business_card\obj/../src/Main.c:245
+            diff = (val>tkey_base[r][c])?(val-tkey_base[r][c]):0;
+     cce:	000dd883          	lhu	a7,0(s11)
+     cd2:	4781                	li	a5,0
+     cd4:	46a2                	lw	a3,8(sp)
+     cd6:	03000613          	li	a2,48
+     cda:	458d                	li	a1,3
+     cdc:	05000713          	li	a4,80
+     ce0:	4832                	lw	a6,12(sp)
+     ce2:	00a8f763          	bgeu	a7,a0,cf0 <MatrixScan+0xa4>
+d:\Electromic\business_card\obj/../src/Main.c:245 (discriminator 1)
+     ce6:	41150533          	sub	a0,a0,a7
+     cea:	01051793          	slli	a5,a0,0x10
+     cee:	83c1                	srli	a5,a5,0x10
+d:\Electromic\business_card\obj/../src/Main.c:247 (discriminator 4)
+            if(idx>=KEY_COUNT) continue;
+     cf0:	99b6                	add	s3,s3,a3
+     cf2:	0ff9f993          	andi	s3,s3,255
+     cf6:	00c98b63          	beq	s3,a2,d0c <MatrixScan+0xc0>
+d:\Electromic\business_card\obj/../src/Main.c:248
+            if(r<4){ if(diff>80) key_state[idx]=1; }
+     cfa:	0495e963          	bltu	a1,s1,d4c <MatrixScan+0x100>
+d:\Electromic\business_card\obj/../src/Main.c:248 (discriminator 1)
+     cfe:	00f77763          	bgeu	a4,a5,d0c <MatrixScan+0xc0>
+d:\Electromic\business_card\obj/../src/Main.c:248 (discriminator 2)
+     d02:	018907b3          	add	a5,s2,s8
+     d06:	97da                	add	a5,a5,s6
+     d08:	01078023          	sb	a6,0(a5)
+     d0c:	0905                	addi	s2,s2,1
+     d0e:	0d89                	addi	s11,s11,2
+d:\Electromic\business_card\obj/../src/Main.c:243 (discriminator 2)
         for(c=0;c<COL_COUNT;c++){
-     c3e:	fb5916e3          	bne	s2,s5,bea <MatrixScan+0x66>
-d:\Electromic\business_card\obj/../src/Main.c:172
+     d10:	fb4919e3          	bne	s2,s4,cc2 <MatrixScan+0x76>
+d:\Electromic\business_card\obj/../src/Main.c:251
         }
-        if(r<7) GPIOA_SetBits(row_pin[r]);
-     c42:	07548163          	beq	s1,s5,ca4 <MatrixScan+0x120>
-d:\Electromic\business_card\obj/../src/Main.c:172 (discriminator 1)
-     c46:	0a842783          	lw	a5,168(s0)
-     c4a:	000a2703          	lw	a4,0(s4)
-     c4e:	8fd9                	or	a5,a5,a4
-     c50:	0af42423          	sw	a5,168(s0)
-d:\Electromic\business_card\obj/../src/Main.c:158 (discriminator 2)
-    for(r=0;r<ROW_COUNT;r++){
-     c54:	0485                	addi	s1,s1,1
-     c56:	0ff4f493          	andi	s1,s1,255
-     c5a:	47a1                	li	a5,8
-     c5c:	0a11                	addi	s4,s4,4
-     c5e:	099d                	addi	s3,s3,7
-     c60:	f6f490e3          	bne	s1,a5,bc0 <MatrixScan+0x3c>
-d:\Electromic\business_card\obj/../src/Main.c:175
-        else    GPIOB_SetBits(R8_PIN);
+        switch(r){
+     d14:	0ff47413          	andi	s0,s0,255
+     d18:	048ae463          	bltu	s5,s0,d60 <MatrixScan+0x114>
+     d1c:	00000797          	auipc	a5,0x0
+     d20:	4a078793          	addi	a5,a5,1184 # 11bc <GPIOAGPPCfg+0x32>
+     d24:	040a                	slli	s0,s0,0x2
+     d26:	943e                	add	s0,s0,a5
+     d28:	4018                	lw	a4,0(s0)
+     d2a:	973e                	add	a4,a4,a5
+     d2c:	400017b7          	lui	a5,0x40001
+     d30:	8702                	jr	a4
+d:\Electromic\business_card\obj/../src/Main.c:236
+            case 2: R32_PA_CLR = GPIO_Pin_1; break;
+     d32:	4709                	li	a4,2
+     d34:	bf85                	j	ca4 <MatrixScan+0x58>
+d:\Electromic\business_card\obj/../src/Main.c:237
+            case 3: R32_PA_CLR = GPIO_Pin_2; break;
+     d36:	4711                	li	a4,4
+     d38:	b7b5                	j	ca4 <MatrixScan+0x58>
+d:\Electromic\business_card\obj/../src/Main.c:238
+            case 4: R32_PA_CLR = GPIO_Pin_7; break;
+     d3a:	08000713          	li	a4,128
+     d3e:	b79d                	j	ca4 <MatrixScan+0x58>
+d:\Electromic\business_card\obj/../src/Main.c:239
+            case 5: R32_PA_CLR = GPIO_Pin_8; break;
+     d40:	10000713          	li	a4,256
+     d44:	b785                	j	ca4 <MatrixScan+0x58>
+d:\Electromic\business_card\obj/../src/Main.c:240
+            case 6: R32_PA_CLR = GPIO_Pin_9; break;
+     d46:	20000713          	li	a4,512
+     d4a:	bfa9                	j	ca4 <MatrixScan+0x58>
+d:\Electromic\business_card\obj/../src/Main.c:249
+            else if(c>=2){ if(diff>80) key_state[idx]=1; }
+     d4c:	fd2d70e3          	bgeu	s10,s2,d0c <MatrixScan+0xc0>
+d:\Electromic\business_card\obj/../src/Main.c:249 (discriminator 1)
+     d50:	faf77ee3          	bgeu	a4,a5,d0c <MatrixScan+0xc0>
+d:\Electromic\business_card\obj/../src/Main.c:249 (discriminator 2)
+     d54:	018907b3          	add	a5,s2,s8
+     d58:	97da                	add	a5,a5,s6
+     d5a:	01a78023          	sb	s10,0(a5) # 40001000 <_eusrstack+0x1fff9000>
+     d5e:	b77d                	j	d0c <MatrixScan+0xc0>
+d:\Electromic\business_card\obj/../src/Main.c:252
+            case 0: R32_PA_OUT |= GPIO_Pin_6; break;
+     d60:	40001737          	lui	a4,0x40001
+     d64:	0a872783          	lw	a5,168(a4) # 400010a8 <_eusrstack+0x1fff90a8>
+     d68:	0407e793          	ori	a5,a5,64
+     d6c:	0af72423          	sw	a5,168(a4)
+d:\Electromic\business_card\obj/../src/Main.c:231 (discriminator 2)
+    for(r=0;r<ROW_COUNT-1;r++){
+     d70:	0485                	addi	s1,s1,1
+     d72:	0ff4f493          	andi	s1,s1,255
+     d76:	0c1d                	addi	s8,s8,7
+     d78:	0cb9                	addi	s9,s9,14
+     d7a:	f14494e3          	bne	s1,s4,c82 <MatrixScan+0x36>
+d:\Electromic\business_card\obj/../src/Main.c:264
+        }
+    }
+
+    /* R8 行 - 使用 RC 充放电检测 */
+    r = 7;
+    if(R8_Detect()){
+     d7e:	3b8d                	jal	af0 <R8_Detect>
+     d80:	c92d                	beqz	a0,df2 <MatrixScan+0x1a6>
+d:\Electromic\business_card\obj/../src/Main.c:268
+        /* 检测 R8 行哪一列有触摸 */
+        /* 正常扫描列 TouchKey, 行由 PB8/PB9 提供激励 */
+        for(c=2;c<COL_COUNT;c++){
+            val = TKey_Convert(c,8,1);
+     d82:	4509                	li	a0,2
+     d84:	3309                	jal	a86 <TKey_Convert.constprop.0>
+     d86:	450d                	li	a0,3
+     d88:	39fd                	jal	a86 <TKey_Convert.constprop.0>
+     d8a:	4511                	li	a0,4
+     d8c:	39ed                	jal	a86 <TKey_Convert.constprop.0>
+     d8e:	4515                	li	a0,5
+     d90:	39dd                	jal	a86 <TKey_Convert.constprop.0>
+d:\Electromic\business_card\obj/../src/Main.c:274
+            diff = (val>tkey_base[r][c])?(val-tkey_base[r][c]):0;
+            idx = r*COL_COUNT+c;
+            if(idx<KEY_COUNT && diff>80) key_state[idx]=1;
+        }
     }
 }
-     c64:	50f2                	lw	ra,60(sp)
-     c66:	5462                	lw	s0,56(sp)
-     c68:	54d2                	lw	s1,52(sp)
-     c6a:	5942                	lw	s2,48(sp)
-     c6c:	59b2                	lw	s3,44(sp)
-     c6e:	5a22                	lw	s4,40(sp)
-     c70:	5a92                	lw	s5,36(sp)
-     c72:	5b02                	lw	s6,32(sp)
-     c74:	4bf2                	lw	s7,28(sp)
-     c76:	4c62                	lw	s8,24(sp)
-     c78:	4cd2                	lw	s9,20(sp)
-     c7a:	4d42                	lw	s10,16(sp)
-     c7c:	4db2                	lw	s11,12(sp)
-     c7e:	6121                	addi	sp,sp,64
-     c80:	8082                	ret
-d:\Electromic\business_card\obj/../src/Main.c:160
-        else    GPIOB_ResetBits(R8_PIN);
-     c82:	0cc42783          	lw	a5,204(s0)
-     c86:	2007e793          	ori	a5,a5,512
-     c8a:	0cf42623          	sw	a5,204(s0)
-     c8e:	b791                	j	bd2 <MatrixScan+0x4e>
-d:\Electromic\business_card\obj/../src/Main.c:170
-            else if(c>=2){ if(diff>80) key_state[idx]=1; }
-     c90:	fb2b75e3          	bgeu	s6,s2,c3a <MatrixScan+0xb6>
-d:\Electromic\business_card\obj/../src/Main.c:170 (discriminator 1)
-     c94:	fafd73e3          	bgeu	s10,a5,c3a <MatrixScan+0xb6>
-d:\Electromic\business_card\obj/../src/Main.c:170 (discriminator 2)
-     c98:	013907b3          	add	a5,s2,s3
-     c9c:	97de                	add	a5,a5,s7
-     c9e:	01678023          	sb	s6,0(a5)
-     ca2:	bf61                	j	c3a <MatrixScan+0xb6>
-d:\Electromic\business_card\obj/../src/Main.c:173
-        else    GPIOB_SetBits(R8_PIN);
-     ca4:	0c842783          	lw	a5,200(s0)
-     ca8:	2007e793          	ori	a5,a5,512
-     cac:	0cf42423          	sw	a5,200(s0)
-     cb0:	b755                	j	c54 <MatrixScan+0xd0>
+     d92:	4426                	lw	s0,72(sp)
+     d94:	40b6                	lw	ra,76(sp)
+     d96:	4496                	lw	s1,68(sp)
+     d98:	4906                	lw	s2,64(sp)
+     d9a:	59f2                	lw	s3,60(sp)
+     d9c:	5a62                	lw	s4,56(sp)
+     d9e:	5ad2                	lw	s5,52(sp)
+     da0:	5b42                	lw	s6,48(sp)
+     da2:	5bb2                	lw	s7,44(sp)
+     da4:	5c22                	lw	s8,40(sp)
+     da6:	5c92                	lw	s9,36(sp)
+     da8:	5d02                	lw	s10,32(sp)
+     daa:	4df2                	lw	s11,28(sp)
+d:\Electromic\business_card\obj/../src/Main.c:268
+            val = TKey_Convert(c,8,1);
+     dac:	4519                	li	a0,6
+d:\Electromic\business_card\obj/../src/Main.c:274
+}
+     dae:	6161                	addi	sp,sp,80
+d:\Electromic\business_card\obj/../src/Main.c:268
+            val = TKey_Convert(c,8,1);
+     db0:	b9d9                	j	a86 <TKey_Convert.constprop.0>
+d:\Electromic\business_card\obj/../src/Main.c:253
+            case 1: R32_PA_OUT |= GPIO_Pin_0; break;
+     db2:	0a87a703          	lw	a4,168(a5)
+     db6:	00176713          	ori	a4,a4,1
+d:\Electromic\business_card\obj/../src/Main.c:258
+            case 6: R32_PA_OUT |= GPIO_Pin_9; break;
+     dba:	0ae7a423          	sw	a4,168(a5)
+     dbe:	bf4d                	j	d70 <MatrixScan+0x124>
+d:\Electromic\business_card\obj/../src/Main.c:254
+            case 2: R32_PA_OUT |= GPIO_Pin_1; break;
+     dc0:	0a87a703          	lw	a4,168(a5)
+     dc4:	00276713          	ori	a4,a4,2
+     dc8:	bfcd                	j	dba <MatrixScan+0x16e>
+d:\Electromic\business_card\obj/../src/Main.c:255
+            case 3: R32_PA_OUT |= GPIO_Pin_2; break;
+     dca:	0a87a703          	lw	a4,168(a5)
+     dce:	00476713          	ori	a4,a4,4
+     dd2:	b7e5                	j	dba <MatrixScan+0x16e>
+d:\Electromic\business_card\obj/../src/Main.c:256
+            case 4: R32_PA_OUT |= GPIO_Pin_7; break;
+     dd4:	0a87a703          	lw	a4,168(a5)
+     dd8:	08076713          	ori	a4,a4,128
+     ddc:	bff9                	j	dba <MatrixScan+0x16e>
+d:\Electromic\business_card\obj/../src/Main.c:257
+            case 5: R32_PA_OUT |= GPIO_Pin_8; break;
+     dde:	0a87a703          	lw	a4,168(a5)
+     de2:	10076713          	ori	a4,a4,256
+     de6:	bfd1                	j	dba <MatrixScan+0x16e>
+d:\Electromic\business_card\obj/../src/Main.c:258
+            case 6: R32_PA_OUT |= GPIO_Pin_9; break;
+     de8:	0a87a703          	lw	a4,168(a5)
+     dec:	20076713          	ori	a4,a4,512
+     df0:	b7e9                	j	dba <MatrixScan+0x16e>
+d:\Electromic\business_card\obj/../src/Main.c:274
+}
+     df2:	40b6                	lw	ra,76(sp)
+     df4:	4426                	lw	s0,72(sp)
+     df6:	4496                	lw	s1,68(sp)
+     df8:	4906                	lw	s2,64(sp)
+     dfa:	59f2                	lw	s3,60(sp)
+     dfc:	5a62                	lw	s4,56(sp)
+     dfe:	5ad2                	lw	s5,52(sp)
+     e00:	5b42                	lw	s6,48(sp)
+     e02:	5bb2                	lw	s7,44(sp)
+     e04:	5c22                	lw	s8,40(sp)
+     e06:	5c92                	lw	s9,36(sp)
+     e08:	5d02                	lw	s10,32(sp)
+     e0a:	4df2                	lw	s11,28(sp)
+     e0c:	6161                	addi	sp,sp,80
+     e0e:	8082                	ret
 
-00000cb2 <SendHIDReport>:
+00000e10 <SendHIDReport>:
 SendHIDReport():
-d:\Electromic\business_card\obj/../src/Main.c:179
+d:\Electromic\business_card\obj/../src/Main.c:278
 
 /* ======================== HID 报告 ======================== */
 void SendHIDReport(void)
 {
-     cb2:	1101                	addi	sp,sp,-32
-d:\Electromic\business_card\obj/../src/Main.c:181
+     e10:	1101                	addi	sp,sp,-32
+d:\Electromic\business_card\obj/../src/Main.c:280
     uint8_t i,idx,r,c,kc,mod=0,ri=2;
     for(i=0;i<8;i++) HIDKeyBuff[i]=0;
-     cb4:	20000797          	auipc	a5,0x20000
-     cb8:	ce07aa23          	sw	zero,-780(a5) # 200009a8 <_edata>
-     cbc:	20000797          	auipc	a5,0x20000
-     cc0:	ce07a823          	sw	zero,-784(a5) # 200009ac <_edata+0x4>
-d:\Electromic\business_card\obj/../src/Main.c:179
+     e12:	20000797          	auipc	a5,0x20000
+     e16:	b807ab23          	sw	zero,-1130(a5) # 200009a8 <_edata>
+     e1a:	20000797          	auipc	a5,0x20000
+     e1e:	b807a923          	sw	zero,-1134(a5) # 200009ac <_edata+0x4>
+d:\Electromic\business_card\obj/../src/Main.c:278
 {
-     cc4:	ce22                	sw	s0,28(sp)
-     cc6:	cc26                	sw	s1,24(sp)
-     cc8:	ca4a                	sw	s2,20(sp)
-     cca:	c84e                	sw	s3,16(sp)
-     ccc:	c652                	sw	s4,12(sp)
-     cce:	c456                	sw	s5,8(sp)
-     cd0:	c25a                	sw	s6,4(sp)
-d:\Electromic\business_card\obj/../src/Main.c:182
+     e22:	ce22                	sw	s0,28(sp)
+     e24:	cc26                	sw	s1,24(sp)
+     e26:	ca4a                	sw	s2,20(sp)
+     e28:	c84e                	sw	s3,16(sp)
+     e2a:	c652                	sw	s4,12(sp)
+     e2c:	c456                	sw	s5,8(sp)
+     e2e:	c25a                	sw	s6,4(sp)
+d:\Electromic\business_card\obj/../src/Main.c:281
     if(key_state[FN_R1*COL_COUNT+FN_C1] || key_state[FN_R2*COL_COUNT+FN_C2])
-     cd2:	9981c783          	lbu	a5,-1640(gp) # 20000b40 <key_state+0x18>
-     cd6:	98018313          	addi	t1,gp,-1664 # 20000b28 <key_state>
-     cda:	e791                	bnez	a5,ce6 <SendHIDReport+0x34>
-d:\Electromic\business_card\obj/../src/Main.c:182 (discriminator 1)
-     cdc:	03234783          	lbu	a5,50(t1)
-     ce0:	0ff7f793          	andi	a5,a5,255
-     ce4:	c781                	beqz	a5,cec <SendHIDReport+0x3a>
-d:\Electromic\business_card\obj/../src/Main.c:183
+     e30:	9a01c783          	lbu	a5,-1632(gp) # 20000b48 <key_state+0x18>
+     e34:	98818313          	addi	t1,gp,-1656 # 20000b30 <key_state>
+     e38:	e791                	bnez	a5,e44 <SendHIDReport+0x34>
+d:\Electromic\business_card\obj/../src/Main.c:281 (discriminator 1)
+     e3a:	03234783          	lbu	a5,50(t1)
+     e3e:	0ff7f793          	andi	a5,a5,255
+     e42:	c781                	beqz	a5,e4a <SendHIDReport+0x3a>
+d:\Electromic\business_card\obj/../src/Main.c:282
         fn_pressed=1;
-     ce6:	4785                	li	a5,1
-     ce8:	80f18423          	sb	a5,-2040(gp) # 200009b0 <fn_pressed>
-     cec:	00000517          	auipc	a0,0x0
-     cf0:	35450513          	addi	a0,a0,852 # 1040 <KeyMap>
-d:\Electromic\business_card\obj/../src/Main.c:179 (discriminator 3)
+     e44:	4785                	li	a5,1
+     e46:	80f18823          	sb	a5,-2032(gp) # 200009b8 <fn_pressed>
+     e4a:	00000517          	auipc	a0,0x0
+     e4e:	3c250513          	addi	a0,a0,962 # 120c <KeyMap>
+d:\Electromic\business_card\obj/../src/Main.c:278 (discriminator 3)
 {
-     cf4:	4801                	li	a6,0
-     cf6:	4609                	li	a2,2
-     cf8:	4701                	li	a4,0
-d:\Electromic\business_card\obj/../src/Main.c:187 (discriminator 3)
+     e52:	4801                	li	a6,0
+     e54:	4609                	li	a2,2
+     e56:	4701                	li	a4,0
+d:\Electromic\business_card\obj/../src/Main.c:286 (discriminator 3)
     for(idx=0;idx<KEY_COUNT && ri<8;idx++){
         if(!key_state[idx]) continue;
         r=KeyMap[idx][0]; c=KeyMap[idx][1];
         if((r==FN_R1&&c==FN_C1)||(r==FN_R2&&c==FN_C2)) continue;
-     cfa:	4e0d                	li	t3,3
-d:\Electromic\business_card\obj/../src/Main.c:188 (discriminator 3)
+     e58:	4e0d                	li	t3,3
+d:\Electromic\business_card\obj/../src/Main.c:287 (discriminator 3)
         kc = fn_pressed?FnTable[r][c]:KeyTable[r][c];
-     cfc:	80818e93          	addi	t4,gp,-2040 # 200009b0 <fn_pressed>
-d:\Electromic\business_card\obj/../src/Main.c:190 (discriminator 3)
+     e5a:	81018e93          	addi	t4,gp,-2032 # 200009b8 <fn_pressed>
+d:\Electromic\business_card\obj/../src/Main.c:289 (discriminator 3)
         if(fn_pressed && kc==0) kc=KeyTable[r][c];
         if(kc==0xE0) mod|=0x01;
-     d00:	0e000393          	li	t2,224
-d:\Electromic\business_card\obj/../src/Main.c:191 (discriminator 3)
+     e5e:	0e000393          	li	t2,224
+d:\Electromic\business_card\obj/../src/Main.c:290 (discriminator 3)
         else if(kc==0xE1) mod|=0x02;
-     d04:	0e100413          	li	s0,225
-d:\Electromic\business_card\obj/../src/Main.c:192 (discriminator 3)
+     e62:	0e100413          	li	s0,225
+d:\Electromic\business_card\obj/../src/Main.c:291 (discriminator 3)
         else if(kc==0xE2) mod|=0x04;
-     d08:	0e200493          	li	s1,226
-d:\Electromic\business_card\obj/../src/Main.c:193 (discriminator 3)
+     e66:	0e200493          	li	s1,226
+d:\Electromic\business_card\obj/../src/Main.c:292 (discriminator 3)
         else if(kc==0xE3) mod|=0x08;
-     d0c:	0e300913          	li	s2,227
-d:\Electromic\business_card\obj/../src/Main.c:194 (discriminator 3)
+     e6a:	0e300913          	li	s2,227
+d:\Electromic\business_card\obj/../src/Main.c:293 (discriminator 3)
         else HIDKeyBuff[ri++]=kc;
-     d10:	20000997          	auipc	s3,0x20000
-     d14:	c9898993          	addi	s3,s3,-872 # 200009a8 <_edata>
-d:\Electromic\business_card\obj/../src/Main.c:189 (discriminator 3)
+     e6e:	20000997          	auipc	s3,0x20000
+     e72:	b3a98993          	addi	s3,s3,-1222 # 200009a8 <_edata>
+d:\Electromic\business_card\obj/../src/Main.c:288 (discriminator 3)
         if(fn_pressed && kc==0) kc=KeyTable[r][c];
-     d18:	00000f17          	auipc	t5,0x0
-     d1c:	388f0f13          	addi	t5,t5,904 # 10a0 <KeyTable>
-     d20:	489d                	li	a7,7
-d:\Electromic\business_card\obj/../src/Main.c:188 (discriminator 3)
+     e76:	00000f17          	auipc	t5,0x0
+     e7a:	3f6f0f13          	addi	t5,t5,1014 # 126c <KeyTable>
+     e7e:	489d                	li	a7,7
+d:\Electromic\business_card\obj/../src/Main.c:287 (discriminator 3)
         kc = fn_pressed?FnTable[r][c]:KeyTable[r][c];
-     d22:	00000a17          	auipc	s4,0x0
-     d26:	2e6a0a13          	addi	s4,s4,742 # 1008 <FnTable>
-d:\Electromic\business_card\obj/../src/Main.c:187 (discriminator 3)
+     e80:	00000a17          	auipc	s4,0x0
+     e84:	354a0a13          	addi	s4,s4,852 # 11d4 <FnTable>
+d:\Electromic\business_card\obj/../src/Main.c:286 (discriminator 3)
         if((r==FN_R1&&c==FN_C1)||(r==FN_R2&&c==FN_C2)) continue;
-     d2a:	4a85                	li	s5,1
-d:\Electromic\business_card\obj/../src/Main.c:184 (discriminator 3)
+     e88:	4a85                	li	s5,1
+d:\Electromic\business_card\obj/../src/Main.c:283 (discriminator 3)
     for(idx=0;idx<KEY_COUNT && ri<8;idx++){
-     d2c:	02f00293          	li	t0,47
-     d30:	4fa1                	li	t6,8
-d:\Electromic\business_card\obj/../src/Main.c:185
+     e8a:	02f00293          	li	t0,47
+     e8e:	4fa1                	li	t6,8
+d:\Electromic\business_card\obj/../src/Main.c:284
         if(!key_state[idx]) continue;
-     d32:	010307b3          	add	a5,t1,a6
-     d36:	0007c783          	lbu	a5,0(a5)
-     d3a:	0ff7f793          	andi	a5,a5,255
-     d3e:	cb89                	beqz	a5,d50 <SendHIDReport+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:186
+     e90:	010307b3          	add	a5,t1,a6
+     e94:	0007c783          	lbu	a5,0(a5)
+     e98:	0ff7f793          	andi	a5,a5,255
+     e9c:	cb89                	beqz	a5,eae <SendHIDReport+0x9e>
+d:\Electromic\business_card\obj/../src/Main.c:285
         r=KeyMap[idx][0]; c=KeyMap[idx][1];
-     d40:	00054783          	lbu	a5,0(a0)
-     d44:	00154583          	lbu	a1,1(a0)
-d:\Electromic\business_card\obj/../src/Main.c:187
+     e9e:	00054783          	lbu	a5,0(a0)
+     ea2:	00154583          	lbu	a1,1(a0)
+d:\Electromic\business_card\obj/../src/Main.c:286
         if((r==FN_R1&&c==FN_C1)||(r==FN_R2&&c==FN_C2)) continue;
-     d48:	07c79363          	bne	a5,t3,dae <SendHIDReport+0xfc>
-d:\Electromic\business_card\obj/../src/Main.c:187 (discriminator 1)
-     d4c:	07c59563          	bne	a1,t3,db6 <SendHIDReport+0x104>
-d:\Electromic\business_card\obj/../src/Main.c:184 (discriminator 2)
+     ea6:	05c79e63          	bne	a5,t3,f02 <SendHIDReport+0xf2>
+d:\Electromic\business_card\obj/../src/Main.c:286 (discriminator 1)
+     eaa:	07c59063          	bne	a1,t3,f0a <SendHIDReport+0xfa>
+d:\Electromic\business_card\obj/../src/Main.c:283 (discriminator 2)
     for(idx=0;idx<KEY_COUNT && ri<8;idx++){
-     d50:	00580663          	beq	a6,t0,d5c <SendHIDReport+0xaa>
-     d54:	0805                	addi	a6,a6,1
-     d56:	0509                	addi	a0,a0,2
-d:\Electromic\business_card\obj/../src/Main.c:184 (discriminator 3)
-     d58:	fdf61de3          	bne	a2,t6,d32 <SendHIDReport+0x80>
-d:\Electromic\business_card\obj/../src/Main.c:196
+     eae:	00580663          	beq	a6,t0,eba <SendHIDReport+0xaa>
+     eb2:	0805                	addi	a6,a6,1
+     eb4:	0509                	addi	a0,a0,2
+d:\Electromic\business_card\obj/../src/Main.c:283 (discriminator 3)
+     eb6:	fdf61de3          	bne	a2,t6,e90 <SendHIDReport+0x80>
+d:\Electromic\business_card\obj/../src/Main.c:295
     }
     HIDKeyBuff[0]=mod;
-     d5c:	20000797          	auipc	a5,0x20000
-     d60:	c4c78793          	addi	a5,a5,-948 # 200009a8 <_edata>
-     d64:	20000697          	auipc	a3,0x20000
-     d68:	c4e68223          	sb	a4,-956(a3) # 200009a8 <_edata>
-d:\Electromic\business_card\obj/../src/Main.c:199
+     eba:	20000797          	auipc	a5,0x20000
+     ebe:	aee78723          	sb	a4,-1298(a5) # 200009a8 <_edata>
+d:\Electromic\business_card\obj/../src/Main.c:297
 
-    /* 直接写入 EP1_Databuf (IN 缓冲区在后 64 字节) */
-    EP1_Databuf[64] = HIDKeyBuff[0];
-     d6c:	90e18823          	sb	a4,-1776(gp) # 20000ab8 <EP1_Databuf+0x40>
-d:\Electromic\business_card\obj/../src/Main.c:200
-    EP1_Databuf[65] = HIDKeyBuff[1];
-     d70:	0017c703          	lbu	a4,1(a5)
-     d74:	90e188a3          	sb	a4,-1775(gp) # 20000ab9 <EP1_Databuf+0x41>
-d:\Electromic\business_card\obj/../src/Main.c:201
-    EP1_Databuf[66] = HIDKeyBuff[2];
-     d78:	0027d703          	lhu	a4,2(a5)
-d:\Electromic\business_card\obj/../src/Main.c:203
-    EP1_Databuf[67] = HIDKeyBuff[3];
-    EP1_Databuf[68] = HIDKeyBuff[4];
-     d7c:	43dc                	lw	a5,4(a5)
-d:\Electromic\business_card\obj/../src/Main.c:201
-    EP1_Databuf[66] = HIDKeyBuff[2];
-     d7e:	90e19923          	sh	a4,-1774(gp) # 20000aba <EP1_Databuf+0x42>
-d:\Electromic\business_card\obj/../src/Main.c:203
-    EP1_Databuf[68] = HIDKeyBuff[4];
-     d82:	90f1aa23          	sw	a5,-1772(gp) # 20000abc <EP1_Databuf+0x44>
-d:\Electromic\business_card\obj/../src/Main.c:209
+    for(i=0;i<8;i++) if(HIDKeyBuff[i]!=HIDKeyBuffPrev[i]) break;
+     ec2:	20000517          	auipc	a0,0x20000
+     ec6:	ae650513          	addi	a0,a0,-1306 # 200009a8 <_edata>
+     eca:	80818813          	addi	a6,gp,-2040 # 200009b0 <HIDKeyBuffPrev>
+d:\Electromic\business_card\obj/../src/Main.c:295
+    HIDKeyBuff[0]=mod;
+     ece:	4781                	li	a5,0
+     ed0:	86aa                	mv	a3,a0
+     ed2:	88c2                	mv	a7,a6
+d:\Electromic\business_card\obj/../src/Main.c:297
+    for(i=0;i<8;i++) if(HIDKeyBuff[i]!=HIDKeyBuffPrev[i]) break;
+     ed4:	4321                	li	t1,8
+d:\Electromic\business_card\obj/../src/Main.c:297 (discriminator 4)
+     ed6:	00f505b3          	add	a1,a0,a5
+     eda:	00f80633          	add	a2,a6,a5
+     ede:	0005c583          	lbu	a1,0(a1)
+     ee2:	00064603          	lbu	a2,0(a2)
+     ee6:	08c59a63          	bne	a1,a2,f7a <SendHIDReport+0x16a>
+     eea:	0785                	addi	a5,a5,1
+d:\Electromic\business_card\obj/../src/Main.c:297 (discriminator 2)
+     eec:	fe6795e3          	bne	a5,t1,ed6 <SendHIDReport+0xc6>
+d:\Electromic\business_card\obj/../src/Main.c:311
     EP1_Databuf[69] = HIDKeyBuff[5];
     EP1_Databuf[70] = HIDKeyBuff[6];
     EP1_Databuf[71] = HIDKeyBuff[7];
-
-    /* EP1 IN 发送 */
     R8_UEP1_T_LEN = 8;
-     d86:	4721                	li	a4,8
-     d88:	400087b7          	lui	a5,0x40008
-     d8c:	02e78223          	sb	a4,36(a5) # 40008024 <_eusrstack+0x20000024>
-d:\Electromic\business_card\obj/../src/Main.c:210
     R8_UEP1_CTRL = (R8_UEP1_CTRL & ~MASK_UEP_T_RES) | UEP_T_RES_ACK;
-     d90:	0267c703          	lbu	a4,38(a5)
-     d94:	0fc77713          	andi	a4,a4,252
-     d98:	02e78323          	sb	a4,38(a5)
-d:\Electromic\business_card\obj/../src/Main.c:211
 }
-     d9c:	4472                	lw	s0,28(sp)
-     d9e:	44e2                	lw	s1,24(sp)
-     da0:	4952                	lw	s2,20(sp)
-     da2:	49c2                	lw	s3,16(sp)
-     da4:	4a32                	lw	s4,12(sp)
-     da6:	4aa2                	lw	s5,8(sp)
-     da8:	4b12                	lw	s6,4(sp)
-     daa:	6105                	addi	sp,sp,32
-     dac:	8082                	ret
-d:\Electromic\business_card\obj/../src/Main.c:187 (discriminator 4)
+     ef0:	4472                	lw	s0,28(sp)
+     ef2:	44e2                	lw	s1,24(sp)
+     ef4:	4952                	lw	s2,20(sp)
+     ef6:	49c2                	lw	s3,16(sp)
+     ef8:	4a32                	lw	s4,12(sp)
+     efa:	4aa2                	lw	s5,8(sp)
+     efc:	4b12                	lw	s6,4(sp)
+     efe:	6105                	addi	sp,sp,32
+     f00:	8082                	ret
+d:\Electromic\business_card\obj/../src/Main.c:286 (discriminator 4)
         if((r==FN_R1&&c==FN_C1)||(r==FN_R2&&c==FN_C2)) continue;
-     dae:	01179463          	bne	a5,a7,db6 <SendHIDReport+0x104>
-d:\Electromic\business_card\obj/../src/Main.c:187 (discriminator 5)
-     db2:	f9558fe3          	beq	a1,s5,d50 <SendHIDReport+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:188
+     f02:	01179463          	bne	a5,a7,f0a <SendHIDReport+0xfa>
+d:\Electromic\business_card\obj/../src/Main.c:286 (discriminator 5)
+     f06:	fb5584e3          	beq	a1,s5,eae <SendHIDReport+0x9e>
+d:\Electromic\business_card\obj/../src/Main.c:287
         kc = fn_pressed?FnTable[r][c]:KeyTable[r][c];
-     db6:	000ec683          	lbu	a3,0(t4)
-     dba:	0ff6f693          	andi	a3,a3,255
-     dbe:	ca8d                	beqz	a3,df0 <SendHIDReport+0x13e>
-d:\Electromic\business_card\obj/../src/Main.c:188 (discriminator 1)
-     dc0:	031786b3          	mul	a3,a5,a7
-     dc4:	96d2                	add	a3,a3,s4
-d:\Electromic\business_card\obj/../src/Main.c:189 (discriminator 2)
+     f0a:	000ec683          	lbu	a3,0(t4)
+     f0e:	0ff6f693          	andi	a3,a3,255
+     f12:	ca8d                	beqz	a3,f44 <SendHIDReport+0x134>
+d:\Electromic\business_card\obj/../src/Main.c:287 (discriminator 1)
+     f14:	031786b3          	mul	a3,a5,a7
+     f18:	96d2                	add	a3,a3,s4
+d:\Electromic\business_card\obj/../src/Main.c:288 (discriminator 2)
         if(fn_pressed && kc==0) kc=KeyTable[r][c];
-     dc6:	000ecb03          	lbu	s6,0(t4)
-d:\Electromic\business_card\obj/../src/Main.c:188 (discriminator 2)
+     f1a:	000ecb03          	lbu	s6,0(t4)
+d:\Electromic\business_card\obj/../src/Main.c:287 (discriminator 2)
         kc = fn_pressed?FnTable[r][c]:KeyTable[r][c];
-     dca:	96ae                	add	a3,a3,a1
-     dcc:	0006c683          	lbu	a3,0(a3)
-d:\Electromic\business_card\obj/../src/Main.c:189 (discriminator 2)
+     f1e:	96ae                	add	a3,a3,a1
+     f20:	0006c683          	lbu	a3,0(a3)
+d:\Electromic\business_card\obj/../src/Main.c:288 (discriminator 2)
         if(fn_pressed && kc==0) kc=KeyTable[r][c];
-     dd0:	0ffb7b13          	andi	s6,s6,255
-     dd4:	000b0963          	beqz	s6,de6 <SendHIDReport+0x134>
-d:\Electromic\business_card\obj/../src/Main.c:189 (discriminator 1)
-     dd8:	e699                	bnez	a3,de6 <SendHIDReport+0x134>
-d:\Electromic\business_card\obj/../src/Main.c:189 (discriminator 2)
-     dda:	031787b3          	mul	a5,a5,a7
-     dde:	97fa                	add	a5,a5,t5
-     de0:	97ae                	add	a5,a5,a1
-     de2:	0007c683          	lbu	a3,0(a5)
-d:\Electromic\business_card\obj/../src/Main.c:190
+     f24:	0ffb7b13          	andi	s6,s6,255
+     f28:	000b0963          	beqz	s6,f3a <SendHIDReport+0x12a>
+d:\Electromic\business_card\obj/../src/Main.c:288 (discriminator 1)
+     f2c:	e699                	bnez	a3,f3a <SendHIDReport+0x12a>
+d:\Electromic\business_card\obj/../src/Main.c:288 (discriminator 2)
+     f2e:	031787b3          	mul	a5,a5,a7
+     f32:	97fa                	add	a5,a5,t5
+     f34:	97ae                	add	a5,a5,a1
+     f36:	0007c683          	lbu	a3,0(a5)
+d:\Electromic\business_card\obj/../src/Main.c:289
         if(kc==0xE0) mod|=0x01;
-     de6:	00769963          	bne	a3,t2,df8 <SendHIDReport+0x146>
-d:\Electromic\business_card\obj/../src/Main.c:190 (discriminator 1)
-     dea:	00176713          	ori	a4,a4,1
-     dee:	b78d                	j	d50 <SendHIDReport+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:188 (discriminator 2)
+     f3a:	00769963          	bne	a3,t2,f4c <SendHIDReport+0x13c>
+d:\Electromic\business_card\obj/../src/Main.c:289 (discriminator 1)
+     f3e:	00176713          	ori	a4,a4,1
+     f42:	b7b5                	j	eae <SendHIDReport+0x9e>
+d:\Electromic\business_card\obj/../src/Main.c:287 (discriminator 2)
         kc = fn_pressed?FnTable[r][c]:KeyTable[r][c];
-     df0:	031786b3          	mul	a3,a5,a7
-     df4:	96fa                	add	a3,a3,t5
-     df6:	bfc1                	j	dc6 <SendHIDReport+0x114>
-d:\Electromic\business_card\obj/../src/Main.c:191
+     f44:	031786b3          	mul	a3,a5,a7
+     f48:	96fa                	add	a3,a3,t5
+     f4a:	bfc1                	j	f1a <SendHIDReport+0x10a>
+d:\Electromic\business_card\obj/../src/Main.c:290
         else if(kc==0xE1) mod|=0x02;
-     df8:	00869563          	bne	a3,s0,e02 <SendHIDReport+0x150>
-d:\Electromic\business_card\obj/../src/Main.c:191 (discriminator 1)
-     dfc:	00276713          	ori	a4,a4,2
-     e00:	bf81                	j	d50 <SendHIDReport+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:192
+     f4c:	00869563          	bne	a3,s0,f56 <SendHIDReport+0x146>
+d:\Electromic\business_card\obj/../src/Main.c:290 (discriminator 1)
+     f50:	00276713          	ori	a4,a4,2
+     f54:	bfa9                	j	eae <SendHIDReport+0x9e>
+d:\Electromic\business_card\obj/../src/Main.c:291
         else if(kc==0xE2) mod|=0x04;
-     e02:	00969563          	bne	a3,s1,e0c <SendHIDReport+0x15a>
-d:\Electromic\business_card\obj/../src/Main.c:192 (discriminator 1)
-     e06:	00476713          	ori	a4,a4,4
-     e0a:	b799                	j	d50 <SendHIDReport+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:193
+     f56:	00969563          	bne	a3,s1,f60 <SendHIDReport+0x150>
+d:\Electromic\business_card\obj/../src/Main.c:291 (discriminator 1)
+     f5a:	00476713          	ori	a4,a4,4
+     f5e:	bf81                	j	eae <SendHIDReport+0x9e>
+d:\Electromic\business_card\obj/../src/Main.c:292
         else if(kc==0xE3) mod|=0x08;
-     e0c:	01269563          	bne	a3,s2,e16 <SendHIDReport+0x164>
-d:\Electromic\business_card\obj/../src/Main.c:193 (discriminator 1)
-     e10:	00876713          	ori	a4,a4,8
-     e14:	bf35                	j	d50 <SendHIDReport+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:194
+     f60:	01269563          	bne	a3,s2,f6a <SendHIDReport+0x15a>
+d:\Electromic\business_card\obj/../src/Main.c:292 (discriminator 1)
+     f64:	00876713          	ori	a4,a4,8
+     f68:	b799                	j	eae <SendHIDReport+0x9e>
+d:\Electromic\business_card\obj/../src/Main.c:293
         else HIDKeyBuff[ri++]=kc;
-     e16:	00160793          	addi	a5,a2,1
-     e1a:	964e                	add	a2,a2,s3
-     e1c:	00d60023          	sb	a3,0(a2)
-     e20:	0ff7f613          	andi	a2,a5,255
-     e24:	b735                	j	d50 <SendHIDReport+0x9e>
+     f6a:	00160793          	addi	a5,a2,1
+     f6e:	964e                	add	a2,a2,s3
+     f70:	00d60023          	sb	a3,0(a2)
+     f74:	0ff7f613          	andi	a2,a5,255
+     f78:	bf1d                	j	eae <SendHIDReport+0x9e>
+     f7a:	4781                	li	a5,0
+d:\Electromic\business_card\obj/../src/Main.c:299
+    for(i=0;i<8;i++) HIDKeyBuffPrev[i]=HIDKeyBuff[i];
+     f7c:	4621                	li	a2,8
+d:\Electromic\business_card\obj/../src/Main.c:299 (discriminator 3)
+     f7e:	00f68533          	add	a0,a3,a5
+     f82:	00054503          	lbu	a0,0(a0)
+     f86:	00f885b3          	add	a1,a7,a5
+     f8a:	0785                	addi	a5,a5,1
+     f8c:	00a58023          	sb	a0,0(a1)
+     f90:	fec797e3          	bne	a5,a2,f7e <SendHIDReport+0x16e>
+d:\Electromic\business_card\obj/../src/Main.c:301
+    EP1_Databuf[64] = HIDKeyBuff[0];
+     f94:	90e18c23          	sb	a4,-1768(gp) # 20000ac0 <EP1_Databuf+0x40>
+d:\Electromic\business_card\obj/../src/Main.c:302
+    EP1_Databuf[65] = HIDKeyBuff[1];
+     f98:	0016c703          	lbu	a4,1(a3)
+     f9c:	90e18ca3          	sb	a4,-1767(gp) # 20000ac1 <EP1_Databuf+0x41>
+d:\Electromic\business_card\obj/../src/Main.c:303
+    EP1_Databuf[66] = HIDKeyBuff[2];
+     fa0:	0026d703          	lhu	a4,2(a3)
+     fa4:	90e19d23          	sh	a4,-1766(gp) # 20000ac2 <EP1_Databuf+0x42>
+d:\Electromic\business_card\obj/../src/Main.c:305
+    EP1_Databuf[68] = HIDKeyBuff[4];
+     fa8:	42d8                	lw	a4,4(a3)
+     faa:	90e1ae23          	sw	a4,-1764(gp) # 20000ac4 <EP1_Databuf+0x44>
+d:\Electromic\business_card\obj/../src/Main.c:309
+    R8_UEP1_T_LEN = 8;
+     fae:	40008737          	lui	a4,0x40008
+     fb2:	02f70223          	sb	a5,36(a4) # 40008024 <_eusrstack+0x20000024>
+d:\Electromic\business_card\obj/../src/Main.c:310
+    R8_UEP1_CTRL = (R8_UEP1_CTRL & ~MASK_UEP_T_RES) | UEP_T_RES_ACK;
+     fb6:	02674783          	lbu	a5,38(a4)
+     fba:	0fc7f793          	andi	a5,a5,252
+     fbe:	02f70323          	sb	a5,38(a4)
+     fc2:	b73d                	j	ef0 <SendHIDReport+0xe0>
 
-00000e26 <main>:
+00000fc4 <main>:
 main():
-d:\Electromic\business_card\obj/../src/Main.c:215
+d:\Electromic\business_card\obj/../src/Main.c:315
 
 /* ======================== 主函数 ======================== */
 int main(void)
 {
-     e26:	1101                	addi	sp,sp,-32
-d:\Electromic\business_card\obj/../src/Main.c:217
+     fc4:	1101                	addi	sp,sp,-32
+d:\Electromic\business_card\obj/../src/Main.c:317
     uint8_t i;
     SetSysClock(CLK_SOURCE_PLL_60MHz);
-     e28:	04800513          	li	a0,72
-d:\Electromic\business_card\obj/../src/Main.c:215
+     fc6:	04800513          	li	a0,72
+d:\Electromic\business_card\obj/../src/Main.c:315
 {
-     e2c:	ce06                	sw	ra,28(sp)
-     e2e:	cc22                	sw	s0,24(sp)
-     e30:	ca26                	sw	s1,20(sp)
-     e32:	c84a                	sw	s2,16(sp)
-     e34:	c64e                	sw	s3,12(sp)
-     e36:	c452                	sw	s4,8(sp)
-d:\Electromic\business_card\obj/../src/Main.c:217
+     fca:	ce06                	sw	ra,28(sp)
+     fcc:	cc22                	sw	s0,24(sp)
+     fce:	ca26                	sw	s1,20(sp)
+     fd0:	c84a                	sw	s2,16(sp)
+     fd2:	c64e                	sw	s3,12(sp)
+     fd4:	c452                	sw	s4,8(sp)
+d:\Electromic\business_card\obj/../src/Main.c:317
     SetSysClock(CLK_SOURCE_PLL_60MHz);
-     e38:	1ffff097          	auipc	ra,0x1ffff
-     e3c:	25a080e7          	jalr	602(ra) # 20000092 <SetSysClock>
-d:\Electromic\business_card\obj/../src/Main.c:218
-    GPIOInit();
-     e40:	3b21                	jal	b58 <GPIOInit>
-d:\Electromic\business_card\obj/../src/Main.c:219
-    TKey_Init();
-     e42:	31b5                	jal	aae <TKey_Init>
-d:\Electromic\business_card\obj/../src/Main.c:222
+     fd6:	1ffff097          	auipc	ra,0x1ffff
+     fda:	0bc080e7          	jalr	188(ra) # 20000092 <SetSysClock>
+d:\Electromic\business_card\obj/../src/Main.c:319
 
-    /* USB 初始化 - 直接操作寄存器, 不依赖 usbdev.c */
+    TKey_Init();
+     fde:	3e41                	jal	b6e <TKey_Init>
+d:\Electromic\business_card\obj/../src/Main.c:321
+
     R8_USB_CTRL = 0x00;
-     e44:	400087b7          	lui	a5,0x40008
-     e48:	00078023          	sb	zero,0(a5) # 40008000 <_eusrstack+0x20000000>
-d:\Electromic\business_card\obj/../src/Main.c:223
+     fe0:	400087b7          	lui	a5,0x40008
+     fe4:	00078023          	sb	zero,0(a5) # 40008000 <_eusrstack+0x20000000>
+d:\Electromic\business_card\obj/../src/Main.c:322
     R8_UEP4_1_MOD = RB_UEP4_RX_EN | RB_UEP4_TX_EN | RB_UEP1_RX_EN | RB_UEP1_TX_EN;
-     e4c:	fcc00713          	li	a4,-52
-     e50:	00e78623          	sb	a4,12(a5)
-d:\Electromic\business_card\obj/../src/Main.c:224
+     fe8:	fcc00713          	li	a4,-52
+     fec:	00e78623          	sb	a4,12(a5)
+d:\Electromic\business_card\obj/../src/Main.c:323
     R8_UEP2_3_MOD = RB_UEP2_RX_EN | RB_UEP2_TX_EN | RB_UEP3_RX_EN | RB_UEP3_TX_EN;
-     e54:	00e786a3          	sb	a4,13(a5)
-d:\Electromic\business_card\obj/../src/Main.c:225
+     ff0:	00e786a3          	sb	a4,13(a5)
+d:\Electromic\business_card\obj/../src/Main.c:324
     R16_UEP0_DMA = (uint16_t)(uint32_t)EP0_Databuf;
-     e58:	81018713          	addi	a4,gp,-2032 # 200009b8 <EP0_Databuf>
-     e5c:	00e79823          	sh	a4,16(a5)
-d:\Electromic\business_card\obj/../src/Main.c:226
+     ff4:	81818713          	addi	a4,gp,-2024 # 200009c0 <EP0_Databuf>
+     ff8:	00e79823          	sh	a4,16(a5)
+d:\Electromic\business_card\obj/../src/Main.c:325
     R16_UEP1_DMA = (uint16_t)(uint32_t)EP1_Databuf;
-     e60:	8d018713          	addi	a4,gp,-1840 # 20000a78 <EP1_Databuf>
-     e64:	00e79a23          	sh	a4,20(a5)
-d:\Electromic\business_card\obj/../src/Main.c:227
+     ffc:	8d818713          	addi	a4,gp,-1832 # 20000a80 <EP1_Databuf>
+    1000:	00e79a23          	sh	a4,20(a5)
+d:\Electromic\business_card\obj/../src/Main.c:326
     R8_UEP0_CTRL = UEP_R_RES_ACK | UEP_T_RES_NAK;
-     e68:	4709                	li	a4,2
-     e6a:	02e78123          	sb	a4,34(a5)
-d:\Electromic\business_card\obj/../src/Main.c:228
+    1004:	4709                	li	a4,2
+    1006:	02e78123          	sb	a4,34(a5)
+d:\Electromic\business_card\obj/../src/Main.c:327
     R8_UEP1_CTRL = UEP_R_RES_ACK | UEP_T_RES_NAK | RB_UEP_AUTO_TOG;
-     e6e:	4749                	li	a4,18
-     e70:	02e78323          	sb	a4,38(a5)
-d:\Electromic\business_card\obj/../src/Main.c:229
+    100a:	4749                	li	a4,18
+    100c:	02e78323          	sb	a4,38(a5)
+d:\Electromic\business_card\obj/../src/Main.c:328
     R8_USB_DEV_AD = 0x00;
-     e74:	000781a3          	sb	zero,3(a5)
-d:\Electromic\business_card\obj/../src/Main.c:230
+    1010:	000781a3          	sb	zero,3(a5)
+d:\Electromic\business_card\obj/../src/Main.c:329
     R8_USB_CTRL = RB_UC_DEV_PU_EN | RB_UC_INT_BUSY | RB_UC_DMA_EN;
-     e78:	02900713          	li	a4,41
-     e7c:	00e78023          	sb	a4,0(a5)
-d:\Electromic\business_card\obj/../src/Main.c:231
+    1014:	02900713          	li	a4,41
+    1018:	00e78023          	sb	a4,0(a5)
+d:\Electromic\business_card\obj/../src/Main.c:330
     R16_PIN_ANALOG_IE |= RB_PIN_USB_IE | RB_PIN_USB_DP_PU;
-     e80:	400016b7          	lui	a3,0x40001
-     e84:	01a6d703          	lhu	a4,26(a3) # 4000101a <_eusrstack+0x1fff901a>
-d:\Electromic\business_card\obj/../src/Main.c:237
+    101c:	400016b7          	lui	a3,0x40001
+    1020:	01a6d703          	lhu	a4,26(a3) # 4000101a <_eusrstack+0x1fff901a>
+d:\Electromic\business_card\obj/../src/Main.c:336
     R8_USB_INT_FG = 0xFF;
     R8_UDEV_CTRL = RB_UD_PD_DIS | RB_UD_PORT_EN;
     R8_USB_INT_EN = RB_UIE_SUSPEND | RB_UIE_BUS_RST | RB_UIE_TRANSFER;
 
     PFIC_EnableIRQ(USB_IRQn);
     DelayMs(100);
-     e88:	06400513          	li	a0,100
-d:\Electromic\business_card\obj/../src/Main.c:240
+    1024:	06400513          	li	a0,100
+d:\Electromic\business_card\obj/../src/Main.c:339
 
     while(1){
         for(i=0;i<KEY_COUNT;i++){ key_prev[i]=key_state[i]; key_state[i]=0; }
-     e8c:	98018413          	addi	s0,gp,-1664 # 20000b28 <key_state>
-d:\Electromic\business_card\obj/../src/Main.c:231
+    1028:	98818413          	addi	s0,gp,-1656 # 20000b30 <key_state>
+d:\Electromic\business_card\obj/../src/Main.c:330
     R16_PIN_ANALOG_IE |= RB_PIN_USB_IE | RB_PIN_USB_DP_PU;
-     e90:	0c076713          	ori	a4,a4,192
-     e94:	00e69d23          	sh	a4,26(a3)
-d:\Electromic\business_card\obj/../src/Main.c:232
+    102c:	0c076713          	ori	a4,a4,192
+    1030:	00e69d23          	sh	a4,26(a3)
+d:\Electromic\business_card\obj/../src/Main.c:331
     R8_USB_INT_FG = 0xFF;
-     e98:	577d                	li	a4,-1
-     e9a:	00e78323          	sb	a4,6(a5)
-d:\Electromic\business_card\obj/../src/Main.c:233
+    1034:	577d                	li	a4,-1
+    1036:	00e78323          	sb	a4,6(a5)
+d:\Electromic\business_card\obj/../src/Main.c:332
     R8_UDEV_CTRL = RB_UD_PD_DIS | RB_UD_PORT_EN;
-     e9e:	f8100713          	li	a4,-127
-     ea2:	00e780a3          	sb	a4,1(a5)
-d:\Electromic\business_card\obj/../src/Main.c:234
+    103a:	f8100713          	li	a4,-127
+    103e:	00e780a3          	sb	a4,1(a5)
+d:\Electromic\business_card\obj/../src/Main.c:333
     R8_USB_INT_EN = RB_UIE_SUSPEND | RB_UIE_BUS_RST | RB_UIE_TRANSFER;
-     ea6:	471d                	li	a4,7
-     ea8:	00e78123          	sb	a4,2(a5)
+    1042:	471d                	li	a4,7
+    1044:	00e78123          	sb	a4,2(a5)
 PFIC_EnableIRQ():
 d:\Electromic\business_card\RVMSIS/core_riscv.h:112
  *
@@ -2433,216 +2739,216 @@ d:\Electromic\business_card\RVMSIS/core_riscv.h:112
 RV_STATIC_INLINE void PFIC_EnableIRQ(IRQn_Type IRQn)
 {
     PFIC->IENR[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn)&0x1F));
-     eac:	e000e7b7          	lui	a5,0xe000e
-     eb0:	00400737          	lui	a4,0x400
-     eb4:	10e7a023          	sw	a4,256(a5) # e000e100 <_eusrstack+0xc0006100>
+    1048:	e000e7b7          	lui	a5,0xe000e
+    104c:	00400737          	lui	a4,0x400
+    1050:	10e7a023          	sw	a4,256(a5) # e000e100 <_eusrstack+0xc0006100>
 main():
-d:\Electromic\business_card\obj/../src/Main.c:240
+d:\Electromic\business_card\obj/../src/Main.c:339
         for(i=0;i<KEY_COUNT;i++){ key_prev[i]=key_state[i]; key_state[i]=0; }
-     eb8:	95018493          	addi	s1,gp,-1712 # 20000af8 <key_prev>
-d:\Electromic\business_card\obj/../src/Main.c:237
+    1054:	95818493          	addi	s1,gp,-1704 # 20000b00 <key_prev>
+d:\Electromic\business_card\obj/../src/Main.c:336
     DelayMs(100);
-     ebc:	1ffff097          	auipc	ra,0x1ffff
-     ec0:	69a080e7          	jalr	1690(ra) # 20000556 <mDelaymS>
-d:\Electromic\business_card\obj/../src/Main.c:240
+    1058:	1ffff097          	auipc	ra,0x1ffff
+    105c:	4fe080e7          	jalr	1278(ra) # 20000556 <mDelaymS>
+d:\Electromic\business_card\obj/../src/Main.c:339
         for(i=0;i<KEY_COUNT;i++){ key_prev[i]=key_state[i]; key_state[i]=0; }
-     ec4:	03000913          	li	s2,48
-     ec8:	89a2                	mv	s3,s0
-     eca:	8a26                	mv	s4,s1
-d:\Electromic\business_card\obj/../src/Main.c:215
+    1060:	03000913          	li	s2,48
+    1064:	89a2                	mv	s3,s0
+    1066:	8a26                	mv	s4,s1
+d:\Electromic\business_card\obj/../src/Main.c:315
 {
-     ecc:	4781                	li	a5,0
-d:\Electromic\business_card\obj/../src/Main.c:240 (discriminator 3)
+    1068:	4781                	li	a5,0
+d:\Electromic\business_card\obj/../src/Main.c:339 (discriminator 3)
         for(i=0;i<KEY_COUNT;i++){ key_prev[i]=key_state[i]; key_state[i]=0; }
-     ece:	00f406b3          	add	a3,s0,a5
-     ed2:	0006c703          	lbu	a4,0(a3)
-     ed6:	00f48633          	add	a2,s1,a5
-     eda:	0785                	addi	a5,a5,1
-     edc:	0ff77713          	andi	a4,a4,255
-     ee0:	00e60023          	sb	a4,0(a2)
-     ee4:	00068023          	sb	zero,0(a3)
-     ee8:	ff2793e3          	bne	a5,s2,ece <main+0xa8>
-d:\Electromic\business_card\obj/../src/Main.c:241
+    106a:	00f406b3          	add	a3,s0,a5
+    106e:	0006c703          	lbu	a4,0(a3)
+    1072:	00f48633          	add	a2,s1,a5
+    1076:	0785                	addi	a5,a5,1
+    1078:	0ff77713          	andi	a4,a4,255
+    107c:	00e60023          	sb	a4,0(a2)
+    1080:	00068023          	sb	zero,0(a3)
+    1084:	ff2793e3          	bne	a5,s2,106a <main+0xa6>
+d:\Electromic\business_card\obj/../src/Main.c:340
         fn_pressed=0;
-     eec:	80018423          	sb	zero,-2040(gp) # 200009b0 <fn_pressed>
-d:\Electromic\business_card\obj/../src/Main.c:242
+    1088:	80018823          	sb	zero,-2032(gp) # 200009b8 <fn_pressed>
+d:\Electromic\business_card\obj/../src/Main.c:341
         MatrixScan();
-     ef0:	3951                	jal	b84 <MatrixScan>
-     ef2:	4781                	li	a5,0
-d:\Electromic\business_card\obj/../src/Main.c:243 (discriminator 4)
+    108c:	36c1                	jal	c4c <MatrixScan>
+    108e:	4781                	li	a5,0
+d:\Electromic\business_card\obj/../src/Main.c:342 (discriminator 4)
         for(i=0;i<KEY_COUNT;i++) if(key_state[i]!=key_prev[i]) break;
-     ef4:	00f98733          	add	a4,s3,a5
-     ef8:	00074683          	lbu	a3,0(a4) # 400000 <_data_lma+0x3feeec>
-     efc:	00fa0733          	add	a4,s4,a5
-     f00:	00074703          	lbu	a4,0(a4)
-     f04:	0ff77713          	andi	a4,a4,255
-     f08:	00d71b63          	bne	a4,a3,f1e <main+0xf8>
-     f0c:	0785                	addi	a5,a5,1
-d:\Electromic\business_card\obj/../src/Main.c:243 (discriminator 2)
-     f0e:	ff2793e3          	bne	a5,s2,ef4 <main+0xce>
-d:\Electromic\business_card\obj/../src/Main.c:245
+    1090:	00f98733          	add	a4,s3,a5
+    1094:	00074683          	lbu	a3,0(a4) # 400000 <_data_lma+0x3fed40>
+    1098:	00fa0733          	add	a4,s4,a5
+    109c:	00074703          	lbu	a4,0(a4)
+    10a0:	0ff77713          	andi	a4,a4,255
+    10a4:	00d71b63          	bne	a4,a3,10ba <main+0xf6>
+    10a8:	0785                	addi	a5,a5,1
+d:\Electromic\business_card\obj/../src/Main.c:342 (discriminator 2)
+    10aa:	ff2793e3          	bne	a5,s2,1090 <main+0xcc>
+d:\Electromic\business_card\obj/../src/Main.c:344
         if(i<KEY_COUNT) SendHIDReport();
         DelayMs(5);
-     f12:	4515                	li	a0,5
-     f14:	1ffff097          	auipc	ra,0x1ffff
-     f18:	642080e7          	jalr	1602(ra) # 20000556 <mDelaymS>
-d:\Electromic\business_card\obj/../src/Main.c:240
+    10ae:	4515                	li	a0,5
+    10b0:	1ffff097          	auipc	ra,0x1ffff
+    10b4:	4a6080e7          	jalr	1190(ra) # 20000556 <mDelaymS>
+d:\Electromic\business_card\obj/../src/Main.c:339
         for(i=0;i<KEY_COUNT;i++){ key_prev[i]=key_state[i]; key_state[i]=0; }
-     f1c:	bf45                	j	ecc <main+0xa6>
-d:\Electromic\business_card\obj/../src/Main.c:244
+    10b8:	bf45                	j	1068 <main+0xa4>
+d:\Electromic\business_card\obj/../src/Main.c:343
         if(i<KEY_COUNT) SendHIDReport();
-     f1e:	3b51                	jal	cb2 <SendHIDReport>
-     f20:	bfcd                	j	f12 <main+0xec>
+    10ba:	3b99                	jal	e10 <SendHIDReport>
+    10bc:	bfcd                	j	10ae <main+0xea>
 
-00000f22 <USB_IRQHandler>:
+000010be <USB_IRQHandler>:
 USB_IRQHandler():
-d:\Electromic\business_card\obj/../src/Main.c:253
+d:\Electromic\business_card\obj/../src/Main.c:352
 
 /* ======================== USB 中断 ======================== */
 void USB_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 void USB_IRQHandler(void)
 {
     uint8_t f = R8_USB_INT_FG;
-     f22:	400087b7          	lui	a5,0x40008
-     f26:	0067c703          	lbu	a4,6(a5) # 40008006 <_eusrstack+0x20000006>
-d:\Electromic\business_card\obj/../src/Main.c:256
+    10be:	400087b7          	lui	a5,0x40008
+    10c2:	0067c703          	lbu	a4,6(a5) # 40008006 <_eusrstack+0x20000006>
+d:\Electromic\business_card\obj/../src/Main.c:355
     if(f & RB_UIE_SUSPEND)  {}
     if(f & RB_UIE_TRANSFER) {}
     if(f & RB_UIE_BUS_RST) {
-     f2a:	8b05                	andi	a4,a4,1
-     f2c:	cf01                	beqz	a4,f44 <USB_IRQHandler+0x22>
-d:\Electromic\business_card\obj/../src/Main.c:257
+    10c6:	8b05                	andi	a4,a4,1
+    10c8:	cf01                	beqz	a4,10e0 <USB_IRQHandler+0x22>
+d:\Electromic\business_card\obj/../src/Main.c:356
         R8_USB_DEV_AD = 0;
-     f2e:	000781a3          	sb	zero,3(a5)
-d:\Electromic\business_card\obj/../src/Main.c:258
+    10ca:	000781a3          	sb	zero,3(a5)
+d:\Electromic\business_card\obj/../src/Main.c:357
         R8_UEP0_CTRL = UEP_R_RES_ACK | UEP_T_RES_NAK;
-     f32:	4709                	li	a4,2
-     f34:	02e78123          	sb	a4,34(a5)
-d:\Electromic\business_card\obj/../src/Main.c:259
+    10ce:	4709                	li	a4,2
+    10d0:	02e78123          	sb	a4,34(a5)
+d:\Electromic\business_card\obj/../src/Main.c:358
         R8_UEP1_CTRL = UEP_R_RES_ACK | UEP_T_RES_NAK | RB_UEP_AUTO_TOG;
-     f38:	4749                	li	a4,18
-     f3a:	02e78323          	sb	a4,38(a5)
-d:\Electromic\business_card\obj/../src/Main.c:260
+    10d4:	4749                	li	a4,18
+    10d6:	02e78323          	sb	a4,38(a5)
+d:\Electromic\business_card\obj/../src/Main.c:359
         R8_USB_INT_FG = RB_UIE_BUS_RST;
-     f3e:	4705                	li	a4,1
-     f40:	00e78323          	sb	a4,6(a5)
-d:\Electromic\business_card\obj/../src/Main.c:262
+    10da:	4705                	li	a4,1
+    10dc:	00e78323          	sb	a4,6(a5)
+d:\Electromic\business_card\obj/../src/Main.c:361
     }
 }
-     f44:	30200073          	mret
+    10e0:	30200073          	mret
 
-00000f48 <GPIOA_ModeCfg>:
-GPIOA_ModeCfg():
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:27
+000010e4 <GPIOB_ModeCfg>:
+GPIOB_ModeCfg():
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:74
  *
  * @return  none
  */
-void GPIOA_ModeCfg(uint32_t pin, GPIOModeTypeDef mode)
+void GPIOB_ModeCfg(uint32_t pin, GPIOModeTypeDef mode)
 {
     switch(mode)
-     f48:	4791                	li	a5,4
-     f4a:	02b7ee63          	bltu	a5,a1,f86 <GPIOA_ModeCfg+0x3e>
-     f4e:	00000717          	auipc	a4,0x0
-     f52:	1aa70713          	addi	a4,a4,426 # 10f8 <row_pin+0x20>
-     f56:	058a                	slli	a1,a1,0x2
-     f58:	95ba                	add	a1,a1,a4
-     f5a:	419c                	lw	a5,0(a1)
-     f5c:	97ba                	add	a5,a5,a4
-     f5e:	8782                	jr	a5
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:30
+    10e4:	4791                	li	a5,4
+    10e6:	02b7ee63          	bltu	a5,a1,1122 <GPIOB_ModeCfg+0x3e>
+    10ea:	00000717          	auipc	a4,0x0
+    10ee:	1ba70713          	addi	a4,a4,442 # 12a4 <KeyTable+0x38>
+    10f2:	058a                	slli	a1,a1,0x2
+    10f4:	95ba                	add	a1,a1,a4
+    10f6:	419c                	lw	a5,0(a1)
+    10f8:	97ba                	add	a5,a5,a4
+    10fa:	8782                	jr	a5
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:77
     {
         case GPIO_ModeIN_Floating:
-            R32_PA_PD_DRV &= ~pin;
-     f60:	400017b7          	lui	a5,0x40001
-     f64:	0b47a703          	lw	a4,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
-     f68:	fff54513          	not	a0,a0
-     f6c:	8f69                	and	a4,a4,a0
-     f6e:	0ae7aa23          	sw	a4,180(a5)
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:31
-            R32_PA_PU &= ~pin;
-     f72:	0b07a703          	lw	a4,176(a5)
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:43
-            R32_PA_DIR &= ~pin;
+            R32_PB_PD_DRV &= ~pin;
+    10fc:	400017b7          	lui	a5,0x40001
+    1100:	0d47a703          	lw	a4,212(a5) # 400010d4 <_eusrstack+0x1fff90d4>
+    1104:	fff54513          	not	a0,a0
+    1108:	8f69                	and	a4,a4,a0
+    110a:	0ce7aa23          	sw	a4,212(a5)
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:78
+            R32_PB_PU &= ~pin;
+    110e:	0d07a703          	lw	a4,208(a5)
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:90
+            R32_PB_DIR &= ~pin;
             break;
 
         case GPIO_ModeIN_PD:
-            R32_PA_PD_DRV |= pin;
-            R32_PA_PU &= ~pin;
-     f76:	8f69                	and	a4,a4,a0
-     f78:	0ae7a823          	sw	a4,176(a5)
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:44
-            R32_PA_DIR &= ~pin;
-     f7c:	0a07a703          	lw	a4,160(a5)
-     f80:	8d79                	and	a0,a0,a4
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:54
-            R32_PA_DIR |= pin;
+            R32_PB_PD_DRV |= pin;
+            R32_PB_PU &= ~pin;
+    1112:	8f69                	and	a4,a4,a0
+    1114:	0ce7a823          	sw	a4,208(a5)
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:91
+            R32_PB_DIR &= ~pin;
+    1118:	0c07a703          	lw	a4,192(a5)
+    111c:	8d79                	and	a0,a0,a4
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:101
+            R32_PB_DIR |= pin;
             break;
 
         case GPIO_ModeOut_PP_20mA:
-            R32_PA_PD_DRV |= pin;
-            R32_PA_DIR |= pin;
-     f82:	0aa7a023          	sw	a0,160(a5)
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:60
+            R32_PB_PD_DRV |= pin;
+            R32_PB_DIR |= pin;
+    111e:	0ca7a023          	sw	a0,192(a5)
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:107
             break;
 
         default:
             break;
     }
 }
-     f86:	8082                	ret
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:36
-            R32_PA_PD_DRV &= ~pin;
-     f88:	400017b7          	lui	a5,0x40001
-     f8c:	0b47a683          	lw	a3,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
-     f90:	fff54713          	not	a4,a0
-     f94:	8ef9                	and	a3,a3,a4
-     f96:	0ad7aa23          	sw	a3,180(a5)
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:37
-            R32_PA_PU |= pin;
-     f9a:	0b07a683          	lw	a3,176(a5)
-     f9e:	8d55                	or	a0,a0,a3
-     fa0:	0aa7a823          	sw	a0,176(a5)
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:38
-            R32_PA_DIR &= ~pin;
-     fa4:	0a07a683          	lw	a3,160(a5)
-     fa8:	8f75                	and	a4,a4,a3
-     faa:	0ae7a023          	sw	a4,160(a5)
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:39
+    1122:	8082                	ret
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:83
+            R32_PB_PD_DRV &= ~pin;
+    1124:	400017b7          	lui	a5,0x40001
+    1128:	0d47a683          	lw	a3,212(a5) # 400010d4 <_eusrstack+0x1fff90d4>
+    112c:	fff54713          	not	a4,a0
+    1130:	8ef9                	and	a3,a3,a4
+    1132:	0cd7aa23          	sw	a3,212(a5)
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:84
+            R32_PB_PU |= pin;
+    1136:	0d07a683          	lw	a3,208(a5)
+    113a:	8d55                	or	a0,a0,a3
+    113c:	0ca7a823          	sw	a0,208(a5)
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:85
+            R32_PB_DIR &= ~pin;
+    1140:	0c07a683          	lw	a3,192(a5)
+    1144:	8f75                	and	a4,a4,a3
+    1146:	0ce7a023          	sw	a4,192(a5)
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:86
             break;
-     fae:	8082                	ret
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:42
-            R32_PA_PD_DRV |= pin;
-     fb0:	400017b7          	lui	a5,0x40001
-     fb4:	0b47a703          	lw	a4,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
-     fb8:	8f49                	or	a4,a4,a0
-     fba:	0ae7aa23          	sw	a4,180(a5)
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:43
-            R32_PA_PU &= ~pin;
-     fbe:	0b07a703          	lw	a4,176(a5)
-     fc2:	fff54513          	not	a0,a0
-     fc6:	bf45                	j	f76 <GPIOA_ModeCfg+0x2e>
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:48
-            R32_PA_PD_DRV &= ~pin;
-     fc8:	400017b7          	lui	a5,0x40001
-     fcc:	0b47a683          	lw	a3,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
-     fd0:	fff54713          	not	a4,a0
-     fd4:	8f75                	and	a4,a4,a3
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:53
-            R32_PA_PD_DRV |= pin;
-     fd6:	0ae7aa23          	sw	a4,180(a5)
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:54
-            R32_PA_DIR |= pin;
-     fda:	0a07a703          	lw	a4,160(a5)
-     fde:	8d59                	or	a0,a0,a4
-     fe0:	b74d                	j	f82 <GPIOA_ModeCfg+0x3a>
-d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:53
-            R32_PA_PD_DRV |= pin;
-     fe2:	400017b7          	lui	a5,0x40001
-     fe6:	0b47a703          	lw	a4,180(a5) # 400010b4 <_eusrstack+0x1fff90b4>
-     fea:	8f49                	or	a4,a4,a0
-     fec:	b7ed                	j	fd6 <GPIOA_ModeCfg+0x8e>
+    114a:	8082                	ret
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:89
+            R32_PB_PD_DRV |= pin;
+    114c:	400017b7          	lui	a5,0x40001
+    1150:	0d47a703          	lw	a4,212(a5) # 400010d4 <_eusrstack+0x1fff90d4>
+    1154:	8f49                	or	a4,a4,a0
+    1156:	0ce7aa23          	sw	a4,212(a5)
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:90
+            R32_PB_PU &= ~pin;
+    115a:	0d07a703          	lw	a4,208(a5)
+    115e:	fff54513          	not	a0,a0
+    1162:	bf45                	j	1112 <GPIOB_ModeCfg+0x2e>
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:95
+            R32_PB_PD_DRV &= ~pin;
+    1164:	400017b7          	lui	a5,0x40001
+    1168:	0d47a683          	lw	a3,212(a5) # 400010d4 <_eusrstack+0x1fff90d4>
+    116c:	fff54713          	not	a4,a0
+    1170:	8f75                	and	a4,a4,a3
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:100
+            R32_PB_PD_DRV |= pin;
+    1172:	0ce7aa23          	sw	a4,212(a5)
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:101
+            R32_PB_DIR |= pin;
+    1176:	0c07a703          	lw	a4,192(a5)
+    117a:	8d59                	or	a0,a0,a4
+    117c:	b74d                	j	111e <GPIOB_ModeCfg+0x3a>
+d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:100
+            R32_PB_PD_DRV |= pin;
+    117e:	400017b7          	lui	a5,0x40001
+    1182:	0d47a703          	lw	a4,212(a5) # 400010d4 <_eusrstack+0x1fff90d4>
+    1186:	8f49                	or	a4,a4,a0
+    1188:	b7ed                	j	1172 <GPIOB_ModeCfg+0x8e>
 
-00000fee <GPIOAGPPCfg>:
+0000118a <GPIOAGPPCfg>:
 GPIOAGPPCfg():
 d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:257
  */
@@ -2651,55 +2957,74 @@ void GPIOAGPPCfg(FunctionalState s, uint16_t perph)
     if(s)
     {
         R16_PIN_ANALOG_IE |= perph;
-     fee:	400017b7          	lui	a5,0x40001
-     ff2:	01a7d703          	lhu	a4,26(a5) # 4000101a <_eusrstack+0x1fff901a>
+    118a:	400017b7          	lui	a5,0x40001
+    118e:	01a7d703          	lhu	a4,26(a5) # 4000101a <_eusrstack+0x1fff901a>
 d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:255
     if(s)
-     ff6:	c509                	beqz	a0,1000 <GPIOAGPPCfg+0x12>
+    1192:	c509                	beqz	a0,119c <GPIOAGPPCfg+0x12>
 d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:257
         R16_PIN_ANALOG_IE |= perph;
-     ff8:	8dd9                	or	a1,a1,a4
+    1194:	8dd9                	or	a1,a1,a4
 d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:261
     }
     else
     {
         R16_PIN_ANALOG_IE &= ~perph;
-     ffa:	00b79d23          	sh	a1,26(a5)
+    1196:	00b79d23          	sh	a1,26(a5)
 d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:263
     }
 }
-     ffe:	8082                	ret
+    119a:	8082                	ret
 d:\Electromic\business_card\obj/../StdPeriphDriver/CH58x_gpio.c:261
         R16_PIN_ANALOG_IE &= ~perph;
-    1000:	fff5c593          	not	a1,a1
-    1004:	8df9                	and	a1,a1,a4
-    1006:	bfd5                	j	ffa <GPIOAGPPCfg+0xc>
+    119c:	fff5c593          	not	a1,a1
+    11a0:	8df9                	and	a1,a1,a4
+    11a2:	bfd5                	j	1196 <GPIOAGPPCfg+0xc>
+    11a4:	fb06                	fsw	ft1,180(sp)
+    11a6:	ffff                	0xffff
+    11a8:	fb8e                	fsw	ft3,244(sp)
+    11aa:	ffff                	0xffff
+    11ac:	fb92                	fsw	ft4,244(sp)
+    11ae:	ffff                	0xffff
+    11b0:	fb96                	fsw	ft5,244(sp)
+    11b2:	ffff                	0xffff
+    11b4:	fb9c                	fsw	fa5,48(a5)
+    11b6:	ffff                	0xffff
+    11b8:	fba2                	fsw	fs0,244(sp)
+    11ba:	ffff                	0xffff
+    11bc:	fbf6                	fsw	ft9,244(sp)
+    11be:	ffff                	0xffff
+    11c0:	fc04                	fsw	fs1,56(s0)
+    11c2:	ffff                	0xffff
+    11c4:	fc0e                	fsw	ft3,56(sp)
+    11c6:	ffff                	0xffff
+    11c8:	fc18                	fsw	fa4,56(s0)
+    11ca:	ffff                	0xffff
+    11cc:	fc22                	fsw	fs0,56(sp)
+    11ce:	ffff                	0xffff
+    11d0:	fc2c                	fsw	fa1,120(s0)
+    11d2:	ffff                	0xffff
 
-00001008 <FnTable>:
-    1008:	1e00 201f 2221 0023 0000 0000 0000 0000     ... !"#.........
+000011d4 <FnTable>:
+    11d4:	1e00 201f 2221 0023 0000 0000 0000 0000     ... !"#.........
 	...
-    1024:	2524 2726 0000 0000 0000 0000 0000 0000     $%&'............
+    11f0:	2524 2726 0000 0000 0000 0000 0000 0000     $%&'............
 	...
 
-00001040 <KeyMap>:
-    1040:	0000 0100 0200 0300 0400 0500 0600 0001     ................
-    1050:	0101 0201 0301 0401 0501 0601 0002 0102     ................
-    1060:	0202 0302 0402 0502 0602 0003 0103 0203     ................
-    1070:	0303 0403 0503 0603 0204 0304 0404 0504     ................
-    1080:	0604 0205 0305 0405 0505 0605 0206 0306     ................
-    1090:	0406 0506 0606 0207 0307 0407 0507 0607     ................
+0000120c <KeyMap>:
+    120c:	0000 0100 0200 0300 0400 0500 0600 0001     ................
+    121c:	0101 0201 0301 0401 0501 0601 0002 0102     ................
+    122c:	0202 0302 0402 0502 0602 0003 0103 0203     ................
+    123c:	0303 0403 0503 0603 0204 0304 0404 0504     ................
+    124c:	0604 0205 0305 0405 0505 0605 0206 0306     ................
+    125c:	0406 0506 0606 0207 0307 0407 0507 0607     ................
 
-000010a0 <KeyTable>:
-    10a0:	1429 081a 1715 2b1c 1604 0907 0b0a 1de1     )......+........
-    10b0:	061b 0519 e011 e2e3 2c00 2c2c 0c18 1312     .........,,,....
-    10c0:	002a 0d00 0f0e 2833 0000 3610 5237 0038     *.....3(...67R8.
-    10d0:	2c00 5000 4f51 0000                         .,.PQO..
+0000126c <KeyTable>:
+    126c:	1429 081a 1715 2b1c 1604 0907 0b0a 1de1     )......+........
+    127c:	061b 0519 e011 e2e3 2c00 2c2c 0c18 1312     .........,,,....
+    128c:	002a 0d00 0f0e 2833 0000 3610 5237 0038     *.....3(...67R8.
+    129c:	2c00 5000 4f51 0000 fe58 ffff fe80 ffff     .,.PQO..X.......
+    12ac:	fea8 ffff fec0 ffff feda ffff               ............
 
-000010d8 <row_pin>:
-    10d8:	0040 0000 0001 0000 0002 0000 0004 0000     @...............
-    10e8:	0080 0000 0100 0000 0200 0000 0200 0000     ................
-    10f8:	fe68 ffff fe90 ffff feb8 ffff fed0 ffff     h...............
-    1108:	feea ffff                                   ....
-
-0000110c <TKC>:
-    110c:	0100 0302 0504 0006                         ........
+000012b8 <CSWTCH.24>:
+    12b8:	090a 0708 0c0b 000d                         ........

@@ -2,6 +2,7 @@
  * 文件名: Main.c
  * 描述: CH582M 电容触摸键盘固件
  *       共 48键，使用 CH582M 内置 TouchKey 模块
+ *       R8 行 (PB8+PB9) 使用 RC 充放电检测触摸
  *       USB HID Keyboard 协议
  ******************************************************************************/
 #include "CH58x_common.h"
@@ -10,7 +11,6 @@
 #include "CH58x_usbdev.h"
 
 /* ======================== USB HID 描述符 ======================== */
-/* USB 键盘报告描述符 */
 const uint8_t KeyboardReportDesc[] = {
     0x05,0x01,0x09,0x06,0xA1,0x01,
     0x05,0x07,0x19,0xE0,0x29,0xE7,0x15,0x00,0x25,0x01,
@@ -25,18 +25,12 @@ const uint8_t KeyboardReportDesc[] = {
 __attribute__((aligned(4))) uint8_t EP0_Databuf[64+64+64];
 __attribute__((aligned(4))) uint8_t EP1_Databuf[64+64];
 __attribute__((aligned(4))) uint8_t HIDKeyBuff[8]={0};
+__attribute__((aligned(4))) uint8_t HIDKeyBuffPrev[8]={0};
 
-uint8_t DevConfig=0, Ready=0;
-uint8_t SetupReqCode;
-uint16_t SetupReqLen;
-const uint8_t *pDescr;
-
-/* USB 设备描述符 */
 const uint8_t MyDevDescr[] = {
     0x12,0x01,0x10,0x01,0x00,0x00,0x00,0x08,
     0x86,0x1A,0x24,0x55,0x00,0x01,0x01,0x02,0x00,0x01
 };
-/* USB 配置描述符 (含 HID, 端点) */
 const uint8_t MyCfgDescr[] = {
     0x09,0x02,0x3B,0x00,0x01,0x01,0x00,0x80,0x32,
     0x09,0x04,0x00,0x00,0x01,0x03,0x01,0x01,0x00,
@@ -62,12 +56,12 @@ const uint8_t MyCfgDescr[] = {
 #define R5_PIN      GPIO_Pin_7
 #define R6_PIN      GPIO_Pin_8
 #define R7_PIN      GPIO_Pin_9
-#define R8_PIN      GPIO_Pin_9   /* PB9 */
 #define ROW_COUNT   8
 
-const uint32_t row_pin[8]={R1_PIN,R2_PIN,R3_PIN,R4_PIN,R5_PIN,R6_PIN,R7_PIN,R8_PIN};
+/* R8 用 PB8+PB9 检测 */
+#define R8_A_PIN    GPIO_Pin_8   /* PB8 */
+#define R8_B_PIN    GPIO_Pin_9   /* PB9 */
 
-/* TouchKey 通道: CH_EXTIN_0 ~ 6 */
 const uint8_t TKC[7]={0,1,2,3,4,5,6};
 
 /* ======================== 键值表 ======================== */
@@ -107,47 +101,125 @@ const uint8_t KeyMap[KEY_COUNT][2]={
 volatile uint8_t fn_pressed=0;
 volatile uint8_t key_state[KEY_COUNT]={0};
 volatile uint8_t key_prev[KEY_COUNT]={0};
-uint16_t tkey_base[COL_COUNT]={0};
+uint16_t tkey_base[ROW_COUNT][COL_COUNT]={0};
 
-/* ======================== 内联 TouchKey 函数 ======================== */
+/* R8 触摸检测状态 */
+volatile uint8_t r8_touched=0;
+volatile uint16_t r8_charge_time=0;
+#define R8_TOUCH_THRESH  20  /* 需要调试 */
+
+/* ======================== TouchKey 函数 ======================== */
 static void TKey_ChSampInit(void)
 {
     R8_ADC_CFG = RB_ADC_POWER_ON | RB_ADC_BUF_EN | (1<<4);
     R8_TKEY_CFG |= RB_TKEY_PWR_ON;
 }
 
-static uint16_t TKey_Convert(uint8_t charg, uint8_t disch)
+static uint16_t TKey_Convert(uint8_t ch, uint8_t charg, uint8_t disch)
 {
+    R8_ADC_CHANNEL = ch;
+    DelayUs(2);
     R8_TKEY_COUNT = (disch<<5) | (charg&0x1f);
     R8_TKEY_CONVERT = RB_TKEY_START;
     while(R8_TKEY_CONVERT & RB_TKEY_START);
     return (R16_ADC_DATA & RB_ADC_DATA);
 }
 
+/* ======================== R8 触摸检测 (RC 充放电法) ======================== */
+/* 原理: PB8 输出高 → 经 1MΩ 给触摸焊盘充电 → 切为输入测电平爬升时间
+   PB9 也参与形成差分检测 */
+
+/* 定时器 TMR0 用于测量 RC 充放电时间 */
+volatile uint16_t r8_tmr_cnt=0;
+volatile uint8_t  r8_meas_done=0;
+
+/* 初始化 R8 检测引脚 */
+void R8_Init(void)
+{
+    /* PB8 推挽输出, 初始低 */
+    GPIOB_ModeCfg(R8_A_PIN, GPIO_ModeOut_PP_5mA);
+    GPIOB_ResetBits(R8_A_PIN);
+    /* PB9 浮空输入 (读电平) */
+    GPIOB_ModeCfg(R8_B_PIN, GPIO_ModeIN_Floating);
+}
+
+/* 检测 R8 行是否有触摸
+   返回 0=无触摸, 1=有触摸 */
+uint8_t R8_Detect(void)
+{
+    uint16_t t;
+    uint8_t ret=0;
+
+    /* PB8 输出高, 开始充电 */
+    GPIOB_SetBits(R8_A_PIN);
+
+    /* 等待 PB9 电平升到高电平, 计时 */
+    /* 未触摸时: 电容小, 充电快, 很快升到高电平 */
+    /* 触摸时: 人体电容并联, 电容大, 充电慢 */
+    GPIOB_ModeCfg(R8_B_PIN, GPIO_ModeIN_Floating);
+
+    /* 用简单计数法测时间 */
+    /* TIMEOUT 防卡死 */
+    for(t=0; t<5000; t++){
+        if(GPIOB_ReadPortPin(R8_B_PIN)){
+            break;
+        }
+    }
+
+    /* 触摸时充电时间长, t 值大 */
+    if(t > R8_TOUCH_THRESH){
+        ret = 1;
+    }
+
+    /* PB8 拉低放电, 准备下次 */
+    GPIOB_ResetBits(R8_A_PIN);
+    /* 等待放电完成 */
+    {
+        volatile uint16_t d;
+        for(d=0; d<1000; d++);
+    }
+
+    return ret;
+}
+
 /* ======================== 初始化 ======================== */
 void TKey_Init(void)
 {
-    uint8_t i;
-    GPIOAGPPCfg(ENABLE, RB_PIN_ADC0_IE);
-    GPIOAGPPCfg(ENABLE, RB_PIN_ADC1_IE);
-    GPIOAGPPCfg(ENABLE, RB_PIN_ADC2_3_IE);
-    GPIOAGPPCfg(ENABLE, RB_PIN_ADC4_5_IE);
-    GPIOAGPPCfg(ENABLE, RB_PIN_ADC6_7_IE);
-    TKey_ChSampInit();
-    for(i=0;i<COL_COUNT;i++){
-        R8_ADC_CHANNEL = TKC[i];
-        DelayUs(20);
-        tkey_base[i] = TKey_Convert(8,1);
-        DelayUs(5);
-        tkey_base[i] = (tkey_base[i] + TKey_Convert(8,1)) >> 1;
-    }
-}
+    uint8_t r,c;
 
-void GPIOInit(void)
-{
-    GPIOA_ModeCfg(R1_PIN|R2_PIN|R3_PIN|R4_PIN|R5_PIN|R6_PIN|R7_PIN, GPIO_ModeOut_PP_5mA);
-    GPIOA_ModeCfg(COL_ALL, GPIO_ModeIN_Floating);
-    GPIOA_SetBits(R1_PIN|R2_PIN|R3_PIN|R4_PIN|R5_PIN|R6_PIN|R7_PIN);
+    GPIOAGPPCfg(ENABLE, RB_PIN_ADC0_IE | RB_PIN_ADC1_IE);
+    GPIOAGPPCfg(ENABLE, RB_PIN_ADC2_3_IE | RB_PIN_ADC4_5_IE);
+    GPIOAGPPCfg(ENABLE, RB_PIN_ADC6_7_IE);
+    GPIOAGPPCfg(ENABLE, RB_PIN_ADC10_IE | RB_PIN_ADC11_IE);
+    GPIOAGPPCfg(ENABLE, RB_PIN_ADC12_IE | RB_PIN_ADC13_IE);
+    GPIOAGPPCfg(ENABLE, RB_PIN_ADC8_9_IE);
+
+    TKey_ChSampInit();
+
+    for(r=0;r<ROW_COUNT-1;r++){
+        for(c=0;c<COL_COUNT;c++){
+            uint8_t row_ch;
+            switch(r){
+                case 0: row_ch=10; break;
+                case 1: row_ch=9;  break;
+                case 2: row_ch=8;  break;
+                case 3: row_ch=7;  break;
+                case 4: row_ch=11; break;
+                case 5: row_ch=12; break;
+                case 6: row_ch=13; break;
+                default: row_ch=0;
+            }
+            R8_ADC_CHANNEL = row_ch;
+            DelayUs(5);
+            TKey_Convert(row_ch,8,1);
+            DelayUs(3);
+            tkey_base[r][c] = TKey_Convert(c,8,1);
+            DelayUs(2);
+            tkey_base[r][c] = (tkey_base[r][c] + TKey_Convert(c,8,1)) >> 1;
+        }
+    }
+
+    R8_Init();
 }
 
 /* ======================== 矩阵扫描 ======================== */
@@ -155,22 +227,49 @@ void MatrixScan(void)
 {
     uint8_t r,c,idx;
     uint16_t val,diff;
-    for(r=0;r<ROW_COUNT;r++){
-        if(r<7) GPIOA_ResetBits(row_pin[r]);
-        else    GPIOB_ResetBits(R8_PIN);
+
+    for(r=0;r<ROW_COUNT-1;r++){
+        /* 用 switch 设定当前行引脚拉低 */
+        switch(r){
+            case 0: R32_PA_CLR = GPIO_Pin_6; break;
+            case 1: R32_PA_CLR = GPIO_Pin_0; break;
+            case 2: R32_PA_CLR = GPIO_Pin_1; break;
+            case 3: R32_PA_CLR = GPIO_Pin_2; break;
+            case 4: R32_PA_CLR = GPIO_Pin_7; break;
+            case 5: R32_PA_CLR = GPIO_Pin_8; break;
+            case 6: R32_PA_CLR = GPIO_Pin_9; break;
+        }
         DelayUs(3);
         for(c=0;c<COL_COUNT;c++){
-            R8_ADC_CHANNEL = TKC[c];
-            DelayUs(2);
-            val = TKey_Convert(8,1);
-            diff = (val>tkey_base[c])?(val-tkey_base[c]):0;
+            val = TKey_Convert(c,8,1);
+            diff = (val>tkey_base[r][c])?(val-tkey_base[r][c]):0;
             idx = r*COL_COUNT+c;
             if(idx>=KEY_COUNT) continue;
             if(r<4){ if(diff>80) key_state[idx]=1; }
             else if(c>=2){ if(diff>80) key_state[idx]=1; }
         }
-        if(r<7) GPIOA_SetBits(row_pin[r]);
-        else    GPIOB_SetBits(R8_PIN);
+        switch(r){
+            case 0: R32_PA_OUT |= GPIO_Pin_6; break;
+            case 1: R32_PA_OUT |= GPIO_Pin_0; break;
+            case 2: R32_PA_OUT |= GPIO_Pin_1; break;
+            case 3: R32_PA_OUT |= GPIO_Pin_2; break;
+            case 4: R32_PA_OUT |= GPIO_Pin_7; break;
+            case 5: R32_PA_OUT |= GPIO_Pin_8; break;
+            case 6: R32_PA_OUT |= GPIO_Pin_9; break;
+        }
+    }
+
+    /* R8 行 - 使用 RC 充放电检测 */
+    r = 7;
+    if(R8_Detect()){
+        /* 检测 R8 行哪一列有触摸 */
+        /* 正常扫描列 TouchKey, 行由 PB8/PB9 提供激励 */
+        for(c=2;c<COL_COUNT;c++){
+            val = TKey_Convert(c,8,1);
+            diff = (val>tkey_base[r][c])?(val-tkey_base[r][c]):0;
+            idx = r*COL_COUNT+c;
+            if(idx<KEY_COUNT && diff>80) key_state[idx]=1;
+        }
     }
 }
 
@@ -195,7 +294,10 @@ void SendHIDReport(void)
     }
     HIDKeyBuff[0]=mod;
 
-    /* 直接写入 EP1_Databuf (IN 缓冲区在后 64 字节) */
+    for(i=0;i<8;i++) if(HIDKeyBuff[i]!=HIDKeyBuffPrev[i]) break;
+    if(i==8) return;
+    for(i=0;i<8;i++) HIDKeyBuffPrev[i]=HIDKeyBuff[i];
+
     EP1_Databuf[64] = HIDKeyBuff[0];
     EP1_Databuf[65] = HIDKeyBuff[1];
     EP1_Databuf[66] = HIDKeyBuff[2];
@@ -204,8 +306,6 @@ void SendHIDReport(void)
     EP1_Databuf[69] = HIDKeyBuff[5];
     EP1_Databuf[70] = HIDKeyBuff[6];
     EP1_Databuf[71] = HIDKeyBuff[7];
-
-    /* EP1 IN 发送 */
     R8_UEP1_T_LEN = 8;
     R8_UEP1_CTRL = (R8_UEP1_CTRL & ~MASK_UEP_T_RES) | UEP_T_RES_ACK;
 }
@@ -215,10 +315,9 @@ int main(void)
 {
     uint8_t i;
     SetSysClock(CLK_SOURCE_PLL_60MHz);
-    GPIOInit();
+
     TKey_Init();
 
-    /* USB 初始化 - 直接操作寄存器, 不依赖 usbdev.c */
     R8_USB_CTRL = 0x00;
     R8_UEP4_1_MOD = RB_UEP4_RX_EN | RB_UEP4_TX_EN | RB_UEP1_RX_EN | RB_UEP1_TX_EN;
     R8_UEP2_3_MOD = RB_UEP2_RX_EN | RB_UEP2_TX_EN | RB_UEP3_RX_EN | RB_UEP3_TX_EN;
