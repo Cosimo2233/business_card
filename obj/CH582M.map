@@ -93,15 +93,8 @@ Discarded input sections
                 0x0000000000000000       0x22 ./src/Main.o
  .rodata.MyDevDescr
                 0x0000000000000000       0x12 ./src/Main.o
- .sbss.r8_charge_time
-                0x0000000000000000        0x2 ./src/Main.o
- .sbss.r8_meas_done
-                0x0000000000000000        0x1 ./src/Main.o
- .sbss.r8_tmr_cnt
-                0x0000000000000000        0x2 ./src/Main.o
- .sbss.r8_touched
-                0x0000000000000000        0x1 ./src/Main.o
- .sdata2.TKC    0x0000000000000000        0x7 ./src/Main.o
+ .rodata.col_pin
+                0x0000000000000000       0x1c ./src/Main.o
  .text          0x0000000000000000        0x0 ./StdPeriphDriver/CH58x_clk.o
  .data          0x0000000000000000        0x0 ./StdPeriphDriver/CH58x_clk.o
  .bss           0x0000000000000000        0x0 ./StdPeriphDriver/CH58x_clk.o
@@ -993,90 +986,89 @@ END GROUP
                 0x00000000200009a4                . = ALIGN (0x4)
                 0x00000000200009a4                PROVIDE (_highcode_vma_end = .)
 
-.text           0x00000000000009a8      0x918
+.text           0x00000000000009a8      0x814
                 0x00000000000009a8                . = ALIGN (0x4)
  *(SORT_NONE(.handle_reset))
  .handle_reset  0x00000000000009a8       0xde ./Startup/startup_CH583.o
                 0x00000000000009a8                handle_reset
  *(.text)
  *(.text.*)
- .text.TKey_Convert.constprop.0
+ .text.TK_Read.constprop.0
                 0x0000000000000a86       0x42 ./src/Main.o
- .text.R8_Init  0x0000000000000ac8       0x28 ./src/Main.o
-                0x0000000000000ac8                R8_Init
+ .text.TK_Calib
+                0x0000000000000ac8       0xa4 ./src/Main.o
+                0x0000000000000ac8                TK_Calib
+ .text.R8_Init  0x0000000000000b6c       0x22 ./src/Main.o
+                0x0000000000000b6c                R8_Init
  .text.R8_Detect
-                0x0000000000000af0       0x7e ./src/Main.o
-                0x0000000000000af0                R8_Detect
- .text.TKey_Init
-                0x0000000000000b6e       0xde ./src/Main.o
-                0x0000000000000b6e                TKey_Init
+                0x0000000000000b8e       0x6e ./src/Main.o
+                0x0000000000000b8e                R8_Detect
  .text.MatrixScan
-                0x0000000000000c4c      0x1c4 ./src/Main.o
-                0x0000000000000c4c                MatrixScan
- .text.SendHIDReport
-                0x0000000000000e10      0x1b4 ./src/Main.o
-                0x0000000000000e10                SendHIDReport
+                0x0000000000000bfc      0x11c ./src/Main.o
+                0x0000000000000bfc                MatrixScan
+ .text.SendReport
+                0x0000000000000d18      0x1b8 ./src/Main.o
+                0x0000000000000d18                SendReport
  .text.startup.main
-                0x0000000000000fc4       0xfa ./src/Main.o
-                0x0000000000000fc4                main
+                0x0000000000000ed0       0xfc ./src/Main.o
+                0x0000000000000ed0                main
  .text.USB_IRQHandler
-                0x00000000000010be       0x26 ./src/Main.o
-                0x00000000000010be                USB_IRQHandler
+                0x0000000000000fcc       0x26 ./src/Main.o
+                0x0000000000000fcc                USB_IRQHandler
  .text.GPIOB_ModeCfg
-                0x00000000000010e4       0xa6 ./StdPeriphDriver/CH58x_gpio.o
-                0x00000000000010e4                GPIOB_ModeCfg
+                0x0000000000000ff2       0xa6 ./StdPeriphDriver/CH58x_gpio.o
+                0x0000000000000ff2                GPIOB_ModeCfg
  .text.GPIOAGPPCfg
-                0x000000000000118a       0x1a ./StdPeriphDriver/CH58x_gpio.o
-                0x000000000000118a                GPIOAGPPCfg
+                0x0000000000001098       0x1a ./StdPeriphDriver/CH58x_gpio.o
+                0x0000000000001098                GPIOAGPPCfg
  *(.rodata)
  *(.rodata*)
- *fill*         0x00000000000011a4        0x0 
- .rodata.MatrixScan
-                0x00000000000011a4       0x30 ./src/Main.o
- .rodata.FnTable
-                0x00000000000011d4       0x38 ./src/Main.o
-                0x00000000000011d4                FnTable
- .rodata.KeyMap
-                0x000000000000120c       0x60 ./src/Main.o
-                0x000000000000120c                KeyMap
- .rodata.KeyTable
-                0x000000000000126c       0x38 ./src/Main.o
-                0x000000000000126c                KeyTable
+ *fill*         0x00000000000010b2        0x2 
+ .rodata.FTab   0x00000000000010b4       0x38 ./src/Main.o
+                0x00000000000010b4                FTab
+ .rodata.KMap   0x00000000000010ec       0x60 ./src/Main.o
+                0x00000000000010ec                KMap
+ .rodata.KTab   0x000000000000114c       0x38 ./src/Main.o
+                0x000000000000114c                KTab
+ .rodata.row_pin
+                0x0000000000001184       0x1c ./src/Main.o
+                0x0000000000001184                row_pin
  .rodata.GPIOB_ModeCfg
-                0x00000000000012a4       0x14 ./StdPeriphDriver/CH58x_gpio.o
+                0x00000000000011a0       0x14 ./StdPeriphDriver/CH58x_gpio.o
  *(.sdata2.*)
- .sdata2.CSWTCH.24
-                0x00000000000012b8        0x7 ./src/Main.o
+ .sdata2.row_ch
+                0x00000000000011b4        0x7 ./src/Main.o
+                0x00000000000011b4                row_ch
  *(.glue_7)
  *(.glue_7t)
  *(.gnu.linkonce.t.*)
-                0x00000000000012c0                . = ALIGN (0x4)
- *fill*         0x00000000000012bf        0x1 
+                0x00000000000011bc                . = ALIGN (0x4)
+ *fill*         0x00000000000011bb        0x1 
 
-.rela.dyn       0x00000000000012c0        0x0
- .rela.init     0x00000000000012c0        0x0 ./src/Main.o
- .rela.vector   0x00000000000012c0        0x0 ./src/Main.o
+.rela.dyn       0x00000000000011bc        0x0
+ .rela.init     0x00000000000011bc        0x0 ./src/Main.o
+ .rela.vector   0x00000000000011bc        0x0 ./src/Main.o
  .rela.handle_reset
-                0x00000000000012c0        0x0 ./src/Main.o
+                0x00000000000011bc        0x0 ./src/Main.o
 
-.fini           0x00000000000012c0        0x0
+.fini           0x00000000000011bc        0x0
  *(SORT_NONE(.fini))
-                0x00000000000012c0                . = ALIGN (0x4)
+                0x00000000000011bc                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (_etext = .)
                 [!provide]                        PROVIDE (_eitcm = .)
 
-.preinit_array  0x00000000000012c0        0x0
+.preinit_array  0x00000000000011bc        0x0
                 [!provide]                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
                 [!provide]                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x00000000000012c0        0x0
+.init_array     0x00000000000011bc        0x0
                 [!provide]                        PROVIDE (__init_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
  *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
                 [!provide]                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x00000000000012c0        0x0
+.fini_array     0x00000000000011bc        0x0
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
  *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
@@ -1096,11 +1088,11 @@ END GROUP
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
 
-.dlalign        0x00000000000012c0        0x0
-                0x00000000000012c0                . = ALIGN (0x4)
-                0x00000000000012c0                PROVIDE (_data_lma = .)
+.dlalign        0x00000000000011bc        0x0
+                0x00000000000011bc                . = ALIGN (0x4)
+                0x00000000000011bc                PROVIDE (_data_lma = .)
 
-.data           0x00000000200009a4        0x4 load address 0x00000000000012c0
+.data           0x00000000200009a4        0x4 load address 0x00000000000011bc
                 0x00000000200009a4                . = ALIGN (0x4)
                 0x00000000200009a4                PROVIDE (_data_vma = .)
  *(.gnu.linkonce.r.*)
@@ -1120,7 +1112,7 @@ END GROUP
                 0x00000000200009a8                . = ALIGN (0x4)
                 0x00000000200009a8                PROVIDE (_edata = .)
 
-.bss            0x00000000200009a8      0x228 load address 0x00000000000012c0
+.bss            0x00000000200009a8      0x228 load address 0x00000000000011bc
                 0x00000000200009a8                . = ALIGN (0x4)
                 0x00000000200009a8                PROVIDE (_sbss = .)
  *(.sbss*)
@@ -1168,22 +1160,22 @@ END GROUP
                 0x0000000020008000                PROVIDE (_eusrstack = .)
 OUTPUT(CH582M.elf elf32-littleriscv)
 
-.debug_info     0x0000000000000000     0x40a5
- .debug_info    0x0000000000000000     0x17ac ./src/Main.o
- .debug_info    0x00000000000017ac      0xe73 ./StdPeriphDriver/CH58x_gpio.o
- .debug_info    0x000000000000261f     0x1a64 ./StdPeriphDriver/CH58x_sys.o
- .debug_info    0x0000000000004083       0x22 ./Startup/startup_CH583.o
+.debug_info     0x0000000000000000     0x3f45
+ .debug_info    0x0000000000000000     0x164c ./src/Main.o
+ .debug_info    0x000000000000164c      0xe73 ./StdPeriphDriver/CH58x_gpio.o
+ .debug_info    0x00000000000024bf     0x1a64 ./StdPeriphDriver/CH58x_sys.o
+ .debug_info    0x0000000000003f23       0x22 ./Startup/startup_CH583.o
 
-.debug_abbrev   0x0000000000000000      0xaf6
- .debug_abbrev  0x0000000000000000      0x417 ./src/Main.o
- .debug_abbrev  0x0000000000000417      0x268 ./StdPeriphDriver/CH58x_gpio.o
- .debug_abbrev  0x000000000000067f      0x465 ./StdPeriphDriver/CH58x_sys.o
- .debug_abbrev  0x0000000000000ae4       0x12 ./Startup/startup_CH583.o
+.debug_abbrev   0x0000000000000000      0xa6b
+ .debug_abbrev  0x0000000000000000      0x38c ./src/Main.o
+ .debug_abbrev  0x000000000000038c      0x268 ./StdPeriphDriver/CH58x_gpio.o
+ .debug_abbrev  0x00000000000005f4      0x465 ./StdPeriphDriver/CH58x_sys.o
+ .debug_abbrev  0x0000000000000a59       0x12 ./Startup/startup_CH583.o
 
-.debug_loc      0x0000000000000000      0xec1
- .debug_loc     0x0000000000000000      0x48e ./src/Main.o
- .debug_loc     0x000000000000048e      0x361 ./StdPeriphDriver/CH58x_gpio.o
- .debug_loc     0x00000000000007ef      0x6d2 ./StdPeriphDriver/CH58x_sys.o
+.debug_loc      0x0000000000000000      0xde3
+ .debug_loc     0x0000000000000000      0x3b0 ./src/Main.o
+ .debug_loc     0x00000000000003b0      0x361 ./StdPeriphDriver/CH58x_gpio.o
+ .debug_loc     0x0000000000000711      0x6d2 ./StdPeriphDriver/CH58x_sys.o
 
 .debug_aranges  0x0000000000000000      0x160
  .debug_aranges
@@ -1195,26 +1187,26 @@ OUTPUT(CH582M.elf elf32-littleriscv)
  .debug_aranges
                 0x0000000000000130       0x30 ./Startup/startup_CH583.o
 
-.debug_ranges   0x0000000000000000      0x190
- .debug_ranges  0x0000000000000000       0x80 ./src/Main.o
- .debug_ranges  0x0000000000000080       0x38 ./StdPeriphDriver/CH58x_gpio.o
- .debug_ranges  0x00000000000000b8       0xb0 ./StdPeriphDriver/CH58x_sys.o
- .debug_ranges  0x0000000000000168       0x28 ./Startup/startup_CH583.o
+.debug_ranges   0x0000000000000000      0x188
+ .debug_ranges  0x0000000000000000       0x78 ./src/Main.o
+ .debug_ranges  0x0000000000000078       0x38 ./StdPeriphDriver/CH58x_gpio.o
+ .debug_ranges  0x00000000000000b0       0xb0 ./StdPeriphDriver/CH58x_sys.o
+ .debug_ranges  0x0000000000000160       0x28 ./Startup/startup_CH583.o
 
-.debug_line     0x0000000000000000     0x349e
- .debug_line    0x0000000000000000     0x11ed ./src/Main.o
- .debug_line    0x00000000000011ed      0x7c0 ./StdPeriphDriver/CH58x_gpio.o
- .debug_line    0x00000000000019ad     0x1952 ./StdPeriphDriver/CH58x_sys.o
- .debug_line    0x00000000000032ff      0x19f ./Startup/startup_CH583.o
+.debug_line     0x0000000000000000     0x3294
+ .debug_line    0x0000000000000000      0xfe3 ./src/Main.o
+ .debug_line    0x0000000000000fe3      0x7c0 ./StdPeriphDriver/CH58x_gpio.o
+ .debug_line    0x00000000000017a3     0x1952 ./StdPeriphDriver/CH58x_sys.o
+ .debug_line    0x00000000000030f5      0x19f ./Startup/startup_CH583.o
 
-.debug_str      0x0000000000000000      0xfe2
- .debug_str     0x0000000000000000      0xd09 ./src/Main.o
-                                        0xda3 (size before relaxing)
- .debug_str     0x0000000000000d09       0xeb ./StdPeriphDriver/CH58x_gpio.o
+.debug_str      0x0000000000000000      0xf97
+ .debug_str     0x0000000000000000      0xcbe ./src/Main.o
+                                        0xd58 (size before relaxing)
+ .debug_str     0x0000000000000cbe       0xeb ./StdPeriphDriver/CH58x_gpio.o
                                         0x9d0 (size before relaxing)
- .debug_str     0x0000000000000df4      0x1c7 ./StdPeriphDriver/CH58x_sys.o
+ .debug_str     0x0000000000000da9      0x1c7 ./StdPeriphDriver/CH58x_sys.o
                                         0xc94 (size before relaxing)
- .debug_str     0x0000000000000fbb       0x27 ./Startup/startup_CH583.o
+ .debug_str     0x0000000000000f70       0x27 ./Startup/startup_CH583.o
                                          0x47 (size before relaxing)
 
 .comment        0x0000000000000000       0x33
@@ -1224,10 +1216,10 @@ OUTPUT(CH582M.elf elf32-littleriscv)
  .comment       0x0000000000000033       0x34 ./StdPeriphDriver/CH58x_sys.o
  .comment       0x0000000000000033       0x34 d:\Electromic\business_card\StdPeriphDriver\libISP583.a(ISP583.o)
 
-.debug_frame    0x0000000000000000      0x314
- .debug_frame   0x0000000000000000      0x180 ./src/Main.o
- .debug_frame   0x0000000000000180       0x70 ./StdPeriphDriver/CH58x_gpio.o
- .debug_frame   0x00000000000001f0      0x124 ./StdPeriphDriver/CH58x_sys.o
+.debug_frame    0x0000000000000000      0x2ec
+ .debug_frame   0x0000000000000000      0x158 ./src/Main.o
+ .debug_frame   0x0000000000000158       0x70 ./StdPeriphDriver/CH58x_gpio.o
+ .debug_frame   0x00000000000001c8      0x124 ./StdPeriphDriver/CH58x_sys.o
 
 .stabstr        0x0000000000000000      0x117
  .stabstr       0x0000000000000000      0x117 d:/mrs2/mounriver_studio2/resources/app/resources/win32/components/wch/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imac/ilp32\libnosys.a(close.o)

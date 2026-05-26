@@ -15,10 +15,7 @@ src/Main.o: ../src/Main.c \
  d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_spi.h \
  d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_usbdev.h \
  d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_usbhost.h \
- d:\Electromic\business_card\StdPeriphDriver\inc/ISP583.h \
- d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h \
- d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_gpio.h \
- d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_usbdev.h
+ d:\Electromic\business_card\StdPeriphDriver\inc/ISP583.h
 
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_common.h:
 
@@ -53,9 +50,3 @@ d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_usbdev.h:
 d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_usbhost.h:
 
 d:\Electromic\business_card\StdPeriphDriver\inc/ISP583.h:
-
-d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_sys.h:
-
-d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_gpio.h:
-
-d:\Electromic\business_card\StdPeriphDriver\inc/CH58x_usbdev.h:
