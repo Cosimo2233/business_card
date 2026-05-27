@@ -1160,17 +1160,17 @@ END GROUP
                 0x0000000020008000                PROVIDE (_eusrstack = .)
 OUTPUT(CH582M.elf elf32-littleriscv)
 
-.debug_info     0x0000000000000000     0x3f45
- .debug_info    0x0000000000000000     0x164c ./src/Main.o
- .debug_info    0x000000000000164c      0xe73 ./StdPeriphDriver/CH58x_gpio.o
- .debug_info    0x00000000000024bf     0x1a64 ./StdPeriphDriver/CH58x_sys.o
- .debug_info    0x0000000000003f23       0x22 ./Startup/startup_CH583.o
+.debug_info     0x0000000000000000     0x3f4a
+ .debug_info    0x0000000000000000     0x1651 ./src/Main.o
+ .debug_info    0x0000000000001651      0xe73 ./StdPeriphDriver/CH58x_gpio.o
+ .debug_info    0x00000000000024c4     0x1a64 ./StdPeriphDriver/CH58x_sys.o
+ .debug_info    0x0000000000003f28       0x22 ./Startup/startup_CH583.o
 
-.debug_abbrev   0x0000000000000000      0xa6b
- .debug_abbrev  0x0000000000000000      0x38c ./src/Main.o
- .debug_abbrev  0x000000000000038c      0x268 ./StdPeriphDriver/CH58x_gpio.o
- .debug_abbrev  0x00000000000005f4      0x465 ./StdPeriphDriver/CH58x_sys.o
- .debug_abbrev  0x0000000000000a59       0x12 ./Startup/startup_CH583.o
+.debug_abbrev   0x0000000000000000      0xab6
+ .debug_abbrev  0x0000000000000000      0x3d7 ./src/Main.o
+ .debug_abbrev  0x00000000000003d7      0x268 ./StdPeriphDriver/CH58x_gpio.o
+ .debug_abbrev  0x000000000000063f      0x465 ./StdPeriphDriver/CH58x_sys.o
+ .debug_abbrev  0x0000000000000aa4       0x12 ./Startup/startup_CH583.o
 
 .debug_loc      0x0000000000000000      0xde3
  .debug_loc     0x0000000000000000      0x3b0 ./src/Main.o
@@ -1193,11 +1193,11 @@ OUTPUT(CH582M.elf elf32-littleriscv)
  .debug_ranges  0x00000000000000b0       0xb0 ./StdPeriphDriver/CH58x_sys.o
  .debug_ranges  0x0000000000000160       0x28 ./Startup/startup_CH583.o
 
-.debug_line     0x0000000000000000     0x3294
- .debug_line    0x0000000000000000      0xfe3 ./src/Main.o
- .debug_line    0x0000000000000fe3      0x7c0 ./StdPeriphDriver/CH58x_gpio.o
- .debug_line    0x00000000000017a3     0x1952 ./StdPeriphDriver/CH58x_sys.o
- .debug_line    0x00000000000030f5      0x19f ./Startup/startup_CH583.o
+.debug_line     0x0000000000000000     0x32a8
+ .debug_line    0x0000000000000000      0xff7 ./src/Main.o
+ .debug_line    0x0000000000000ff7      0x7c0 ./StdPeriphDriver/CH58x_gpio.o
+ .debug_line    0x00000000000017b7     0x1952 ./StdPeriphDriver/CH58x_sys.o
+ .debug_line    0x0000000000003109      0x19f ./Startup/startup_CH583.o
 
 .debug_str      0x0000000000000000      0xf97
  .debug_str     0x0000000000000000      0xcbe ./src/Main.o

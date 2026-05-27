@@ -30,16 +30,16 @@ Idx Name            Size      VMA       LMA       File off  Algn  Flags
   6 .data           00000004  200009a4  000011bc  000039a4  2**0  ALLOC
   7 .bss            00000228  200009a8  000011bc  000039a8  2**2  ALLOC
   8 .stack          00000200  20007e00  20007e00  00003e00  2**0  ALLOC
-  9 .debug_info     00003f45  00000000  00000000  000031bc  2**0  CONTENTS, READONLY, DEBUGGING
- 10 .debug_abbrev   00000a6b  00000000  00000000  00007101  2**0  CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc      00000de3  00000000  00000000  00007b6c  2**0  CONTENTS, READONLY, DEBUGGING
- 12 .debug_aranges  00000160  00000000  00000000  00008950  2**3  CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges   00000188  00000000  00000000  00008ab0  2**3  CONTENTS, READONLY, DEBUGGING
- 14 .debug_line     00003294  00000000  00000000  00008c38  2**0  CONTENTS, READONLY, DEBUGGING
- 15 .debug_str      00000f97  00000000  00000000  0000becc  2**0  CONTENTS, READONLY, DEBUGGING
- 16 .comment        00000033  00000000  00000000  0000ce63  2**0  CONTENTS, READONLY
- 17 .debug_frame    000002ec  00000000  00000000  0000ce98  2**2  CONTENTS, READONLY, DEBUGGING
- 18 .stabstr        00000117  00000000  00000000  0000d184  2**0  CONTENTS, READONLY, DEBUGGING
+  9 .debug_info     00003f4a  00000000  00000000  000031bc  2**0  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_abbrev   00000ab6  00000000  00000000  00007106  2**0  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc      00000de3  00000000  00000000  00007bbc  2**0  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_aranges  00000160  00000000  00000000  000089a0  2**3  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges   00000188  00000000  00000000  00008b00  2**3  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_line     000032a8  00000000  00000000  00008c88  2**0  CONTENTS, READONLY, DEBUGGING
+ 15 .debug_str      00000f97  00000000  00000000  0000bf30  2**0  CONTENTS, READONLY, DEBUGGING
+ 16 .comment        00000033  00000000  00000000  0000cec7  2**0  CONTENTS, READONLY
+ 17 .debug_frame    000002ec  00000000  00000000  0000cefc  2**2  CONTENTS, READONLY, DEBUGGING
+ 18 .stabstr        00000117  00000000  00000000  0000d1e8  2**0  CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00000000 l    d  .init	00000000 .init
 00000004 l    d  .highcodelalign	00000000 .highcodelalign
@@ -1732,51 +1732,51 @@ d:\Electromic\business_card\obj/../Startup/startup_CH583.S:203
 
 00000a86 <TK_Read.constprop.0>:
 TK_Read():
-d:\Electromic\business_card\obj/../src/Main.c:95
-                        RB_PIN_ADC4_5_IE|RB_PIN_ADC6_7_IE|RB_PIN_ADC8_9_IE|
-                        RB_PIN_ADC10_IE|RB_PIN_ADC11_IE|
-                        RB_PIN_ADC12_IE|RB_PIN_ADC13_IE);
-}
-
+d:\Electromic\business_card\obj/../src/Main.c:120
+ * @param cg   充电时间参数 (0~31)
+ * @param dcg  放电时间参数 (0~7)
+ * @return     12 位 ADC 转换值 (0~4095)
+ * 使用方式: TK_Read(0,8,1) = 读通道0, 充电时间8, 放电时间1
+ */
 static uint16_t TK_Read(uint8_t ch, uint8_t cg, uint8_t dcg)
      a86:	1141                	addi	sp,sp,-16
      a88:	c422                	sw	s0,8(sp)
      a8a:	c606                	sw	ra,12(sp)
-d:\Electromic\business_card\obj/../src/Main.c:97
+d:\Electromic\business_card\obj/../src/Main.c:122
 {
     R8_ADC_CHANNEL = ch;
      a8c:	40001437          	lui	s0,0x40001
      a90:	04a40c23          	sb	a0,88(s0) # 40001058 <_eusrstack+0x1fff9058>
-d:\Electromic\business_card\obj/../src/Main.c:98
+d:\Electromic\business_card\obj/../src/Main.c:123
     DelayUs(2);
      a94:	4509                	li	a0,2
      a96:	20000097          	auipc	ra,0x20000
      a9a:	ab2080e7          	jalr	-1358(ra) # 20000548 <mDelayuS>
-d:\Electromic\business_card\obj/../src/Main.c:99
+d:\Electromic\business_card\obj/../src/Main.c:124
     R8_TKEY_COUNT = (dcg<<5) | (cg&0x1f);
      a9e:	02800793          	li	a5,40
      aa2:	04f40a23          	sb	a5,84(s0)
-d:\Electromic\business_card\obj/../src/Main.c:100
+d:\Electromic\business_card\obj/../src/Main.c:125
     R8_TKEY_CONVERT = RB_TKEY_START;
      aa6:	4785                	li	a5,1
      aa8:	04f40b23          	sb	a5,86(s0)
-d:\Electromic\business_card\obj/../src/Main.c:101
+d:\Electromic\business_card\obj/../src/Main.c:126
     while(R8_TKEY_CONVERT & RB_TKEY_START);
      aac:	40001737          	lui	a4,0x40001
      ab0:	05674783          	lbu	a5,86(a4) # 40001056 <_eusrstack+0x1fff9056>
      ab4:	8b85                	andi	a5,a5,1
      ab6:	ffed                	bnez	a5,ab0 <TK_Read.constprop.0+0x2a>
-d:\Electromic\business_card\obj/../src/Main.c:102
+d:\Electromic\business_card\obj/../src/Main.c:127
     return R16_ADC_DATA & RB_ADC_DATA;
      ab8:	05c75503          	lhu	a0,92(a4)
-d:\Electromic\business_card\obj/../src/Main.c:103
+d:\Electromic\business_card\obj/../src/Main.c:128
 }
      abc:	40b2                	lw	ra,12(sp)
      abe:	4422                	lw	s0,8(sp)
-d:\Electromic\business_card\obj/../src/Main.c:102
+d:\Electromic\business_card\obj/../src/Main.c:127
     return R16_ADC_DATA & RB_ADC_DATA;
      ac0:	0552                	slli	a0,a0,0x14
-d:\Electromic\business_card\obj/../src/Main.c:103
+d:\Electromic\business_card\obj/../src/Main.c:128
 }
      ac2:	8151                	srli	a0,a0,0x14
      ac4:	0141                	addi	sp,sp,16
@@ -1784,9 +1784,11 @@ d:\Electromic\business_card\obj/../src/Main.c:103
 
 00000ac8 <TK_Calib>:
 TK_Calib():
-d:\Electromic\business_card\obj/../src/Main.c:107
-
-/* ======================== 初始化 ======================== */
+d:\Electromic\business_card\obj/../src/Main.c:138
+ * 初始化 TouchKey 硬件, 遍历所有交叉点 (行x列) 获取 ADC 基准值
+ * 每个点采样 2 次取平均作为基准
+ * 调用时机: main() 开始时调用一次
+ */
 void TK_Calib(void)
 {
      ac8:	1101                	addi	sp,sp,-32
@@ -1799,92 +1801,94 @@ void TK_Calib(void)
      ad6:	ca26                	sw	s1,20(sp)
      ad8:	c84a                	sw	s2,16(sp)
 TK_InitHW():
-d:\Electromic\business_card\obj/../src/Main.c:86
+d:\Electromic\business_card\obj/../src/Main.c:103
     R8_ADC_CFG = RB_ADC_POWER_ON | RB_ADC_BUF_EN | (1<<4);
      ada:	400017b7          	lui	a5,0x40001
      ade:	474d                	li	a4,19
      ae0:	04e78ca3          	sb	a4,89(a5) # 40001059 <_eusrstack+0x1fff9059>
-d:\Electromic\business_card\obj/../src/Main.c:87
+d:\Electromic\business_card\obj/../src/Main.c:104
     R8_TKEY_CFG |= RB_TKEY_PWR_ON;
      ae4:	0577c703          	lbu	a4,87(a5)
-d:\Electromic\business_card\obj/../src/Main.c:89
+d:\Electromic\business_card\obj/../src/Main.c:106
     GPIOAGPPCfg(ENABLE, RB_PIN_ADC0_IE|RB_PIN_ADC1_IE|RB_PIN_ADC2_3_IE|
      ae8:	65b9                	lui	a1,0xe
      aea:	e0f58593          	addi	a1,a1,-497 # de0f <_data_lma+0xcc53>
-d:\Electromic\business_card\obj/../src/Main.c:87
+d:\Electromic\business_card\obj/../src/Main.c:104
     R8_TKEY_CFG |= RB_TKEY_PWR_ON;
      aee:	00176713          	ori	a4,a4,1
      af2:	04e78ba3          	sb	a4,87(a5)
-d:\Electromic\business_card\obj/../src/Main.c:89
+d:\Electromic\business_card\obj/../src/Main.c:106
     GPIOAGPPCfg(ENABLE, RB_PIN_ADC0_IE|RB_PIN_ADC1_IE|RB_PIN_ADC2_3_IE|
      af6:	4505                	li	a0,1
      af8:	2345                	jal	1098 <GPIOAGPPCfg>
      afa:	9b818a13          	addi	s4,gp,-1608 # 20000b60 <tkey_base>
      afe:	4981                	li	s3,0
 TK_Calib():
-d:\Electromic\business_card\obj/../src/Main.c:111
+d:\Electromic\business_card\obj/../src/Main.c:143
     uint8_t r,c;
     TK_InitHW();
-    for(r=0;r<ROW_CNT-1;r++){
-        TK_Read(row_ch[r],8,1);
+    for(r=0;r<ROW_CNT-1;r++)
+    {
+        TK_Read(row_ch[r],8,1);  /* 预热行通道 */
      b00:	00000a97          	auipc	s5,0x0
      b04:	6b4a8a93          	addi	s5,s5,1716 # 11b4 <row_ch>
-d:\Electromic\business_card\obj/../src/Main.c:113
+d:\Electromic\business_card\obj/../src/Main.c:145
         DelayUs(5);
-        for(c=0;c<COL_CNT;c++){
+        for(c=0;c<COL_CNT;c++)
      b08:	4b1d                	li	s6,7
-d:\Electromic\business_card\obj/../src/Main.c:111
-        TK_Read(row_ch[r],8,1);
+d:\Electromic\business_card\obj/../src/Main.c:143
+        TK_Read(row_ch[r],8,1);  /* 预热行通道 */
      b0a:	013a87b3          	add	a5,s5,s3
      b0e:	0007c503          	lbu	a0,0(a5)
-d:\Electromic\business_card\obj/../src/Main.c:112
+d:\Electromic\business_card\obj/../src/Main.c:144
         DelayUs(5);
      b12:	84d2                	mv	s1,s4
-d:\Electromic\business_card\obj/../src/Main.c:113
-        for(c=0;c<COL_CNT;c++){
+d:\Electromic\business_card\obj/../src/Main.c:145
+        for(c=0;c<COL_CNT;c++)
      b14:	4401                	li	s0,0
-d:\Electromic\business_card\obj/../src/Main.c:111
-        TK_Read(row_ch[r],8,1);
+d:\Electromic\business_card\obj/../src/Main.c:143
+        TK_Read(row_ch[r],8,1);  /* 预热行通道 */
      b16:	3f85                	jal	a86 <TK_Read.constprop.0>
-d:\Electromic\business_card\obj/../src/Main.c:112
+d:\Electromic\business_card\obj/../src/Main.c:144
         DelayUs(5);
      b18:	4515                	li	a0,5
      b1a:	20000097          	auipc	ra,0x20000
      b1e:	a2e080e7          	jalr	-1490(ra) # 20000548 <mDelayuS>
-d:\Electromic\business_card\obj/../src/Main.c:114 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:147 (discriminator 3)
+        {
             tkey_base[r][c] = TK_Read(c,8,1);
      b22:	8522                	mv	a0,s0
      b24:	378d                	jal	a86 <TK_Read.constprop.0>
      b26:	00a49023          	sh	a0,0(s1)
-d:\Electromic\business_card\obj/../src/Main.c:115 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:148 (discriminator 3)
             DelayUs(2);
      b2a:	4509                	li	a0,2
      b2c:	20000097          	auipc	ra,0x20000
      b30:	a1c080e7          	jalr	-1508(ra) # 20000548 <mDelayuS>
-d:\Electromic\business_card\obj/../src/Main.c:116 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:149 (discriminator 3)
             tkey_base[r][c] = (tkey_base[r][c]+TK_Read(c,8,1))>>1;
      b34:	0004d903          	lhu	s2,0(s1)
      b38:	8522                	mv	a0,s0
      b3a:	37b1                	jal	a86 <TK_Read.constprop.0>
      b3c:	954a                	add	a0,a0,s2
      b3e:	8505                	srai	a0,a0,0x1
-d:\Electromic\business_card\obj/../src/Main.c:113 (discriminator 3)
-        for(c=0;c<COL_CNT;c++){
+d:\Electromic\business_card\obj/../src/Main.c:145 (discriminator 3)
+        for(c=0;c<COL_CNT;c++)
      b40:	0405                	addi	s0,s0,1
-d:\Electromic\business_card\obj/../src/Main.c:116 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:149 (discriminator 3)
             tkey_base[r][c] = (tkey_base[r][c]+TK_Read(c,8,1))>>1;
      b42:	00a49023          	sh	a0,0(s1)
-d:\Electromic\business_card\obj/../src/Main.c:113 (discriminator 3)
-        for(c=0;c<COL_CNT;c++){
+d:\Electromic\business_card\obj/../src/Main.c:145 (discriminator 3)
+        for(c=0;c<COL_CNT;c++)
      b46:	0ff47413          	andi	s0,s0,255
      b4a:	0489                	addi	s1,s1,2
      b4c:	fd641be3          	bne	s0,s6,b22 <TK_Calib+0x5a>
      b50:	0985                	addi	s3,s3,1
      b52:	0a39                	addi	s4,s4,14
-d:\Electromic\business_card\obj/../src/Main.c:110 (discriminator 2)
-    for(r=0;r<ROW_CNT-1;r++){
+d:\Electromic\business_card\obj/../src/Main.c:141 (discriminator 2)
+    for(r=0;r<ROW_CNT-1;r++)
      b54:	fa899be3          	bne	s3,s0,b0a <TK_Calib+0x42>
-d:\Electromic\business_card\obj/../src/Main.c:119
+d:\Electromic\business_card\obj/../src/Main.c:152
         }
     }
 }
@@ -1901,102 +1905,108 @@ d:\Electromic\business_card\obj/../src/Main.c:119
 
 00000b6c <R8_Init>:
 R8_Init():
-d:\Electromic\business_card\obj/../src/Main.c:123
-
-/* ======================== R8 行检测 (PB8/PB9 RC 充放电) ======================== */
+d:\Electromic\business_card\obj/../src/Main.c:161
+ * R8_Init() - 初始化 R8 检测引脚
+ * PB8 配置为推挽输出, 初始低电平
+ * 调用时机: main() 开始时调用一次
+ */
 void R8_Init(void)
 {
      b6c:	1141                	addi	sp,sp,-16
-d:\Electromic\business_card\obj/../src/Main.c:124
+d:\Electromic\business_card\obj/../src/Main.c:162
     GPIOB_ModeCfg(GPIO_Pin_8, GPIO_ModeOut_PP_5mA);
      b6e:	458d                	li	a1,3
      b70:	10000513          	li	a0,256
-d:\Electromic\business_card\obj/../src/Main.c:123
+d:\Electromic\business_card\obj/../src/Main.c:161
 {
      b74:	c606                	sw	ra,12(sp)
-d:\Electromic\business_card\obj/../src/Main.c:124
+d:\Electromic\business_card\obj/../src/Main.c:162
     GPIOB_ModeCfg(GPIO_Pin_8, GPIO_ModeOut_PP_5mA);
      b76:	29b5                	jal	ff2 <GPIOB_ModeCfg>
-d:\Electromic\business_card\obj/../src/Main.c:125
+d:\Electromic\business_card\obj/../src/Main.c:163
     GPIOB_ResetBits(GPIO_Pin_8);
      b78:	40001737          	lui	a4,0x40001
      b7c:	0cc72783          	lw	a5,204(a4) # 400010cc <_eusrstack+0x1fff90cc>
-d:\Electromic\business_card\obj/../src/Main.c:126
+d:\Electromic\business_card\obj/../src/Main.c:164
 }
      b80:	40b2                	lw	ra,12(sp)
-d:\Electromic\business_card\obj/../src/Main.c:125
+d:\Electromic\business_card\obj/../src/Main.c:163
     GPIOB_ResetBits(GPIO_Pin_8);
      b82:	1007e793          	ori	a5,a5,256
      b86:	0cf72623          	sw	a5,204(a4)
-d:\Electromic\business_card\obj/../src/Main.c:126
+d:\Electromic\business_card\obj/../src/Main.c:164
 }
      b8a:	0141                	addi	sp,sp,16
      b8c:	8082                	ret
 
 00000b8e <R8_Detect>:
 R8_Detect():
-d:\Electromic\business_card\obj/../src/Main.c:131
-
+d:\Electromic\business_card\obj/../src/Main.c:176
+ * 调用时机: MatrixScan() 中每轮扫描调用一次
+ */
 uint8_t R8_Detect(void)
 {
     uint16_t t;
     GPIOB_SetBits(GPIO_Pin_8);
      b8e:	40001737          	lui	a4,0x40001
      b92:	0c872783          	lw	a5,200(a4) # 400010c8 <_eusrstack+0x1fff90c8>
-d:\Electromic\business_card\obj/../src/Main.c:129
+d:\Electromic\business_card\obj/../src/Main.c:174
 {
      b96:	1141                	addi	sp,sp,-16
-d:\Electromic\business_card\obj/../src/Main.c:132
-    for(t=0; t<R8_TIMEOUT; t++){
+d:\Electromic\business_card\obj/../src/Main.c:177
+    for(t=0; t<R8_TIMEOUT; t++)
      b98:	4501                	li	a0,0
-d:\Electromic\business_card\obj/../src/Main.c:131
+d:\Electromic\business_card\obj/../src/Main.c:176
     GPIOB_SetBits(GPIO_Pin_8);
      b9a:	1007e793          	ori	a5,a5,256
      b9e:	0cf72423          	sw	a5,200(a4)
-d:\Electromic\business_card\obj/../src/Main.c:132
-    for(t=0; t<R8_TIMEOUT; t++){
+d:\Electromic\business_card\obj/../src/Main.c:177
+    for(t=0; t<R8_TIMEOUT; t++)
      ba2:	6785                	lui	a5,0x1
-d:\Electromic\business_card\obj/../src/Main.c:133
+d:\Electromic\business_card\obj/../src/Main.c:179
+    {
         if(GPIOB_ReadPortPin(GPIO_Pin_9)) break;
      ba4:	400016b7          	lui	a3,0x40001
-d:\Electromic\business_card\obj/../src/Main.c:132
-    for(t=0; t<R8_TIMEOUT; t++){
+d:\Electromic\business_card\obj/../src/Main.c:177
+    for(t=0; t<R8_TIMEOUT; t++)
      ba8:	38878793          	addi	a5,a5,904 # 1388 <_data_lma+0x1cc>
-d:\Electromic\business_card\obj/../src/Main.c:133
+d:\Electromic\business_card\obj/../src/Main.c:179
         if(GPIOB_ReadPortPin(GPIO_Pin_9)) break;
      bac:	0c46a703          	lw	a4,196(a3) # 400010c4 <_eusrstack+0x1fff90c4>
      bb0:	20077713          	andi	a4,a4,512
      bb4:	e711                	bnez	a4,bc0 <R8_Detect+0x32>
-d:\Electromic\business_card\obj/../src/Main.c:132 (discriminator 2)
-    for(t=0; t<R8_TIMEOUT; t++){
+d:\Electromic\business_card\obj/../src/Main.c:177 (discriminator 2)
+    for(t=0; t<R8_TIMEOUT; t++)
      bb6:	0505                	addi	a0,a0,1
      bb8:	0542                	slli	a0,a0,0x10
      bba:	8141                	srli	a0,a0,0x10
      bbc:	fef518e3          	bne	a0,a5,bac <R8_Detect+0x1e>
-d:\Electromic\business_card\obj/../src/Main.c:135
+d:\Electromic\business_card\obj/../src/Main.c:181
     }
     GPIOB_ResetBits(GPIO_Pin_8);
      bc0:	40001737          	lui	a4,0x40001
      bc4:	0cc72783          	lw	a5,204(a4) # 400010cc <_eusrstack+0x1fff90cc>
      bc8:	1007e793          	ori	a5,a5,256
      bcc:	0cf72623          	sw	a5,204(a4)
-d:\Electromic\business_card\obj/../src/Main.c:136
-    { volatile uint16_t d; for(d=0;d<1000;d++); }
+d:\Electromic\business_card\obj/../src/Main.c:183
+    { 
+        volatile uint16_t d; for(d=0;d<1000;d++); 
      bd0:	00011723          	sh	zero,14(sp)
      bd4:	3e700713          	li	a4,999
-d:\Electromic\business_card\obj/../src/Main.c:136 (discriminator 1)
+d:\Electromic\business_card\obj/../src/Main.c:183 (discriminator 1)
      bd8:	00e15783          	lhu	a5,14(sp)
      bdc:	00f77863          	bgeu	a4,a5,bec <R8_Detect+0x5e>
-d:\Electromic\business_card\obj/../src/Main.c:137
+d:\Electromic\business_card\obj/../src/Main.c:185
+    }  /* 放电等待 */
     return (t>R8_THRESH) ? 1 : 0;
      be0:	01553513          	sltiu	a0,a0,21
-d:\Electromic\business_card\obj/../src/Main.c:138
+d:\Electromic\business_card\obj/../src/Main.c:186
 }
      be4:	00154513          	xori	a0,a0,1
      be8:	0141                	addi	sp,sp,16
      bea:	8082                	ret
-d:\Electromic\business_card\obj/../src/Main.c:136 (discriminator 3)
-    { volatile uint16_t d; for(d=0;d<1000;d++); }
+d:\Electromic\business_card\obj/../src/Main.c:183 (discriminator 3)
+        volatile uint16_t d; for(d=0;d<1000;d++); 
      bec:	00e15783          	lhu	a5,14(sp)
      bf0:	0785                	addi	a5,a5,1
      bf2:	07c2                	slli	a5,a5,0x10
@@ -2006,9 +2016,11 @@ d:\Electromic\business_card\obj/../src/Main.c:136 (discriminator 3)
 
 00000bfc <MatrixScan>:
 MatrixScan():
-d:\Electromic\business_card\obj/../src/Main.c:142
-
-/* ======================== 矩阵扫描 ======================== */
+d:\Electromic\business_card\obj/../src/Main.c:197
+ * R7 (R8): 使用 RC 充放电法检测 PB8+PB9
+ * 检测到的按键设置在 key_state[] 中
+ * 调用时机: main() 主循环中每轮调用一次
+ */
 void MatrixScan(void)
 {
      bfc:	715d                	addi	sp,sp,-80
@@ -2030,17 +2042,18 @@ void MatrixScan(void)
      c20:	568d8d93          	addi	s11,s11,1384 # 1184 <row_pin>
      c24:	8d4e                	mv	s10,s3
      c26:	4c81                	li	s9,0
-d:\Electromic\business_card\obj/../src/Main.c:146
+d:\Electromic\business_card\obj/../src/Main.c:201
     uint8_t r,c,idx;
     uint16_t v,d;
 
-    for(r=0;r<ROW_CNT-1;r++){
+    for(r=0;r<ROW_CNT-1;r++)
      c28:	4481                	li	s1,0
-d:\Electromic\business_card\obj/../src/Main.c:147
+d:\Electromic\business_card\obj/../src/Main.c:203
+    {
         R32_PA_CLR = row_pin[r];
      c2a:	40001ab7          	lui	s5,0x40001
-d:\Electromic\business_card\obj/../src/Main.c:154
-        for(c=0;c<COL_CNT;c++){
+d:\Electromic\business_card\obj/../src/Main.c:211
+        {
             v = TK_Read(c,8,1);
             d = (v>tkey_base[r][c]) ? (v-tkey_base[r][c]) : 0;
             idx = r*COL_CNT+c;
@@ -2048,33 +2061,33 @@ d:\Electromic\business_card\obj/../src/Main.c:154
             if((r<4 || c>=2) && d>TK_THRESH) key_state[idx]=1;
      c2e:	98818b13          	addi	s6,gp,-1656 # 20000b30 <key_state>
      c32:	4b85                	li	s7,1
-d:\Electromic\business_card\obj/../src/Main.c:147
+d:\Electromic\business_card\obj/../src/Main.c:203
         R32_PA_CLR = row_pin[r];
      c34:	000daa03          	lw	s4,0(s11)
-d:\Electromic\business_card\obj/../src/Main.c:148
+d:\Electromic\business_card\obj/../src/Main.c:204
         DelayUs(3);
      c38:	450d                	li	a0,3
      c3a:	8c6a                	mv	s8,s10
-d:\Electromic\business_card\obj/../src/Main.c:147
+d:\Electromic\business_card\obj/../src/Main.c:203
         R32_PA_CLR = row_pin[r];
      c3c:	0b4aa623          	sw	s4,172(s5) # 400010ac <_eusrstack+0x1fff90ac>
-d:\Electromic\business_card\obj/../src/Main.c:148
+d:\Electromic\business_card\obj/../src/Main.c:204
         DelayUs(3);
      c40:	20000097          	auipc	ra,0x20000
      c44:	908080e7          	jalr	-1784(ra) # 20000548 <mDelayuS>
-d:\Electromic\business_card\obj/../src/Main.c:149
-        for(c=0;c<COL_CNT;c++){
+d:\Electromic\business_card\obj/../src/Main.c:205
+        for(c=0;c<COL_CNT;c++)
      c48:	0ffcf593          	andi	a1,s9,255
-d:\Electromic\business_card\obj/../src/Main.c:148
+d:\Electromic\business_card\obj/../src/Main.c:204
         DelayUs(3);
      c4c:	4401                	li	s0,0
      c4e:	0ff47913          	andi	s2,s0,255
-d:\Electromic\business_card\obj/../src/Main.c:150
+d:\Electromic\business_card\obj/../src/Main.c:207
             v = TK_Read(c,8,1);
      c52:	854a                	mv	a0,s2
      c54:	c62e                	sw	a1,12(sp)
      c56:	3d05                	jal	a86 <TK_Read.constprop.0>
-d:\Electromic\business_card\obj/../src/Main.c:151
+d:\Electromic\business_card\obj/../src/Main.c:208
             d = (v>tkey_base[r][c]) ? (v-tkey_base[r][c]) : 0;
      c58:	000c5703          	lhu	a4,0(s8)
      c5c:	4781                	li	a5,0
@@ -2084,60 +2097,61 @@ d:\Electromic\business_card\obj/../src/Main.c:151
      c66:	488d                	li	a7,3
      c68:	4305                	li	t1,1
      c6a:	00a77663          	bgeu	a4,a0,c76 <MatrixScan+0x7a>
-d:\Electromic\business_card\obj/../src/Main.c:151 (discriminator 1)
+d:\Electromic\business_card\obj/../src/Main.c:208 (discriminator 1)
      c6e:	8d19                	sub	a0,a0,a4
      c70:	01051793          	slli	a5,a0,0x10
      c74:	83c1                	srli	a5,a5,0x10
-d:\Electromic\business_card\obj/../src/Main.c:153 (discriminator 4)
+d:\Electromic\business_card\obj/../src/Main.c:210 (discriminator 4)
             if(idx>=KEY_CNT) continue;
      c76:	992e                	add	s2,s2,a1
      c78:	0ff97913          	andi	s2,s2,255
      c7c:	01090f63          	beq	s2,a6,c9a <MatrixScan+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:154
+d:\Electromic\business_card\obj/../src/Main.c:211
             if((r<4 || c>=2) && d>TK_THRESH) key_state[idx]=1;
      c80:	0098f463          	bgeu	a7,s1,c88 <MatrixScan+0x8c>
-d:\Electromic\business_card\obj/../src/Main.c:154 (discriminator 2)
+d:\Electromic\business_card\obj/../src/Main.c:211 (discriminator 2)
      c84:	00837b63          	bgeu	t1,s0,c9a <MatrixScan+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:154 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:211 (discriminator 3)
      c88:	05000713          	li	a4,80
      c8c:	00f77763          	bgeu	a4,a5,c9a <MatrixScan+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:154 (discriminator 4)
+d:\Electromic\business_card\obj/../src/Main.c:211 (discriminator 4)
      c90:	019407b3          	add	a5,s0,s9
      c94:	97da                	add	a5,a5,s6
      c96:	01778023          	sb	s7,0(a5)
      c9a:	0405                	addi	s0,s0,1
      c9c:	0c09                	addi	s8,s8,2
-d:\Electromic\business_card\obj/../src/Main.c:149 (discriminator 2)
-        for(c=0;c<COL_CNT;c++){
+d:\Electromic\business_card\obj/../src/Main.c:205 (discriminator 2)
+        for(c=0;c<COL_CNT;c++)
      c9e:	fac418e3          	bne	s0,a2,c4e <MatrixScan+0x52>
-d:\Electromic\business_card\obj/../src/Main.c:156 (discriminator 2)
+d:\Electromic\business_card\obj/../src/Main.c:213 (discriminator 2)
         }
         R32_PA_OUT |= row_pin[r];
      ca2:	0a8aa783          	lw	a5,168(s5)
-d:\Electromic\business_card\obj/../src/Main.c:146 (discriminator 2)
-    for(r=0;r<ROW_CNT-1;r++){
+d:\Electromic\business_card\obj/../src/Main.c:201 (discriminator 2)
+    for(r=0;r<ROW_CNT-1;r++)
      ca6:	0485                	addi	s1,s1,1
      ca8:	0ff4f493          	andi	s1,s1,255
-d:\Electromic\business_card\obj/../src/Main.c:156 (discriminator 2)
+d:\Electromic\business_card\obj/../src/Main.c:213 (discriminator 2)
         R32_PA_OUT |= row_pin[r];
      cac:	00fa6a33          	or	s4,s4,a5
      cb0:	0b4aa423          	sw	s4,168(s5)
      cb4:	0d91                	addi	s11,s11,4
      cb6:	0c9d                	addi	s9,s9,7
      cb8:	0d39                	addi	s10,s10,14
-d:\Electromic\business_card\obj/../src/Main.c:146 (discriminator 2)
-    for(r=0;r<ROW_CNT-1;r++){
+d:\Electromic\business_card\obj/../src/Main.c:201 (discriminator 2)
+    for(r=0;r<ROW_CNT-1;r++)
      cba:	f6849de3          	bne	s1,s0,c34 <MatrixScan+0x38>
-d:\Electromic\business_card\obj/../src/Main.c:160
+d:\Electromic\business_card\obj/../src/Main.c:217
     }
 
     /* R8 行 */
-    if(R8_Detect()){
+    if(R8_Detect())
      cbe:	3dc1                	jal	b8e <R8_Detect>
      cc0:	cd0d                	beqz	a0,cfa <MatrixScan+0xfe>
      cc2:	4409                	li	s0,2
-d:\Electromic\business_card\obj/../src/Main.c:165
-        for(c=2;c<COL_CNT;c++){
+d:\Electromic\business_card\obj/../src/Main.c:224
+        for(c=2;c<COL_CNT;c++)
+        {
             v = TK_Read(c,8,1);
             d = (v>tkey_base[7][c]) ? (v-tkey_base[7][c]) : 0;
             idx = 7*COL_CNT+c;
@@ -2145,20 +2159,20 @@ d:\Electromic\business_card\obj/../src/Main.c:165
      cc4:	05000913          	li	s2,80
      cc8:	98818a13          	addi	s4,gp,-1656 # 20000b30 <key_state>
      ccc:	4a85                	li	s5,1
-d:\Electromic\business_card\obj/../src/Main.c:161
-        for(c=2;c<COL_CNT;c++){
+d:\Electromic\business_card\obj/../src/Main.c:219
+        for(c=2;c<COL_CNT;c++)
      cce:	449d                	li	s1,7
-d:\Electromic\business_card\obj/../src/Main.c:162
+d:\Electromic\business_card\obj/../src/Main.c:221
             v = TK_Read(c,8,1);
      cd0:	0ff47513          	andi	a0,s0,255
      cd4:	3b4d                	jal	a86 <TK_Read.constprop.0>
-d:\Electromic\business_card\obj/../src/Main.c:163
+d:\Electromic\business_card\obj/../src/Main.c:222
             d = (v>tkey_base[7][c]) ? (v-tkey_base[7][c]) : 0;
      cd6:	0669d783          	lhu	a5,102(s3)
      cda:	00a7fc63          	bgeu	a5,a0,cf2 <MatrixScan+0xf6>
-d:\Electromic\business_card\obj/../src/Main.c:163 (discriminator 1)
+d:\Electromic\business_card\obj/../src/Main.c:222 (discriminator 1)
      cde:	8d1d                	sub	a0,a0,a5
-d:\Electromic\business_card\obj/../src/Main.c:165 (discriminator 1)
+d:\Electromic\business_card\obj/../src/Main.c:224 (discriminator 1)
             if(d>TK_THRESH) key_state[idx]=1;
      ce0:	0542                	slli	a0,a0,0x10
      ce2:	8141                	srli	a0,a0,0x10
@@ -2168,10 +2182,10 @@ d:\Electromic\business_card\obj/../src/Main.c:165 (discriminator 1)
      cee:	01578023          	sb	s5,0(a5)
      cf2:	0405                	addi	s0,s0,1
      cf4:	0989                	addi	s3,s3,2
-d:\Electromic\business_card\obj/../src/Main.c:161 (discriminator 2)
-        for(c=2;c<COL_CNT;c++){
+d:\Electromic\business_card\obj/../src/Main.c:219 (discriminator 2)
+        for(c=2;c<COL_CNT;c++)
      cf6:	fc941de3          	bne	s0,s1,cd0 <MatrixScan+0xd4>
-d:\Electromic\business_card\obj/../src/Main.c:168
+d:\Electromic\business_card\obj/../src/Main.c:227
         }
     }
 }
@@ -2193,20 +2207,22 @@ d:\Electromic\business_card\obj/../src/Main.c:168
 
 00000d18 <SendReport>:
 SendReport():
-d:\Electromic\business_card\obj/../src/Main.c:172
-
-/* ======================== HID 报告 ======================== */
+d:\Electromic\business_card\obj/../src/Main.c:237
+ * 遍历 key_state[] → 映射 HID Usage ID → 打包 8 字节报告 → 通过 EP1 IN 发送
+ * 先去重: 和上一包完全相同则不发送
+ * 调用时机: main() 主循环中检测到按键变化时调用
+ */
 void SendReport(void)
 {
      d18:	1101                	addi	sp,sp,-32
-d:\Electromic\business_card\obj/../src/Main.c:174
+d:\Electromic\business_card\obj/../src/Main.c:239
     uint8_t i,idx,r,c,k,mod=0,ri=2;
     for(i=0;i<8;i++) HIDKeyBuff[i]=0;
      d1a:	20000797          	auipc	a5,0x20000
      d1e:	c807a723          	sw	zero,-882(a5) # 200009a8 <_edata>
      d22:	20000797          	auipc	a5,0x20000
      d26:	c807a523          	sw	zero,-886(a5) # 200009ac <_edata+0x4>
-d:\Electromic\business_card\obj/../src/Main.c:172
+d:\Electromic\business_card\obj/../src/Main.c:237
 {
      d2a:	ce22                	sw	s0,28(sp)
      d2c:	cc26                	sw	s1,24(sp)
@@ -2215,118 +2231,119 @@ d:\Electromic\business_card\obj/../src/Main.c:172
      d32:	c652                	sw	s4,12(sp)
      d34:	c456                	sw	s5,8(sp)
      d36:	c25a                	sw	s6,4(sp)
-d:\Electromic\business_card\obj/../src/Main.c:176
+d:\Electromic\business_card\obj/../src/Main.c:241
 
     if(key_state[3*COL_CNT+3] || key_state[7*COL_CNT+1]) fn_pressed=1;
      d38:	9a01c783          	lbu	a5,-1632(gp) # 20000b48 <key_state+0x18>
      d3c:	98818313          	addi	t1,gp,-1656 # 20000b30 <key_state>
      d40:	e791                	bnez	a5,d4c <SendReport+0x34>
-d:\Electromic\business_card\obj/../src/Main.c:176 (discriminator 2)
+d:\Electromic\business_card\obj/../src/Main.c:241 (discriminator 2)
      d42:	03234783          	lbu	a5,50(t1)
      d46:	0ff7f793          	andi	a5,a5,255
      d4a:	c781                	beqz	a5,d52 <SendReport+0x3a>
-d:\Electromic\business_card\obj/../src/Main.c:176 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:241 (discriminator 3)
      d4c:	4785                	li	a5,1
      d4e:	80f18823          	sb	a5,-2032(gp) # 200009b8 <fn_pressed>
      d52:	00000517          	auipc	a0,0x0
      d56:	39a50513          	addi	a0,a0,922 # 10ec <KMap>
-d:\Electromic\business_card\obj/../src/Main.c:172 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:237 (discriminator 3)
 {
      d5a:	4801                	li	a6,0
      d5c:	4609                	li	a2,2
      d5e:	4701                	li	a4,0
-d:\Electromic\business_card\obj/../src/Main.c:181 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:246 (discriminator 3)
 
     for(idx=0;idx<KEY_CNT && ri<8;idx++){
         if(!key_state[idx]) continue;
         r=KMap[idx][0]; c=KMap[idx][1];
-        if((r==3&&c==3)||(r==7&&c==1)) continue;
+        if((r==3&&c==3)||(r==7&&c==1)) continue;  /* 跳过 Fn 键本身 */
      d60:	4e0d                	li	t3,3
-d:\Electromic\business_card\obj/../src/Main.c:182 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:247 (discriminator 3)
         k = fn_pressed ? FTab[r][c] : KTab[r][c];
      d62:	81018e93          	addi	t4,gp,-2032 # 200009b8 <fn_pressed>
-d:\Electromic\business_card\obj/../src/Main.c:184 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:249 (discriminator 3)
         if(fn_pressed && k==0) k=KTab[r][c];
-        if(k==0xE0)      mod|=0x01;
+        if(k==0xE0)      mod|=0x01;  /* Ctrl 左 */
      d66:	0e000393          	li	t2,224
-d:\Electromic\business_card\obj/../src/Main.c:185 (discriminator 3)
-        else if(k==0xE1) mod|=0x02;
+d:\Electromic\business_card\obj/../src/Main.c:250 (discriminator 3)
+        else if(k==0xE1) mod|=0x02;  /* Shift 左 */
      d6a:	0e100413          	li	s0,225
-d:\Electromic\business_card\obj/../src/Main.c:186 (discriminator 3)
-        else if(k==0xE2) mod|=0x04;
+d:\Electromic\business_card\obj/../src/Main.c:251 (discriminator 3)
+        else if(k==0xE2) mod|=0x04;  /* Alt 左 */
      d6e:	0e200493          	li	s1,226
-d:\Electromic\business_card\obj/../src/Main.c:187 (discriminator 3)
-        else if(k==0xE3) mod|=0x08;
+d:\Electromic\business_card\obj/../src/Main.c:252 (discriminator 3)
+        else if(k==0xE3) mod|=0x08;  /* Win 左 */
      d72:	0e300913          	li	s2,227
-d:\Electromic\business_card\obj/../src/Main.c:188 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:253 (discriminator 3)
         else HIDKeyBuff[ri++]=k;
      d76:	20000997          	auipc	s3,0x20000
      d7a:	c3298993          	addi	s3,s3,-974 # 200009a8 <_edata>
-d:\Electromic\business_card\obj/../src/Main.c:183 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:248 (discriminator 3)
         if(fn_pressed && k==0) k=KTab[r][c];
      d7e:	00000f17          	auipc	t5,0x0
      d82:	3cef0f13          	addi	t5,t5,974 # 114c <KTab>
      d86:	489d                	li	a7,7
-d:\Electromic\business_card\obj/../src/Main.c:182 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:247 (discriminator 3)
         k = fn_pressed ? FTab[r][c] : KTab[r][c];
      d88:	00000a17          	auipc	s4,0x0
      d8c:	32ca0a13          	addi	s4,s4,812 # 10b4 <FTab>
-d:\Electromic\business_card\obj/../src/Main.c:181 (discriminator 3)
-        if((r==3&&c==3)||(r==7&&c==1)) continue;
+d:\Electromic\business_card\obj/../src/Main.c:246 (discriminator 3)
+        if((r==3&&c==3)||(r==7&&c==1)) continue;  /* 跳过 Fn 键本身 */
      d90:	4a85                	li	s5,1
-d:\Electromic\business_card\obj/../src/Main.c:178 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:243 (discriminator 3)
     for(idx=0;idx<KEY_CNT && ri<8;idx++){
      d92:	02f00293          	li	t0,47
      d96:	4fa1                	li	t6,8
-d:\Electromic\business_card\obj/../src/Main.c:179
+d:\Electromic\business_card\obj/../src/Main.c:244
         if(!key_state[idx]) continue;
      d98:	010307b3          	add	a5,t1,a6
      d9c:	0007c783          	lbu	a5,0(a5)
      da0:	0ff7f793          	andi	a5,a5,255
      da4:	cb89                	beqz	a5,db6 <SendReport+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:180
+d:\Electromic\business_card\obj/../src/Main.c:245
         r=KMap[idx][0]; c=KMap[idx][1];
      da6:	00054783          	lbu	a5,0(a0)
      daa:	00154583          	lbu	a1,1(a0)
-d:\Electromic\business_card\obj/../src/Main.c:181
-        if((r==3&&c==3)||(r==7&&c==1)) continue;
+d:\Electromic\business_card\obj/../src/Main.c:246
+        if((r==3&&c==3)||(r==7&&c==1)) continue;  /* 跳过 Fn 键本身 */
      dae:	05c79a63          	bne	a5,t3,e02 <SendReport+0xea>
-d:\Electromic\business_card\obj/../src/Main.c:181 (discriminator 1)
+d:\Electromic\business_card\obj/../src/Main.c:246 (discriminator 1)
      db2:	05c59c63          	bne	a1,t3,e0a <SendReport+0xf2>
-d:\Electromic\business_card\obj/../src/Main.c:178 (discriminator 2)
+d:\Electromic\business_card\obj/../src/Main.c:243 (discriminator 2)
     for(idx=0;idx<KEY_CNT && ri<8;idx++){
      db6:	0c581263          	bne	a6,t0,e7a <SendReport+0x162>
-d:\Electromic\business_card\obj/../src/Main.c:190
+d:\Electromic\business_card\obj/../src/Main.c:255
     }
     HIDKeyBuff[0]=mod;
      dba:	20000797          	auipc	a5,0x20000
      dbe:	bee78723          	sb	a4,-1042(a5) # 200009a8 <_edata>
-d:\Electromic\business_card\obj/../src/Main.c:192
+d:\Electromic\business_card\obj/../src/Main.c:258
 
+    /* 去重 */
     for(i=0;i<8;i++) if(HIDKeyBuff[i]!=HIDKeyBuffPrev[i]) break;
      dc2:	20000597          	auipc	a1,0x20000
      dc6:	be658593          	addi	a1,a1,-1050 # 200009a8 <_edata>
      dca:	80818513          	addi	a0,gp,-2040 # 200009b0 <HIDKeyBuffPrev>
-d:\Electromic\business_card\obj/../src/Main.c:190
+d:\Electromic\business_card\obj/../src/Main.c:255
     HIDKeyBuff[0]=mod;
      dce:	4781                	li	a5,0
      dd0:	862e                	mv	a2,a1
      dd2:	882a                	mv	a6,a0
-d:\Electromic\business_card\obj/../src/Main.c:192
+d:\Electromic\business_card\obj/../src/Main.c:258
     for(i=0;i<8;i++) if(HIDKeyBuff[i]!=HIDKeyBuffPrev[i]) break;
      dd4:	48a1                	li	a7,8
-d:\Electromic\business_card\obj/../src/Main.c:192 (discriminator 4)
+d:\Electromic\business_card\obj/../src/Main.c:258 (discriminator 4)
      dd6:	00f586b3          	add	a3,a1,a5
      dda:	00f50733          	add	a4,a0,a5
      dde:	0006c683          	lbu	a3,0(a3)
      de2:	00074703          	lbu	a4,0(a4)
      de6:	08e69f63          	bne	a3,a4,e84 <SendReport+0x16c>
      dea:	0785                	addi	a5,a5,1
-d:\Electromic\business_card\obj/../src/Main.c:192 (discriminator 2)
+d:\Electromic\business_card\obj/../src/Main.c:258 (discriminator 2)
      dec:	ff1795e3          	bne	a5,a7,dd6 <SendReport+0xbe>
-d:\Electromic\business_card\obj/../src/Main.c:198
-    if(i==8) return;
-    for(i=0;i<8;i++) HIDKeyBuffPrev[i]=HIDKeyBuff[i];
+d:\Electromic\business_card\obj/../src/Main.c:266
+
+    /* 写入 EP1 IN 缓冲区并触发发送 */
     for(i=0;i<8;i++) EP1_Databuf[64+i]=HIDKeyBuff[i];
     R8_UEP1_T_LEN=8;
     R8_UEP1_CTRL = (R8_UEP1_CTRL & ~MASK_UEP_T_RES) | UEP_T_RES_ACK;
@@ -2340,67 +2357,67 @@ d:\Electromic\business_card\obj/../src/Main.c:198
      dfc:	4b12                	lw	s6,4(sp)
      dfe:	6105                	addi	sp,sp,32
      e00:	8082                	ret
-d:\Electromic\business_card\obj/../src/Main.c:181 (discriminator 4)
-        if((r==3&&c==3)||(r==7&&c==1)) continue;
+d:\Electromic\business_card\obj/../src/Main.c:246 (discriminator 4)
+        if((r==3&&c==3)||(r==7&&c==1)) continue;  /* 跳过 Fn 键本身 */
      e02:	01179463          	bne	a5,a7,e0a <SendReport+0xf2>
-d:\Electromic\business_card\obj/../src/Main.c:181 (discriminator 5)
+d:\Electromic\business_card\obj/../src/Main.c:246 (discriminator 5)
      e06:	fb5588e3          	beq	a1,s5,db6 <SendReport+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:182
+d:\Electromic\business_card\obj/../src/Main.c:247
         k = fn_pressed ? FTab[r][c] : KTab[r][c];
      e0a:	000ec683          	lbu	a3,0(t4)
      e0e:	0ff6f693          	andi	a3,a3,255
      e12:	ca8d                	beqz	a3,e44 <SendReport+0x12c>
-d:\Electromic\business_card\obj/../src/Main.c:182 (discriminator 1)
+d:\Electromic\business_card\obj/../src/Main.c:247 (discriminator 1)
      e14:	031786b3          	mul	a3,a5,a7
      e18:	96d2                	add	a3,a3,s4
-d:\Electromic\business_card\obj/../src/Main.c:183 (discriminator 2)
+d:\Electromic\business_card\obj/../src/Main.c:248 (discriminator 2)
         if(fn_pressed && k==0) k=KTab[r][c];
      e1a:	000ecb03          	lbu	s6,0(t4)
-d:\Electromic\business_card\obj/../src/Main.c:182 (discriminator 2)
+d:\Electromic\business_card\obj/../src/Main.c:247 (discriminator 2)
         k = fn_pressed ? FTab[r][c] : KTab[r][c];
      e1e:	96ae                	add	a3,a3,a1
      e20:	0006c683          	lbu	a3,0(a3)
-d:\Electromic\business_card\obj/../src/Main.c:183 (discriminator 2)
+d:\Electromic\business_card\obj/../src/Main.c:248 (discriminator 2)
         if(fn_pressed && k==0) k=KTab[r][c];
      e24:	0ffb7b13          	andi	s6,s6,255
      e28:	000b0963          	beqz	s6,e3a <SendReport+0x122>
-d:\Electromic\business_card\obj/../src/Main.c:183 (discriminator 1)
+d:\Electromic\business_card\obj/../src/Main.c:248 (discriminator 1)
      e2c:	e699                	bnez	a3,e3a <SendReport+0x122>
-d:\Electromic\business_card\obj/../src/Main.c:183 (discriminator 2)
+d:\Electromic\business_card\obj/../src/Main.c:248 (discriminator 2)
      e2e:	031787b3          	mul	a5,a5,a7
      e32:	97fa                	add	a5,a5,t5
      e34:	97ae                	add	a5,a5,a1
      e36:	0007c683          	lbu	a3,0(a5)
-d:\Electromic\business_card\obj/../src/Main.c:184
-        if(k==0xE0)      mod|=0x01;
+d:\Electromic\business_card\obj/../src/Main.c:249
+        if(k==0xE0)      mod|=0x01;  /* Ctrl 左 */
      e3a:	00769963          	bne	a3,t2,e4c <SendReport+0x134>
-d:\Electromic\business_card\obj/../src/Main.c:184 (discriminator 1)
+d:\Electromic\business_card\obj/../src/Main.c:249 (discriminator 1)
      e3e:	00176713          	ori	a4,a4,1
      e42:	bf95                	j	db6 <SendReport+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:182 (discriminator 2)
+d:\Electromic\business_card\obj/../src/Main.c:247 (discriminator 2)
         k = fn_pressed ? FTab[r][c] : KTab[r][c];
      e44:	031786b3          	mul	a3,a5,a7
      e48:	96fa                	add	a3,a3,t5
      e4a:	bfc1                	j	e1a <SendReport+0x102>
-d:\Electromic\business_card\obj/../src/Main.c:185
-        else if(k==0xE1) mod|=0x02;
+d:\Electromic\business_card\obj/../src/Main.c:250
+        else if(k==0xE1) mod|=0x02;  /* Shift 左 */
      e4c:	00869563          	bne	a3,s0,e56 <SendReport+0x13e>
-d:\Electromic\business_card\obj/../src/Main.c:185 (discriminator 1)
+d:\Electromic\business_card\obj/../src/Main.c:250 (discriminator 1)
      e50:	00276713          	ori	a4,a4,2
      e54:	b78d                	j	db6 <SendReport+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:186
-        else if(k==0xE2) mod|=0x04;
+d:\Electromic\business_card\obj/../src/Main.c:251
+        else if(k==0xE2) mod|=0x04;  /* Alt 左 */
      e56:	00969563          	bne	a3,s1,e60 <SendReport+0x148>
-d:\Electromic\business_card\obj/../src/Main.c:186 (discriminator 1)
+d:\Electromic\business_card\obj/../src/Main.c:251 (discriminator 1)
      e5a:	00476713          	ori	a4,a4,4
      e5e:	bfa1                	j	db6 <SendReport+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:187
-        else if(k==0xE3) mod|=0x08;
+d:\Electromic\business_card\obj/../src/Main.c:252
+        else if(k==0xE3) mod|=0x08;  /* Win 左 */
      e60:	01269563          	bne	a3,s2,e6a <SendReport+0x152>
-d:\Electromic\business_card\obj/../src/Main.c:187 (discriminator 1)
+d:\Electromic\business_card\obj/../src/Main.c:252 (discriminator 1)
      e64:	00876713          	ori	a4,a4,8
      e68:	b7b9                	j	db6 <SendReport+0x9e>
-d:\Electromic\business_card\obj/../src/Main.c:188
+d:\Electromic\business_card\obj/../src/Main.c:253
         else HIDKeyBuff[ri++]=k;
      e6a:	00160793          	addi	a5,a2,1
      e6e:	964e                	add	a2,a2,s3
@@ -2409,15 +2426,15 @@ d:\Electromic\business_card\obj/../src/Main.c:188
      e78:	bf3d                	j	db6 <SendReport+0x9e>
      e7a:	0805                	addi	a6,a6,1
      e7c:	0509                	addi	a0,a0,2
-d:\Electromic\business_card\obj/../src/Main.c:178 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:243 (discriminator 3)
     for(idx=0;idx<KEY_CNT && ri<8;idx++){
      e7e:	f1f61de3          	bne	a2,t6,d98 <SendReport+0x80>
      e82:	bf25                	j	dba <SendReport+0xa2>
      e84:	4781                	li	a5,0
-d:\Electromic\business_card\obj/../src/Main.c:194
+d:\Electromic\business_card\obj/../src/Main.c:260
     for(i=0;i<8;i++) HIDKeyBuffPrev[i]=HIDKeyBuff[i];
      e86:	4721                	li	a4,8
-d:\Electromic\business_card\obj/../src/Main.c:194 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:260 (discriminator 3)
      e88:	00f605b3          	add	a1,a2,a5
      e8c:	0005c583          	lbu	a1,0(a1)
      e90:	00f806b3          	add	a3,a6,a5
@@ -2425,23 +2442,23 @@ d:\Electromic\business_card\obj/../src/Main.c:194 (discriminator 3)
      e96:	00b68023          	sb	a1,0(a3)
      e9a:	fee797e3          	bne	a5,a4,e88 <SendReport+0x170>
      e9e:	8d818713          	addi	a4,gp,-1832 # 20000a80 <EP1_Databuf>
-d:\Electromic\business_card\obj/../src/Main.c:194
+d:\Electromic\business_card\obj/../src/Main.c:260
      ea2:	4781                	li	a5,0
-d:\Electromic\business_card\obj/../src/Main.c:195
+d:\Electromic\business_card\obj/../src/Main.c:263
     for(i=0;i<8;i++) EP1_Databuf[64+i]=HIDKeyBuff[i];
      ea4:	46a1                	li	a3,8
-d:\Electromic\business_card\obj/../src/Main.c:195 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:263 (discriminator 3)
      ea6:	00f605b3          	add	a1,a2,a5
      eaa:	0005c583          	lbu	a1,0(a1)
      eae:	0785                	addi	a5,a5,1
      eb0:	0705                	addi	a4,a4,1
      eb2:	02b70fa3          	sb	a1,63(a4)
      eb6:	fed798e3          	bne	a5,a3,ea6 <SendReport+0x18e>
-d:\Electromic\business_card\obj/../src/Main.c:196
+d:\Electromic\business_card\obj/../src/Main.c:264
     R8_UEP1_T_LEN=8;
      eba:	40008737          	lui	a4,0x40008
      ebe:	02f70223          	sb	a5,36(a4) # 40008024 <_eusrstack+0x20000024>
-d:\Electromic\business_card\obj/../src/Main.c:197
+d:\Electromic\business_card\obj/../src/Main.c:265
     R8_UEP1_CTRL = (R8_UEP1_CTRL & ~MASK_UEP_T_RES) | UEP_T_RES_ACK;
      ec2:	02674783          	lbu	a5,38(a4)
      ec6:	0fc7f793          	andi	a5,a5,252
@@ -2450,17 +2467,19 @@ d:\Electromic\business_card\obj/../src/Main.c:197
 
 00000ed0 <main>:
 main():
-d:\Electromic\business_card\obj/../src/Main.c:202
-
-/* ======================== 主函数 ======================== */
+d:\Electromic\business_card\obj/../src/Main.c:278
+ * 3. R8 引脚初始化
+ * 4. USB 设备初始化 (直接操作寄存器)
+ * 5. 主循环: 扫描矩阵 → 检测变化 → 发送 HID 报告
+ */
 int main(void)
 {
      ed0:	1101                	addi	sp,sp,-32
-d:\Electromic\business_card\obj/../src/Main.c:204
+d:\Electromic\business_card\obj/../src/Main.c:280
     uint8_t i;
     SetSysClock(CLK_SOURCE_PLL_60MHz);
      ed2:	04800513          	li	a0,72
-d:\Electromic\business_card\obj/../src/Main.c:202
+d:\Electromic\business_card\obj/../src/Main.c:278
 {
      ed6:	ce06                	sw	ra,28(sp)
      ed8:	cc22                	sw	s0,24(sp)
@@ -2468,82 +2487,82 @@ d:\Electromic\business_card\obj/../src/Main.c:202
      edc:	c84a                	sw	s2,16(sp)
      ede:	c64e                	sw	s3,12(sp)
      ee0:	c452                	sw	s4,8(sp)
-d:\Electromic\business_card\obj/../src/Main.c:204
+d:\Electromic\business_card\obj/../src/Main.c:280
     SetSysClock(CLK_SOURCE_PLL_60MHz);
      ee2:	1ffff097          	auipc	ra,0x1ffff
      ee6:	1b0080e7          	jalr	432(ra) # 20000092 <SetSysClock>
-d:\Electromic\business_card\obj/../src/Main.c:206
+d:\Electromic\business_card\obj/../src/Main.c:282
 
     TK_Calib();
      eea:	3ef9                	jal	ac8 <TK_Calib>
-d:\Electromic\business_card\obj/../src/Main.c:207
+d:\Electromic\business_card\obj/../src/Main.c:283
     R8_Init();
      eec:	3141                	jal	b6c <R8_Init>
-d:\Electromic\business_card\obj/../src/Main.c:210
+d:\Electromic\business_card\obj/../src/Main.c:285
 
-    /* USB 初始化 */
     R8_USB_CTRL=0;
      eee:	400087b7          	lui	a5,0x40008
      ef2:	00078023          	sb	zero,0(a5) # 40008000 <_eusrstack+0x20000000>
-d:\Electromic\business_card\obj/../src/Main.c:211
+d:\Electromic\business_card\obj/../src/Main.c:286
     R8_UEP4_1_MOD=RB_UEP4_RX_EN|RB_UEP4_TX_EN|RB_UEP1_RX_EN|RB_UEP1_TX_EN;
      ef6:	fcc00713          	li	a4,-52
      efa:	00e78623          	sb	a4,12(a5)
-d:\Electromic\business_card\obj/../src/Main.c:212
+d:\Electromic\business_card\obj/../src/Main.c:287
     R8_UEP2_3_MOD=RB_UEP2_RX_EN|RB_UEP2_TX_EN|RB_UEP3_RX_EN|RB_UEP3_TX_EN;
      efe:	00e786a3          	sb	a4,13(a5)
-d:\Electromic\business_card\obj/../src/Main.c:213
+d:\Electromic\business_card\obj/../src/Main.c:288
     R16_UEP0_DMA=(uint16_t)(uint32_t)EP0_Databuf;
      f02:	81818713          	addi	a4,gp,-2024 # 200009c0 <EP0_Databuf>
      f06:	00e79823          	sh	a4,16(a5)
-d:\Electromic\business_card\obj/../src/Main.c:214
+d:\Electromic\business_card\obj/../src/Main.c:289
     R16_UEP1_DMA=(uint16_t)(uint32_t)EP1_Databuf;
      f0a:	8d818713          	addi	a4,gp,-1832 # 20000a80 <EP1_Databuf>
      f0e:	00e79a23          	sh	a4,20(a5)
-d:\Electromic\business_card\obj/../src/Main.c:215
+d:\Electromic\business_card\obj/../src/Main.c:290
     R8_UEP0_CTRL=UEP_R_RES_ACK|UEP_T_RES_NAK;
      f12:	4709                	li	a4,2
      f14:	02e78123          	sb	a4,34(a5)
-d:\Electromic\business_card\obj/../src/Main.c:216
+d:\Electromic\business_card\obj/../src/Main.c:291
     R8_UEP1_CTRL=UEP_R_RES_ACK|UEP_T_RES_NAK|RB_UEP_AUTO_TOG;
      f18:	4749                	li	a4,18
      f1a:	02e78323          	sb	a4,38(a5)
-d:\Electromic\business_card\obj/../src/Main.c:217
+d:\Electromic\business_card\obj/../src/Main.c:292
     R8_USB_DEV_AD=0;
      f1e:	000781a3          	sb	zero,3(a5)
-d:\Electromic\business_card\obj/../src/Main.c:218
+d:\Electromic\business_card\obj/../src/Main.c:293
     R8_USB_CTRL=RB_UC_DEV_PU_EN|RB_UC_INT_BUSY|RB_UC_DMA_EN;
      f22:	02900713          	li	a4,41
      f26:	00e78023          	sb	a4,0(a5)
-d:\Electromic\business_card\obj/../src/Main.c:219
+d:\Electromic\business_card\obj/../src/Main.c:294
     R16_PIN_ANALOG_IE|=RB_PIN_USB_IE|RB_PIN_USB_DP_PU;
      f2a:	400016b7          	lui	a3,0x40001
      f2e:	01a6d703          	lhu	a4,26(a3) # 4000101a <_eusrstack+0x1fff901a>
-d:\Electromic\business_card\obj/../src/Main.c:224
+d:\Electromic\business_card\obj/../src/Main.c:299
     R8_USB_INT_FG=0xFF;
     R8_UDEV_CTRL=RB_UD_PD_DIS|RB_UD_PORT_EN;
     R8_USB_INT_EN=RB_UIE_SUSPEND|RB_UIE_BUS_RST|RB_UIE_TRANSFER;
     PFIC_EnableIRQ(USB_IRQn);
     DelayMs(100);
      f32:	06400513          	li	a0,100
-d:\Electromic\business_card\obj/../src/Main.c:227
+d:\Electromic\business_card\obj/../src/Main.c:303
 
-    while(1){
+    while(1)
+    {
         for(i=0;i<KEY_CNT;i++){ key_prev[i]=key_state[i]; key_state[i]=0; }
      f36:	98818413          	addi	s0,gp,-1656 # 20000b30 <key_state>
-d:\Electromic\business_card\obj/../src/Main.c:219
+d:\Electromic\business_card\obj/../src/Main.c:294
     R16_PIN_ANALOG_IE|=RB_PIN_USB_IE|RB_PIN_USB_DP_PU;
      f3a:	0c076713          	ori	a4,a4,192
      f3e:	00e69d23          	sh	a4,26(a3)
-d:\Electromic\business_card\obj/../src/Main.c:220
+d:\Electromic\business_card\obj/../src/Main.c:295
     R8_USB_INT_FG=0xFF;
      f42:	577d                	li	a4,-1
      f44:	00e78323          	sb	a4,6(a5)
-d:\Electromic\business_card\obj/../src/Main.c:221
+d:\Electromic\business_card\obj/../src/Main.c:296
     R8_UDEV_CTRL=RB_UD_PD_DIS|RB_UD_PORT_EN;
      f48:	f8100713          	li	a4,-127
      f4c:	00e780a3          	sb	a4,1(a5)
-d:\Electromic\business_card\obj/../src/Main.c:222
+d:\Electromic\business_card\obj/../src/Main.c:297
     R8_USB_INT_EN=RB_UIE_SUSPEND|RB_UIE_BUS_RST|RB_UIE_TRANSFER;
      f50:	471d                	li	a4,7
      f52:	00e78123          	sb	a4,2(a5)
@@ -2559,22 +2578,22 @@ RV_STATIC_INLINE void PFIC_EnableIRQ(IRQn_Type IRQn)
      f5a:	00400737          	lui	a4,0x400
      f5e:	10e7a023          	sw	a4,256(a5) # e000e100 <_eusrstack+0xc0006100>
 main():
-d:\Electromic\business_card\obj/../src/Main.c:227
+d:\Electromic\business_card\obj/../src/Main.c:303
         for(i=0;i<KEY_CNT;i++){ key_prev[i]=key_state[i]; key_state[i]=0; }
      f62:	95818493          	addi	s1,gp,-1704 # 20000b00 <key_prev>
-d:\Electromic\business_card\obj/../src/Main.c:224
+d:\Electromic\business_card\obj/../src/Main.c:299
     DelayMs(100);
      f66:	1ffff097          	auipc	ra,0x1ffff
      f6a:	5f0080e7          	jalr	1520(ra) # 20000556 <mDelaymS>
-d:\Electromic\business_card\obj/../src/Main.c:227
+d:\Electromic\business_card\obj/../src/Main.c:303
         for(i=0;i<KEY_CNT;i++){ key_prev[i]=key_state[i]; key_state[i]=0; }
      f6e:	03000913          	li	s2,48
      f72:	89a2                	mv	s3,s0
      f74:	8a26                	mv	s4,s1
-d:\Electromic\business_card\obj/../src/Main.c:202
+d:\Electromic\business_card\obj/../src/Main.c:278
 {
      f76:	4781                	li	a5,0
-d:\Electromic\business_card\obj/../src/Main.c:227 (discriminator 3)
+d:\Electromic\business_card\obj/../src/Main.c:303 (discriminator 3)
         for(i=0;i<KEY_CNT;i++){ key_prev[i]=key_state[i]; key_state[i]=0; }
      f78:	00f406b3          	add	a3,s0,a5
      f7c:	0006c703          	lbu	a4,0(a3)
@@ -2584,14 +2603,14 @@ d:\Electromic\business_card\obj/../src/Main.c:227 (discriminator 3)
      f8a:	00e60023          	sb	a4,0(a2)
      f8e:	00068023          	sb	zero,0(a3)
      f92:	ff2793e3          	bne	a5,s2,f78 <main+0xa8>
-d:\Electromic\business_card\obj/../src/Main.c:228
+d:\Electromic\business_card\obj/../src/Main.c:304
         fn_pressed=0;
      f96:	80018823          	sb	zero,-2032(gp) # 200009b8 <fn_pressed>
-d:\Electromic\business_card\obj/../src/Main.c:229
+d:\Electromic\business_card\obj/../src/Main.c:305
         MatrixScan();
      f9a:	318d                	jal	bfc <MatrixScan>
      f9c:	4781                	li	a5,0
-d:\Electromic\business_card\obj/../src/Main.c:230 (discriminator 4)
+d:\Electromic\business_card\obj/../src/Main.c:306 (discriminator 4)
         for(i=0;i<KEY_CNT;i++) if(key_state[i]!=key_prev[i]) break;
      f9e:	00f98733          	add	a4,s3,a5
      fa2:	00074683          	lbu	a3,0(a4) # 400000 <_data_lma+0x3fee44>
@@ -2600,55 +2619,55 @@ d:\Electromic\business_card\obj/../src/Main.c:230 (discriminator 4)
      fae:	0ff77713          	andi	a4,a4,255
      fb2:	00d71b63          	bne	a4,a3,fc8 <main+0xf8>
      fb6:	0785                	addi	a5,a5,1
-d:\Electromic\business_card\obj/../src/Main.c:230 (discriminator 2)
+d:\Electromic\business_card\obj/../src/Main.c:306 (discriminator 2)
      fb8:	ff2793e3          	bne	a5,s2,f9e <main+0xce>
-d:\Electromic\business_card\obj/../src/Main.c:232
+d:\Electromic\business_card\obj/../src/Main.c:308
         if(i<KEY_CNT) SendReport();
         DelayMs(5);
      fbc:	4515                	li	a0,5
      fbe:	1ffff097          	auipc	ra,0x1ffff
      fc2:	598080e7          	jalr	1432(ra) # 20000556 <mDelaymS>
-d:\Electromic\business_card\obj/../src/Main.c:227
+d:\Electromic\business_card\obj/../src/Main.c:303
         for(i=0;i<KEY_CNT;i++){ key_prev[i]=key_state[i]; key_state[i]=0; }
      fc6:	bf45                	j	f76 <main+0xa6>
-d:\Electromic\business_card\obj/../src/Main.c:231
+d:\Electromic\business_card\obj/../src/Main.c:307
         if(i<KEY_CNT) SendReport();
      fc8:	3b81                	jal	d18 <SendReport>
      fca:	bfcd                	j	fbc <main+0xec>
 
 00000fcc <USB_IRQHandler>:
 USB_IRQHandler():
-d:\Electromic\business_card\obj/../src/Main.c:240
-
-/* ======================== USB 中断 ======================== */
+d:\Electromic\business_card\obj/../src/Main.c:321
+ * 注意: 完整的 USB 枚举处理由 MRS 库 libISP583.a 自动完成
+ */
 void USB_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 void USB_IRQHandler(void)
 {
     uint8_t f=R8_USB_INT_FG;
      fcc:	400087b7          	lui	a5,0x40008
      fd0:	0067c703          	lbu	a4,6(a5) # 40008006 <_eusrstack+0x20000006>
-d:\Electromic\business_card\obj/../src/Main.c:243
-    if(f&RB_UIE_SUSPEND);
-    if(f&RB_UIE_TRANSFER);
+d:\Electromic\business_card\obj/../src/Main.c:324
+    if(f&RB_UIE_SUSPEND) {}
+    if(f&RB_UIE_TRANSFER) {}
     if(f&RB_UIE_BUS_RST){
      fd4:	8b05                	andi	a4,a4,1
      fd6:	cf01                	beqz	a4,fee <USB_IRQHandler+0x22>
-d:\Electromic\business_card\obj/../src/Main.c:244
+d:\Electromic\business_card\obj/../src/Main.c:325
         R8_USB_DEV_AD=0;
      fd8:	000781a3          	sb	zero,3(a5)
-d:\Electromic\business_card\obj/../src/Main.c:245
+d:\Electromic\business_card\obj/../src/Main.c:326
         R8_UEP0_CTRL=UEP_R_RES_ACK|UEP_T_RES_NAK;
      fdc:	4709                	li	a4,2
      fde:	02e78123          	sb	a4,34(a5)
-d:\Electromic\business_card\obj/../src/Main.c:246
+d:\Electromic\business_card\obj/../src/Main.c:327
         R8_UEP1_CTRL=UEP_R_RES_ACK|UEP_T_RES_NAK|RB_UEP_AUTO_TOG;
      fe2:	4749                	li	a4,18
      fe4:	02e78323          	sb	a4,38(a5)
-d:\Electromic\business_card\obj/../src/Main.c:247
+d:\Electromic\business_card\obj/../src/Main.c:328
         R8_USB_INT_FG=RB_UIE_BUS_RST;
      fe8:	4705                	li	a4,1
      fea:	00e78323          	sb	a4,6(a5)
-d:\Electromic\business_card\obj/../src/Main.c:249
+d:\Electromic\business_card\obj/../src/Main.c:330
     }
 }
      fee:	30200073          	mret

@@ -9,7 +9,8 @@
 
 /* ======================== USB 描述符 ======================== */
 /* USB HID 键盘报告描述符 - 8字节: [修饰键][保留][按键0]...[按键5] */
-const uint8_t KeyboardReportDesc[] = {
+const uint8_t KeyboardReportDesc[] = 
+{
     0x05,0x01,0x09,0x06,0xA1,0x01,
     0x05,0x07,0x19,0xE0,0x29,0xE7,0x15,0x00,0x25,0x01,
     0x75,0x01,0x95,0x08,0x81,0x02,
@@ -50,7 +51,8 @@ const uint8_t row_ch[ROW_CNT-1] = {10,9,8,7,11,12,13};
 
 /* ======================== 键值表 ======================== */
 /* HID Usage ID 键值表 [行][列] */
-const uint8_t KTab[ROW_CNT][COL_CNT]={
+const uint8_t KTab[ROW_CNT][COL_CNT]=
+{
     {0x29,0x14,0x1A,0x08,0x15,0x17,0x1C}, /* R1: Esc Q W E R T Y */
     {0x2B,0x04,0x16,0x07,0x09,0x0A,0x0B}, /* R2: Tab A S D F G H */
     {0xE1,0x1D,0x1B,0x06,0x19,0x05,0x11}, /* R3: LShift Z X C V B N */
@@ -61,14 +63,16 @@ const uint8_t KTab[ROW_CNT][COL_CNT]={
     {0x2C,0x00,0x50,0x51,0x4F,0x00,0x00}  /* R8: Space Fn Left Down Right */
 };
 /* Fn层键值表: Fn+Q/W/E/R/T/Y/U/I/O/P = 1/2/3/4/5/6/7/8/9/0 */
-const uint8_t FTab[ROW_CNT][COL_CNT]={
+const uint8_t FTab[ROW_CNT][COL_CNT]=
+{
     {0x00,0x1E,0x1F,0x20,0x21,0x22,0x23},
     {0},{0},{0},
     {0x24,0x25,0x26,0x27,0x00,0,0},{0},{0},{0}
 };
 
 /* 按键索引 [0~47] → 矩阵坐标 [行, 列] */
-const uint8_t KMap[KEY_CNT][2]={
+const uint8_t KMap[KEY_CNT][2]=
+{
     {0,0},{0,1},{0,2},{0,3},{0,4},{0,5},{0,6},
     {1,0},{1,1},{1,2},{1,3},{1,4},{1,5},{1,6},
     {2,0},{2,1},{2,2},{2,3},{2,4},{2,5},{2,6},
@@ -134,10 +138,12 @@ void TK_Calib(void)
 {
     uint8_t r,c;
     TK_InitHW();
-    for(r=0;r<ROW_CNT-1;r++){
+    for(r=0;r<ROW_CNT-1;r++)
+    {
         TK_Read(row_ch[r],8,1);  /* 预热行通道 */
         DelayUs(5);
-        for(c=0;c<COL_CNT;c++){
+        for(c=0;c<COL_CNT;c++)
+        {
             tkey_base[r][c] = TK_Read(c,8,1);
             DelayUs(2);
             tkey_base[r][c] = (tkey_base[r][c]+TK_Read(c,8,1))>>1;
@@ -168,11 +174,14 @@ uint8_t R8_Detect(void)
 {
     uint16_t t;
     GPIOB_SetBits(GPIO_Pin_8);
-    for(t=0; t<R8_TIMEOUT; t++){
+    for(t=0; t<R8_TIMEOUT; t++)
+    {
         if(GPIOB_ReadPortPin(GPIO_Pin_9)) break;
     }
     GPIOB_ResetBits(GPIO_Pin_8);
-    { volatile uint16_t d; for(d=0;d<1000;d++); }  /* 放电等待 */
+    { 
+        volatile uint16_t d; for(d=0;d<1000;d++); 
+    }  /* 放电等待 */
     return (t>R8_THRESH) ? 1 : 0;
 }
 
@@ -189,10 +198,12 @@ void MatrixScan(void)
     uint8_t r,c,idx;
     uint16_t v,d;
 
-    for(r=0;r<ROW_CNT-1;r++){
+    for(r=0;r<ROW_CNT-1;r++)
+    {
         R32_PA_CLR = row_pin[r];
         DelayUs(3);
-        for(c=0;c<COL_CNT;c++){
+        for(c=0;c<COL_CNT;c++)
+        {
             v = TK_Read(c,8,1);
             d = (v>tkey_base[r][c]) ? (v-tkey_base[r][c]) : 0;
             idx = r*COL_CNT+c;
@@ -203,8 +214,10 @@ void MatrixScan(void)
     }
 
     /* R8 行 */
-    if(R8_Detect()){
-        for(c=2;c<COL_CNT;c++){
+    if(R8_Detect())
+    {
+        for(c=2;c<COL_CNT;c++)
+        {
             v = TK_Read(c,8,1);
             d = (v>tkey_base[7][c]) ? (v-tkey_base[7][c]) : 0;
             idx = 7*COL_CNT+c;
@@ -285,7 +298,8 @@ int main(void)
     PFIC_EnableIRQ(USB_IRQn);
     DelayMs(100);
 
-    while(1){
+    while(1)
+    {
         for(i=0;i<KEY_CNT;i++){ key_prev[i]=key_state[i]; key_state[i]=0; }
         fn_pressed=0;
         MatrixScan();
@@ -305,8 +319,8 @@ void USB_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 void USB_IRQHandler(void)
 {
     uint8_t f=R8_USB_INT_FG;
-    if(f&RB_UIE_SUSPEND);
-    if(f&RB_UIE_TRANSFER);
+    if(f&RB_UIE_SUSPEND) {}
+    if(f&RB_UIE_TRANSFER) {}
     if(f&RB_UIE_BUS_RST){
         R8_USB_DEV_AD=0;
         R8_UEP0_CTRL=UEP_R_RES_ACK|UEP_T_RES_NAK;
