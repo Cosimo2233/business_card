@@ -5,26 +5,26 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../RVMSIS/core_riscv.c 
+../tests/firmware_test.c 
 
 C_DEPS += \
-./RVMSIS/core_riscv.d 
+./tests/firmware_test.d 
 
 OBJS += \
-./RVMSIS/core_riscv.o 
+./tests/firmware_test.o 
 
 DIR_OBJS += \
-./RVMSIS/*.o \
+./tests/*.o \
 
 DIR_DEPS += \
-./RVMSIS/*.d \
+./tests/*.d \
 
 DIR_EXPANDS += \
-./RVMSIS/*.234r.expand \
+./tests/*.234r.expand \
 
 
 # Each subdirectory must supply rules for building sources it contributes
-RVMSIS/%.o: ../RVMSIS/%.c
+tests/%.o: ../tests/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: GNU RISC-V Cross C Compiler'
 	riscv-none-embed-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore -fmax-errors=20 -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -g -DDEBUG=1 -I"d:\workspace\business_card\StdPeriphDriver\inc" -I"d:\workspace\business_card\RVMSIS" -std=gnu99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"

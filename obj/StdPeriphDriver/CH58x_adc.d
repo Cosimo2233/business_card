@@ -1,4 +1,4 @@
-StdPeriphDriver/CH58x_sys.o: ../StdPeriphDriver/CH58x_sys.c \
+StdPeriphDriver/CH58x_adc.o: ../StdPeriphDriver/CH58x_adc.c \
  d:\workspace\business_card\StdPeriphDriver\inc/CH58x_common.h \
  d:\workspace\business_card\StdPeriphDriver\inc/CH583SFR.h \
  d:\workspace\business_card\RVMSIS/core_riscv.h \

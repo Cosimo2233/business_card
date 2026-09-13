@@ -1,10 +1,11 @@
 ################################################################################
-# MRS Version: 2.4.0
+# MRS Version: 2.5.0
 # Automatically-generated file. Do not edit!
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../StdPeriphDriver/CH58x_adc.c \
 ../StdPeriphDriver/CH58x_clk.c \
 ../StdPeriphDriver/CH58x_flash.c \
 ../StdPeriphDriver/CH58x_gpio.c \
@@ -19,6 +20,7 @@ C_SRCS += \
 ../StdPeriphDriver/CH58x_usb2hostClass.c 
 
 C_DEPS += \
+./StdPeriphDriver/CH58x_adc.d \
 ./StdPeriphDriver/CH58x_clk.d \
 ./StdPeriphDriver/CH58x_flash.d \
 ./StdPeriphDriver/CH58x_gpio.d \
@@ -33,6 +35,7 @@ C_DEPS += \
 ./StdPeriphDriver/CH58x_usb2hostClass.d 
 
 OBJS += \
+./StdPeriphDriver/CH58x_adc.o \
 ./StdPeriphDriver/CH58x_clk.o \
 ./StdPeriphDriver/CH58x_flash.o \
 ./StdPeriphDriver/CH58x_gpio.o \
@@ -58,5 +61,9 @@ DIR_EXPANDS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 StdPeriphDriver/%.o: ../StdPeriphDriver/%.c
-	@	riscv-none-embed-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore -fmax-errors=20 -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -g -DDEBUG=1 -I"d:\Electromic\business_card\StdPeriphDriver\inc" -I"d:\Electromic\business_card\RVMSIS" -std=gnu99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
+	@echo 'Building file: $<'
+	@echo 'Invoking: GNU RISC-V Cross C Compiler'
+	riscv-none-embed-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore -fmax-errors=20 -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -g -DDEBUG=1 -I"d:\workspace\business_card\StdPeriphDriver\inc" -I"d:\workspace\business_card\RVMSIS" -std=gnu99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@
 

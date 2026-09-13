@@ -5,7 +5,7 @@
 			"type": "mrs-debugger",
 			"request": "launch",
 			"name": "CH582M",
-			"cwd": "d:\\Electromic\\business_card",
+			"cwd": "D:\\workspace\\business_card",
 			"openOCDCfg": {
 				"useLocalOpenOCD": true,
 				"executable": "d:/MRS2/MounRiver_Studio2/resources/app/resources/win32/components/WCH/OpenOCD/OpenOCD/bin/openocd.exe",
@@ -38,8 +38,8 @@
 					"additionalCommands": []
 				},
 				"loadedFiles": {
-					"executableFile": "d:\\Electromic\\business_card\\obj\\CH582M.elf",
-					"symbolFile": "d:\\Electromic\\business_card\\obj\\CH582M.elf",
+					"executableFile": "D:\\workspace\\business_card\\obj\\CH582M.elf",
+					"symbolFile": "D:\\workspace\\business_card\\obj\\CH582M.elf",
 					"executableFileOffset": 0,
 					"symbolFileOffset": 0
 				},

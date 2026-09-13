@@ -53,7 +53,8 @@
 					"${project}/StdPeriphDriver/CH58x_timer0.c",
 					"${project}/StdPeriphDriver/CH58x_spi0.c",
 					"${project}/StdPeriphDriver/CH58x_pwm.c",
-					"${project}/StdPeriphDriver/CH58x_adc.c"
+					"${project}/tests",
+					"${project}/build"
 				],
 				"optimization": {
 					"level": "size",
@@ -342,7 +343,7 @@
 		"mcutype": "CH58x",
 		"address": "0x00000000",
 		"target_path": "obj/CH582M.hex",
-		"clkSpeed": "Middle",
+		"clkSpeed": "Low",
 		"debug_interface_mode": "",
 		"erase": true,
 		"program": true,

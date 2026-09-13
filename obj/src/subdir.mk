@@ -1,5 +1,5 @@
 ################################################################################
-# MRS Version: 2.4.0
+# MRS Version: 2.5.0
 # Automatically-generated file. Do not edit!
 ################################################################################
 
@@ -25,5 +25,9 @@ DIR_EXPANDS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 src/%.o: ../src/%.c
-	@	riscv-none-embed-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore -fmax-errors=20 -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -g -DDEBUG=1 -I"d:\Electromic\business_card\StdPeriphDriver\inc" -I"d:\Electromic\business_card\RVMSIS" -std=gnu99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
+	@echo 'Building file: $<'
+	@echo 'Invoking: GNU RISC-V Cross C Compiler'
+	riscv-none-embed-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore -fmax-errors=20 -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -g -DDEBUG=1 -I"d:\workspace\business_card\StdPeriphDriver\inc" -I"d:\workspace\business_card\RVMSIS" -std=gnu99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@
 

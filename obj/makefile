@@ -1,5 +1,5 @@
 ################################################################################
-# MRS Version: 2.4.0
+# MRS Version: 2.5.0
 # Automatically-generated file. Do not edit!
 ################################################################################
 -include ../makefile.init
@@ -54,13 +54,26 @@ main-build: CH582M.elf secondary-outputs
 
 # Tool invocations
 CH582M.elf: $(OBJS) $(USER_OBJS_ESCAPE)
-	@	riscv-none-embed-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore -fmax-errors=20 -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -g -T "d:\Electromic\business_card\Ld\Link.ld" -nostartfiles -Xlinker --gc-sections -L"d:\Electromic\business_card" -L"d:\Electromic\business_card\StdPeriphDriver" -Xlinker --print-memory-usage -Wl,-Map,"CH582M.map" --specs=nano.specs --specs=nosys.specs -o "CH582M.elf" $(OBJS) $(LIBS)
+	@echo 'Building target: $@'
+	@echo 'Invoking: GNU RISC-V Cross C Linker'
+	riscv-none-embed-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore -fmax-errors=20 -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -g -T "d:\workspace\business_card\Ld\Link.ld" -nostartfiles -Xlinker --gc-sections -L"d:\workspace\business_card" -L"d:\workspace\business_card\StdPeriphDriver" -Xlinker --print-memory-usage -Wl,-Map,"CH582M.map" --specs=nano.specs --specs=nosys.specs -o "CH582M.elf" $(OBJS) $(LIBS)
+	@echo 'Finished building target: $@'
+	@
 CH582M.hex: CH582M.elf
+	@echo 'Invoking: GNU RISC-V Cross Create Flash Image'
 	@	riscv-none-embed-objcopy -O ihex "CH582M.elf" "CH582M.hex"
+	@echo 'Finished building $@'
+	@
 CH582M.lst: CH582M.elf
+	@echo 'Invoking: GNU RISC-V Cross Create Listing'
 	@	riscv-none-embed-objdump --source --all-headers --demangle --line-numbers --wide "CH582M.elf" > "CH582M.lst"
+	@echo 'Finished building $@'
+	@
 CH582M.siz: CH582M.elf
+	@echo 'Invoking: GNU RISC-V Cross Print Size'
 	riscv-none-embed-size --format=berkeley "CH582M.elf"
+	@echo 'Finished building $@'
+	@
 
 # Other Targets
 clean:
